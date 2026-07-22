@@ -1,0 +1,72 @@
+:root {
+  /* Backgrounds */
+  --bg-deep: #020816;
+  --bg-primary: #030c1e;
+  --bg-secondary: #06142c;
+  --bg-panel: #071a38;
+
+  /* Primary blue */
+  --primary-400: #2f8fff;
+  --primary-500: #087bff;
+  --primary-600: #1458e8;
+
+  /* Supporting colors */
+  --cyan: #18c8ff;
+  --success: #38d975;
+  --danger: #ff5f72;
+
+  /* Text */
+  --text-primary: #f7faff;
+  --text-secondary: #aebbd0;
+  --text-muted: #74839b;
+
+  /* Borders */
+  --border-subtle: rgba(126, 164, 220, 0.14);
+  --border-default: rgba(126, 164, 220, 0.24);
+  --border-strong: rgba(47, 143, 255, 0.42);
+
+  /* Fonts */
+  --font-body:
+    var(--font-inter),
+    Arial,
+    sans-serif;
+
+  --font-display:
+    var(--font-manrope),
+    Arial,
+    sans-serif;
+
+  --font-code:
+    var(--font-jetbrains-mono),
+    "Courier New",
+    monospace;
+
+  /* Font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+
+  /* Layout */
+  --container-width: 1540px;
+  --header-height: 76px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-round: 999px;
+
+  /* Shadows */
+  --shadow-card:
+    0 22px 60px rgba(0, 4, 15, 0.34);
+
+  --shadow-glow:
+    0 0 40px rgba(8, 123, 255, 0.13);
+
+  /* Transitions */
+  --transition-fast: 160ms ease;
+  --transition-default: 220ms ease;
+}

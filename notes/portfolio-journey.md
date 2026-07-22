@@ -45,7 +45,7 @@ following this doc [Generating a new SSH key and adding it to the ssh-agent](htt
 The application runs locally and has a successful production build.
 
 
-### Project Setup Checklist
+### Lesson 1 completion checklist
 
 - [x] Node version is at least 20.9
 - [x] Next.js project was created
@@ -58,3 +58,67 @@ The application runs locally and has a successful production build.
 - [x] `npm run build` succeeds
 - [x] First Git commit exists
 - [x] `portfolio-journey.md` exists
+
+
+
+## Lesson 2 — Design system foundation
+
+### Goal
+
+Create the global visual foundation before building individual
+portfolio pages.
+
+### Design decisions
+
+- Inter is used for body text.
+- Manrope is used for headings.
+- JetBrains Mono is used for labels and technical metadata.
+- Fonts are loaded using next/font.
+- Shared colors, sizes, shadows and spacing are stored as CSS variables.
+- Global styles are separated from reusable button styles.
+- Tailwind is not used because the project already has a custom CSS design.
+
+### CSS structure
+
+- root.css contains design tokens.
+- global.css contains reset and shared layout styles.
+- buttons.css contains reusable button variants.
+- app/globals.css imports these files in the required order.
+
+### What I learned
+
+- next/font optimizes and self-hosts fonts.
+- CSS variables make the design system consistent.
+- Global CSS should only contain styles shared across the application.
+- CSS import order matters in production.
+- Metadata can be exported from layout.tsx.
+- Responsive behavior should be checked from 320px upward.
+
+### Problems I encountered
+
+Font variables are not available for css to use. 
+### How I solved them
+
+I  placed the font-variable classes on `html` rather than `body`. This makes the variables available everywhere in the document.
+
+### Result
+
+The portfolio now has production-ready fonts, colors,
+typography, containers and buttons.
+
+### Lesson 1 completion checklist
+
+ - [x] src/styles/root.css exists
+ - [x] src/styles/global.css exists
+ - [x] src/styles/buttons.css exists
+ - [x] Three fonts are configured with next/font
+ - [x] Font CSS variables are applied to body
+ - [x] Metadata contains title and description
+ - [x] app/globals.css imports styles in the correct order
+ - [x] Preview page uses the real colors and typography
+ - [x] Desktop layout works
+ - [x] Mobile layout works at 390px and 320px
+ - [x] No horizontal overflow appears
+ - [x] npm run build succeeds
+ - [x] Notes include Lesson 2
+ - [x] Git commit exists

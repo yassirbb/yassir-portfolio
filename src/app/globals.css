@@ -1,33 +1,97 @@
-* {
-  box-sizing: border-box;
+@import "../styles/root.css";
+@import "../styles/global.css";
+@import "../styles/buttons.css";
+
+
+.design-preview {
+  min-height: 100vh;
+  padding-block: 140px;
+  background:
+    radial-gradient(
+      circle at 78% 18%,
+      rgba(8, 123, 255, 0.18),
+      transparent 28%
+    ),
+    var(--bg-deep);
 }
 
-html {
-  color-scheme: dark;
+.design-preview__eyebrow {
+  margin-bottom: 20px;
+  color: var(--cyan);
+  font-family: var(--font-code);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-body {
-  min-width: 320px;
-  margin: 0;
-  background: #020816;
-  color: #f7faff;
-  font-family: Arial, sans-serif;
+.design-preview h1 {
+  max-width: 850px;
+  margin-bottom: 24px;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
 }
 
-main {
-  width: min(100% - 32px, 1200px);
-  margin-inline: auto;
-  padding-block: 100px;
+.design-preview__description {
+  max-width: 670px;
+  margin-bottom: 32px;
+  font-size: var(--font-size-md);
+  line-height: 1.75;
 }
 
-h1 {
-  margin: 0 0 24px;
-  font-size: clamp(3rem, 8vw, 6rem);
+.design-preview__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
-p {
-  max-width: 700px;
-  color: #aebbd0;
-  font-size: 18px;
-  line-height: 1.7;
+.design-preview__panel {
+  max-width: 720px;
+  margin-top: 90px;
+  padding: 30px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(47, 143, 255, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(12, 38, 78, 0.76),
+      rgba(4, 19, 45, 0.92)
+    );
+  box-shadow:
+    var(--shadow-card),
+    var(--shadow-glow);
+}
+
+.design-preview__panel p {
+  margin-bottom: 8px;
+  color: var(--cyan);
+  font-family: var(--font-code);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+}
+
+.design-preview__panel strong {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+}
+
+@media (max-width: 520px) {
+  .design-preview {
+    padding-block: 100px;
+  }
+
+  .design-preview__actions {
+    display: grid;
+  }
+
+  .design-preview__actions .button {
+    width: 100%;
+  }
 }
