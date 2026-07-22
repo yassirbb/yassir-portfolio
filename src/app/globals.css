@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: #020816;
+  color: #f7faff;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+  padding-block: 100px;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+
+p {
+  max-width: 700px;
+  color: #aebbd0;
+  font-size: 18px;
+  line-height: 1.7;
+}
