@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+
 import {
   Inter,
   JetBrains_Mono,
@@ -6,6 +8,11 @@ import {
 } from "next/font/google";
 
 import "./globals.css";
+
+import { Footer } from "@/components/Footer/Footer";
+import { Header } from "@/components/Header/Header";
+import type { Language } from "@/hooks/useLanguage";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,19 +42,33 @@ type RootLayoutProps = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: RootLayoutProps) {
+  const cookieStore = await cookies();
+
+  const storedLanguage = cookieStore.get(
+    "portfolio-language"
+  )?.value;
+
+  const initialLanguage: Language =
+    storedLanguage === "fr" ? "fr" : "en";
+
   return (
-    <html
-      lang="en"
+    <html 
+      lang={initialLanguage}
       className={[
         inter.variable,
         manrope.variable,
         jetBrainsMono.variable
-      ].join(" ")}
-    >
-      <body>{children}</body>
+      ].join(" ")} >
+      <body>
+        <Header initialLanguage={initialLanguage} />
+
+        {children}
+
+        <Footer />
+      </body>
     </html>
   );
 }

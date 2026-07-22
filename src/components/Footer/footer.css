@@ -1,0 +1,27 @@
+.site-footer {
+  padding-block: 28px;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-deep);
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-inner p {
+  margin: 0;
+  color: inherit;
+}
+
+@media (max-width: 640px) {
+  .footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

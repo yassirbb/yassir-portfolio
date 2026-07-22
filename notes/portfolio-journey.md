@@ -106,7 +106,7 @@ I  placed the font-variable classes on `html` rather than `body`. This makes the
 The portfolio now has production-ready fonts, colors,
 typography, containers and buttons.
 
-### Lesson 1 completion checklist
+### Lesson 2 completion checklist
 
  - [x] src/styles/root.css exists
  - [x] src/styles/global.css exists
@@ -121,4 +121,114 @@ typography, containers and buttons.
  - [x] No horizontal overflow appears
  - [x] npm run build succeeds
  - [x] Notes include Lesson 2
+ - [x] Git commit exists
+
+
+
+
+ ## Lesson 3 — Shared layout and interactive navigation
+
+### Goal
+
+Create reusable site-wide header and footer components,
+including responsive navigation and a language switcher.
+
+### Component decisions
+
+- Header is a Client Component because it uses state,
+  effects, event handlers, localStorage and browser APIs.
+- Footer remains a Server Component because it has no
+  interactivity.
+- Internal navigation uses the Next.js Link component.
+- Header and footer are rendered from the root layout.
+- Navigation data is stored in an array to avoid repeating
+  markup.
+
+### What I learned
+
+- Components are Server Components by default.
+- "use client" creates a client-side interactive boundary.
+- useState stores whether the menu is open.
+- useEffect manages browser side effects and cleanup.
+- useRef gives access to DOM elements for focus management.
+- usePathname identifies the active route.
+- Next.js Link provides internal client-side navigation.
+- aria-expanded communicates menu state to assistive
+  technology.
+- aria-current="page" identifies the active navigation link.
+- Side effects should clean up event listeners and body
+  classes.
+
+### Accessibility implemented
+
+- Keyboard-operable menu button
+- Escape closes the menu
+- Focus moves into the opened navigation
+- Focus returns to the menu button after closing
+- Overlay has an accessible label
+- Active route uses aria-current
+- Language buttons use aria-pressed
+- Reduced-motion styles are preserved
+
+### Current limitation
+
+The language switcher stores EN or FR, but actual translated
+content will be implemented after the main pages exist.
+
+### Problems I encountered and How I solved them
+
+- `setLanguage()` inside `useEffect` caused a lint error.
+- Fixed by creating `useLanguage` with `useSyncExternalStore`.
+- Language is now stored in `localStorage` and persists after refresh.
+---
+- `closeMenu()` inside a pathname effect caused another lint error.
+- Fixed by creating `useMobileMenu`.
+- The menu now stores the pathname where it was opened.
+- It closes automatically when the route changes.
+---
+- The logo used a normal `<img>`.
+- Replaced it with Next.js `<Image>` for optimization.
+---
+- The mobile menu flashed when resizing from desktop to mobile.
+- Fixed by disabling transitions before the first menu interaction.
+- Drawer animations now run only after clicking the menu button.
+---
+- After selecting French, the page briefly showed English after refresh.
+- This happened because the server rendered the default `en` value before the browser read `fr` from `localStorage`.
+- Fixed by also storing the selected language in a cookie.
+- The root layout now reads the cookie on the server.
+- The correct language is rendered immediately, preventing the English flash during hydration.
+
+<!-- - The build failed with `EPERM` inside `.next`.
+- The project was inside a OneDrive folder.
+- Fixed by stopping Node processes, deleting `.next`, and moving the project outside OneDrive. -->
+
+
+### Result
+
+The portfolio now has reusable site-wide navigation,
+responsive mobile behavior and a shared footer.
+
+
+### Lesson 3 completion checklist
+
+ - [x] Header.tsx exists
+ - [x] Header starts with "use client"
+ - [x] Footer.tsx exists
+ - [x] Header and footer styles are imported
+ - [x] Header and Footer render from layout.tsx
+ - [x] Logo exists in public
+ - [x] All five routes work
+ - [x] Next.js Link is used for internal navigation
+ - [x] Active route styling works
+ - [x] Mobile drawer opens and closes
+ - [x] Escape closes the drawer
+ - [x] Overlay closes the drawer
+ - [x] Menu closes after route navigation
+ - [x] Background scrolling is blocked while open
+ - [x] EN / FR choice persists after refresh
+ - [x] 320px layout has no horizontal overflow
+ - [x] npx eslint . succeeds
+ - [x] npm run build succeeds
+ - [x] Notes include Lesson 3
  - [x] Git commit exists

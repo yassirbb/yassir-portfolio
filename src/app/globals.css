@@ -2,6 +2,8 @@
 @import "../styles/global.css";
 @import "../styles/buttons.css";
 
+@import "../components/Header/header.css";
+@import "../components/Footer/footer.css";
 
 .design-preview {
   min-height: 100vh;
@@ -94,4 +96,51 @@
   .design-preview__actions .button {
     width: 100%;
   }
+}
+
+
+
+
+
+
+.temporary-page {
+  min-height: calc(
+    100vh - var(--header-height)
+  );
+  padding:
+    calc(var(--header-height) + 100px)
+    0
+    120px;
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(8, 123, 255, 0.12),
+      transparent 28%
+    ),
+    var(--bg-deep);
+}
+
+.temporary-page__label {
+  margin-bottom: 18px;
+  color: var(--cyan);
+  font-family: var(--font-code);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.temporary-page h1 {
+  margin-bottom: 24px;
+  font-size: clamp(3rem, 7vw, 6rem);
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.temporary-page p:not(
+  .temporary-page__label
+) {
+  max-width: 680px;
+  font-size: var(--font-size-md);
+  line-height: 1.75;
 }
