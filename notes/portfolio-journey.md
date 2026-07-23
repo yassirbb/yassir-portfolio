@@ -232,3 +232,90 @@ responsive mobile behavior and a shared footer.
  - [x] npm run build succeeds
  - [x] Notes include Lesson 3
  - [x] Git commit exists
+
+
+# Lesson 4 — Hero and Tech Stack
+
+## Objective
+
+Build the homepage Hero and Tech Stack while preserving the original portfolio UX and improving the implementation with reusable React components, typed data, accessible markup and responsive behavior.
+
+The original design includes:
+
+- Frontend Engineer label
+- Main Hero title
+- Description
+- Primary and secondary actions
+- Personal motivation note
+- Tech Stack panel positioned inside the Hero
+- Technology cards with icons
+- Horizontal Tech Stack scrolling on smaller screens
+
+---
+
+## What I built
+
+### Hero section
+
+Created a reusable `Hero` component containing:
+
+- The original heading:
+  - `I build solutions.`
+  - `I create impact.`
+- A short professional description
+- A link to the Projects section
+- A link to the Contact page
+- A personal motivation message
+- The Tech Stack component positioned at the bottom
+
+### Tech Stack section
+
+Created a reusable `TechStack` component containing:
+
+- A title and description
+- Technology cards generated from typed data
+- Brand icons from `react-icons`
+- Custom SVG fallbacks for Jotai and Visx
+- Horizontal scrolling on smaller screens
+
+---
+
+## Project structure
+
+```text
+src/
+├── components/
+│   └── Home/
+│       ├── Hero/
+│       │   ├── Hero.tsx
+│       │   └── hero.css
+│       └── TechStack/
+│           ├── TechStack.tsx
+│           ├── technology-icons.tsx
+│           └── tech-stack.css
+│
+├── data/
+│   └── technologies.ts
+│
+└── app/
+    └── page.tsx
+
+
+### Lesson 4 completion checklist
+
+- [x] Hero background appears correctly
+- [x] Original Hero wording is preserved
+- [x] Header overlays the Hero
+- [x] Hero buttons work
+- [x] Tech Stack appears inside the Hero
+- [x] Technology cards use icons
+- [x] Technology content comes from typed data
+- [x] Jotai and Visx use custom SVG components
+- [x] Tech Stack scrolls horizontally on smaller screens
+- [x] Technology cards do not shrink
+- [x] Tech Stack does not cover Hero content
+- [x] No horizontal page overflow
+- [x] Mobile buttons use full width
+- [x] Reduced-motion behavior works
+- [x] ESLint passes
+- [x] Production build passes

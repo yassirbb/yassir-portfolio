@@ -3,6 +3,10 @@
 @import "../styles/buttons.css";
 
 @import "../components/Header/header.css";
+/* Home */
+@import "../components/Home/Hero/hero.css";
+@import "../components/Home/TechStack/tech-stack.css";
+
 @import "../components/Footer/footer.css";
 
 .design-preview {
