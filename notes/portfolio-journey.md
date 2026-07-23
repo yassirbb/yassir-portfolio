@@ -319,3 +319,43 @@ src/
 - [x] Reduced-motion behavior works
 - [x] ESLint passes
 - [x] Production build passes
+
+
+# Lesson 5 — Featured Projects
+
+## What I built
+
+- Migrated the original Featured Projects section to Next.js.
+- Preserved the title, section icon, project cards, tags and arrow actions.
+- Created a reusable `ProjectCard` component.
+- Moved repeated project content into typed data.
+- Used `satisfies Project[]` to validate the project data.
+- Used Next.js `Link` for internal navigation.
+- Used Next.js `Image` for project screenshots.
+- Kept the section as a Server Component.
+- Used flexbox inside cards to align their footers.
+- Added responsive three, two and one-column layouts.
+- Added visible keyboard focus and reduced-motion support.
+
+## Problems solved
+
+- Removed duplicated card markup.
+- Kept project content separate from presentation.
+- Prevented different description lengths from misaligning card footers.
+- Added responsive image sizing.
+- Preserved the original visual design without copying the static HTML blindly.
+
+
+### Lesson 5 completion checklist
+
+
+- [x] Three cards appear on large screens
+- [ ] Two cards appear on medium screens
+- [ ] One card appears on mobile
+- [x] Images keep their 16:9 ratio
+- [x] Card footers remain aligned
+- [ ] Keyboard focus is visible, still need to be enhanced
+- [x] Hover effects work
+- [x] Reduced-motion preferences are respected
+- [ ] Hero button scrolls to Featured Projects, issue : stop after one click
+- [x] No horizontal page overflow

@@ -1,14 +1,46 @@
+
+
+
+export type Project = {
+  slug: string;
+  title: string;
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+    // technologies: ProjectTag[];
+};
+
 export const featuredProjects = [
   {
-    title: 'Monitoring Platform UI',
-    summary: 'Crafted a scalable dashboard experience focused on fast decision-making and clarity.',
-    stack: 'React • TypeScript • Design Systems',
-    link: 'https://example.com'
+    slug: "centreon-map",
+    title: "Centreon Map",
+    description:
+      "Interactive mapping application for monitoring infrastructure and visualizing host status in real time.",
+    image: {
+      src: "/images/projects/centreon-map.webp",
+      alt: "Centreon Map monitoring interface"
+    },
   },
   {
-    title: 'Product Documentation Experience',
-    summary: 'Improved discoverability and navigation for complex technical content.',
-    stack: 'Next.js • Content Strategy • UX',
-    link: 'https://example.com'
+    slug: "bam-simulation",
+    title: "BAM Simulation & Configuration",
+    description:
+      "Simulation and configuration tools for Business Activity Monitoring with dynamic forms and data visualization.",
+    image: {
+      src: "/images/projects/bam-simulation.webp",
+      alt: "BAM simulation and monitoring dashboard"
+    },
+  },
+  {
+    slug: "react-migration",
+    title: "React Migration Projects",
+    description:
+      "Migrating legacy applications to React with improved performance, maintainability and user experience.",
+    image: {
+      src: "/images/projects/react-migration.webp",
+      alt: "React migration development interface"
+    },
   }
-];
+] satisfies Project[];

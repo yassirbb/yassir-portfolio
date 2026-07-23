@@ -9,8 +9,8 @@ export function TechStack() {
       id="tech-stack"
       aria-labelledby="tech-stack-title"
     >
-      <div className="tech-stack-container">
-        <div className="tech-stack-intro">
+      <div className="container">
+        {/* <div className="tech-stack-intro">
           <div className="tech-stack-title-row">
             <span
               className="tech-stack-code-icon"
@@ -28,7 +28,7 @@ export function TechStack() {
             Technologies I use to build modern and performant
             web applications.
           </p>
-        </div>
+        </div> */}
 
         <ul
           className="tech-stack-list"
