@@ -299,7 +299,7 @@ src/
 │
 └── app/
     └── page.tsx
-
+```
 
 ### Lesson 4 completion checklist
 
@@ -350,12 +350,88 @@ src/
 
 
 - [x] Three cards appear on large screens
-- [ ] Two cards appear on medium screens
-- [ ] One card appears on mobile
+- [] Two cards appear on medium screens
+- [] One card appears on mobile
 - [x] Images keep their 16:9 ratio
 - [x] Card footers remain aligned
-- [ ] Keyboard focus is visible, still need to be enhanced
+- [] Keyboard focus is visible, still need to be enhanced
 - [x] Hover effects work
 - [x] Reduced-motion preferences are respected
-- [ ] Hero button scrolls to Featured Projects, issue : stop after one click
+- [] Hero button scrolls to Featured Projects, issue : stop after one click
 - [x] No horizontal page overflow
+
+
+# Lesson 6 — My Journey Timeline
+
+## What I built
+
+- Migrated the original My Journey section to Next.js.
+- Preserved the chronological timeline UX.
+- Moved timeline content into typed data.
+- Created a reusable JourneyItem component.
+- Used an ordered list for semantic chronology.
+- Added a typed icon mapping using React Icons.
+- Created the vertical timeline line with a CSS pseudo-element.
+- Added responsive marker sizes and spacing.
+- Kept the section as a Server Component.
+- Added accessible heading relationships and decorative icon handling.
+
+## What I learned
+
+- Ordered content should use an `<ol>`.
+- Stable IDs are better React keys than array indexes.
+- Repeated timeline markup should be generated with `map()`.
+- Icon mappings keep presentation logic separate from data.
+- A pseudo-element can create a timeline line without extra markup.
+- `z-index` allows markers to appear above the timeline line.
+
+
+### Lesson 6 completion checklist
+
+- [x] The section title and icon appear correctly
+- [x] Timeline entries follow chronological order
+- [x] The vertical line passes behind the markers
+- [x] Markers align with each entry
+- [x] Text does not overlap the timeline
+- [x] Mobile spacing remains readable
+- [x] The Journey navigation link reaches the section
+- [x] No horizontal overflow appears
+- [] Icons are ignored by screen readers
+
+
+# Lesson 7 — Certifications
+
+## What I built
+
+- Postponed the Learning Journey section to a future version.
+- Built a dedicated Certifications section.
+- Created a stronger responsive card design.
+- Stored certification content in typed data.
+- Created a reusable CertificationCard component.
+- Added provider icons using React Icons.
+- Added descriptions and skill tags to each credential.
+- Used semantic time elements for issue dates.
+- Avoided rendering fake links when a credential URL is missing.
+- Aligned card footers using flexbox and `margin-top: auto`.
+- Added keyboard focus and reduced-motion support.
+
+## What I learned
+
+- Optional links should only render when a valid destination exists.
+- Card content can be richer without changing the overall visual identity.
+- Flexbox can keep card footers aligned across cards with different content.
+- Typed provider IDs make icon mappings safer.
+- Postponed features should be removed cleanly from imports and rendering.
+
+
+- [x] Three cards appear on desktop
+- [] Two cards appear on medium screens
+- [] One card appears on mobile
+- [x] Provider icons display correctly
+- [x] Card footers align
+- [x] Cards have equal height on desktop
+- [x] Missing credential links are not clickable
+- [x] No Learning Journey content appears
+- [x] No horizontal overflow appears
+
+

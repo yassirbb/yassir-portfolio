@@ -4,11 +4,12 @@
 
 .featured-projects-section {
   width: 100%;
+  padding-block: 24px;
 }
 
-.featured-projects-container {
+/* .featured-projects-container {
   width: min(100%, 1540px);
-}
+} */
 
 /* =========================================================
    SECTION HEADER
