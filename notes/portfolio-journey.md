@@ -435,3 +435,35 @@ src/
 - [x] No horizontal overflow appears
 
 
+# Lesson 8 — Contact Footer
+
+## What I built
+
+- Migrated the original contact footer.
+- Added real email, location and social links.
+- Moved contact data into a typed data file.
+- Created reusable ContactInfo and SocialLinks components.
+- Used safe external-link attributes.
+- Used Next.js Image and Link.
+- Generated the current copyright year automatically.
+- Added a responsive three-column desktop layout.
+- Added keyboard focus and reduced-motion support.
+
+## What I learned
+
+- Shared page elements belong in the root layout.
+- External links should use `noopener noreferrer`.
+- Contact data should not be duplicated across components.
+- Decorative icons should be hidden from screen readers.
+- Automatic dates prevent manual maintenance.
+
+- [x] Footer appears on every route
+- [x] Email opens the mail application
+- [x] GitHub and LinkedIn open in new tabs
+- [x] External links include safe rel attributes
+- [x] Contact cards align correctly
+- [x] Footer stacks correctly on mobile
+- [x] Logo links to the homepage
+- [x] Back-to-top link works
+- [x] Focus states are visible
+- [x] No horizontal overflow appears
