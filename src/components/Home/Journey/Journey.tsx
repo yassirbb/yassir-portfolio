@@ -2,36 +2,29 @@ import { FiClock } from "react-icons/fi";
 
 import { journeyEntries } from "@/data/journey";
 
-import { JourneyItem } from "./JourneyItem";
+import { JourneyItem } from "@/ui/Cards";
+import { Section } from "@/ui";
+
+import { journeyIcons } from "@/icons/journey-icons";
 
 export function Journey() {
   return (
-    <section
-      className="journey-section"
+    <Section
       id="journey"
       aria-labelledby="journey-title"
+      icon={FiClock}
+      title="My Journey"
+      titleId="journey-title"
     >
-      <div className="container wrapper">
-        <header className="journey-heading">
-          <FiClock
-            className="journey-heading-icon"
-            aria-hidden="true"
-          />
-
-          <h2 id="journey-title">
-            My Journey
-          </h2>
-        </header>
-
         <ol className="journey-timeline">
           {journeyEntries.map((entry) => (
             <JourneyItem
               key={entry.id}
-              entry={entry}
+              {...entry}
+              icon={journeyIcons[entry.iconId]}
             />
           ))}
         </ol>
-      </div>
-    </section>
+    </Section>
   );
 }

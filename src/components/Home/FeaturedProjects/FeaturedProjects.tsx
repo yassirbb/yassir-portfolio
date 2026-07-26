@@ -1,48 +1,31 @@
-import Link from "next/link";
 import { FiGrid } from "react-icons/fi";
 
 import { featuredProjects } from "@/data/projects";
 
-import { ProjectCard } from "./ProjectCard";
+import { ProjectCard } from "@/ui/Cards";
+import { Section } from "@/ui/Section/Section";
 
 export function FeaturedProjects() {
   return (
-    <section
-      className="featured-projects-section"
-      id="projects"
-      aria-labelledby="featured-projects-title"
-    >
-      <div className="container wrapper">
-        <header className="featured-projects-header">
-          <div className="featured-projects-title">
-            <FiGrid
-              className="featured-projects-icon"
-              aria-hidden="true"
-            />
-
-            <h2 id="featured-projects-title">
-              Featured Projects
-            </h2>
+        <Section
+          id="featured-projects"
+          aria-labelledby="featured-projects-title"
+          icon={FiGrid}
+          title="Featured Projects"
+          titleId="featured-projects-title"
+          link={{
+            href: "/projects",
+            label: "View all projects"
+          }}
+        > 
+          <div className="featured-projects-grid">
+            {featuredProjects.map((project) => (
+              <ProjectCard
+                key={project.slug}
+                {...project}
+              />
+            ))}
           </div>
-
-          <Link
-            className="featured-projects-link"
-            href="/projects"
-          >
-            View all projects
-            <span aria-hidden="true">→</span>
-          </Link>
-        </header>
-
-        <div className="featured-projects-grid">
-          {featuredProjects.map((project) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    </Section>
   );
 }

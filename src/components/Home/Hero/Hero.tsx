@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { TechStack } from "@/components/Home/TechStack/TechStack";
+import { TechStack } from "./TechStack/TechStack";
 
 export function Hero() {
   return (

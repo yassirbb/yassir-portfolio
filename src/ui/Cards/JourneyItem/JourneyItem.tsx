@@ -1,15 +1,18 @@
 import type { JourneyEntry } from "@/data/journey";
+import { IconType } from "react-icons";
 
-import { journeyIcons } from "./journey-icons";
+// import { journeyIcons } from "../../../icons/journey-icons";
 
-type JourneyItemProps = {
-  entry: JourneyEntry;
+interface JourneyItemProps extends JourneyEntry {
+  icon: IconType;
 };
 
 export function JourneyItem({
-  entry
+    period,
+    title,
+    description,
+    icon: JourneyIcon
 }: JourneyItemProps) {
-  const JourneyIcon = journeyIcons[entry.iconId];
 
   return (
     <li className="journey-item">
@@ -22,13 +25,13 @@ export function JourneyItem({
 
       <div className="journey-content">
         <p className="journey-period">
-          {entry.period}
+          {period}
         </p>
 
-        <h3>{entry.title}</h3>
+        <h3>{title}</h3>
 
         <p className="journey-description">
-          {entry.description}
+          {description}
         </p>
       </div>
     </li>

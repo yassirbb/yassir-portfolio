@@ -2,13 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   FiArrowUp,
-  FiSend
 } from "react-icons/fi";
 
-import { contactDetails } from "@/data/contact";
-
 import { AvailabilityPanel } from "./AvailabilityPanel";
-import { ContactDetails } from "./ContactDetails";
 import { SocialLinks } from "./SocialLinks";
 
 export function Footer() {

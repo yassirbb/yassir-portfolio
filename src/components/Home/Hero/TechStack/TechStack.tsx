@@ -1,6 +1,6 @@
 import { technologies } from "@/data/technologies";
 
-import { technologyIcons } from "./technology-icons";
+import { technologyIcons } from "../../../../icons/technology-icons";
 
 export function TechStack() {
   return (
@@ -10,26 +10,6 @@ export function TechStack() {
       aria-labelledby="tech-stack-title"
     >
       <div className="container">
-        {/* <div className="tech-stack-intro">
-          <div className="tech-stack-title-row">
-            <span
-              className="tech-stack-code-icon"
-              aria-hidden="true"
-            >
-              &lt;/&gt;
-            </span>
-
-            <h2 id="tech-stack-title">
-              Tech Stack
-            </h2>
-          </div>
-
-          <p>
-            Technologies I use to build modern and performant
-            web applications.
-          </p>
-        </div> */}
-
         <ul
           className="tech-stack-list"
           aria-label="Main technologies"

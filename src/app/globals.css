@@ -2,16 +2,28 @@
 @import "../styles/global.css";
 @import "../styles/buttons.css";
 
+@import '../ui/Section/section.css';
+
 @import "../components/Header/header.css";
 /* Home */
 @import "../components/Home/Hero/hero.css";
-@import "../components/Home/TechStack/tech-stack.css";
 
 @import "../components/Home/FeaturedProjects/featured-projects.css";
 @import "../components/Home/Journey/journey.css";
 @import "../components/Home/Certifications/certifications.css";
 
 @import "../components/Footer/footer.css";
+
+
+.certification-provider-epic-react {
+  color: #61dafb;
+}
+
+.certification-provider-coursera {
+  color: #6eb4ff;
+}
+
+
 
 .design-preview {
   min-height: 100vh;
