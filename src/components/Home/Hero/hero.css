@@ -42,7 +42,7 @@
   display: flex;
   align-items: center;
   padding-top: var(--header-height);
-  padding-bottom: 210px;
+  /* padding-bottom: 210px; */
 }
 
 .hero-copy-block {

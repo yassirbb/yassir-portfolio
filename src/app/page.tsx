@@ -20,7 +20,7 @@ export default function HomePage() {
 
       <main id="main-content">
         <Hero />
-        <Journey />
+        {/* <Journey /> */}
         <FeaturedProjects />
         <Certifications />
       </main>

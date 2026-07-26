@@ -11,10 +11,11 @@ import {
 export function Hero() {
   return (
     <section
-      className="about-overview"
+      className="hero about-overview"
       aria-labelledby="about-page-title"
     >
-      <div className="container about-overview-inner">
+      <div className="container hero-inner">
+        <div className="hero-copy-block">
         <p className="about-eyebrow">
           About me
         </p>
@@ -117,6 +118,7 @@ export function Hero() {
             <FiDownload aria-hidden="true" />
             Download CV
           </a>
+        </div>
         </div>
       </div>
     </section>
