@@ -38,8 +38,8 @@
 .hero-inner {
   position: relative;
   z-index: 1;
-  display: flex;
   min-height: 100%;
+  display: flex;
   align-items: center;
   padding-top: var(--header-height);
   padding-bottom: 210px;

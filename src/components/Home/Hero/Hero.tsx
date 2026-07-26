@@ -5,7 +5,7 @@ import { TechStack } from "./TechStack/TechStack";
 export function Hero() {
   return (
     <section
-      className="hero"
+      className="hero hero-background"
       id="home"
       aria-labelledby="hero-title"
     >

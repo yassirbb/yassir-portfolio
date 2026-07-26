@@ -124,8 +124,6 @@ ol {
   outline-offset: 4px;
 }
 
-
-
 .container {
   width: min(
     var(--container-width),

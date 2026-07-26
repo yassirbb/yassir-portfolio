@@ -65,7 +65,7 @@ export function Footer() {
               aria-label="Back to homepage"
             >
               <Image
-                src="/images/brand/yb-logo.png"
+                src="/yb-logo.webp"
                 alt=""
                 width={48}
                 height={48}
