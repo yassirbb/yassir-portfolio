@@ -1,18 +1,24 @@
-export default function ContactPage() {
+import { ContactForm } from "@/components/Contact/ContactForm/ContactForm";
+import { ContactHero } from "@/components/Contact/Hero/Hero";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Frontend Engineer",
+  description:
+    "Portfolio of Yassir Ben Boubker, a frontend engineer specializing in React, TypeScript and data-rich interfaces."
+};
+
+export default function AboutPage() {
   return (
-    <main className="temporary-page">
-      <div className="container">
-        <p className="temporary-page__label">
-          Contact
-        </p>
+    <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
 
-        <h1>Let&apos;s connect</h1>
-
-        <p>
-          This page will contain my professional links
-          and contact form.
-        </p>
-      </div>
-    </main>
+      <main id="main-content">
+        <ContactHero />
+        <ContactForm />
+      </main>
+    </>
   );
 }

@@ -20,6 +20,11 @@
 /* Projects */
 @import "../components/Projects/projects.css";
 
+/* Contact */
+@import "../components/Contact/Hero/hero.css";
+@import "../components/Contact/ContactForm/contact-form.css";
+
+
 @import "../components/Footer/footer.css";
 
 .certification-provider-epic-react {

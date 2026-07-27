@@ -3,7 +3,7 @@
    OVERVIEW
    ========================================================= */
 
-.about-eyebrow {
+.contact-eyebrow {
   margin: 0 0 10px;
   color: #2f8fff;
   font-family:
@@ -14,7 +14,7 @@
   text-transform: uppercase;
 }
 
-.about-overview h1 {
+.contact-overview h1 {
   margin: 0;
   color: #f7faff;
   font-family:
@@ -25,7 +25,7 @@
   letter-spacing: -0.055em;
 }
 
-.about-overview h1 span {
+.contact-overview h1 span {
   display: block;
   margin-top: 9px;
   background:
@@ -40,11 +40,11 @@
   color: transparent;
 }
 
-.about-title-highlight {
+.contact-title-highlight {
   padding-bottom: 15px;
 }
 
-.about-tagline {
+.contact-tagline {
   max-width: 820px;
   margin: 25px 0 0;
   color: #d8e2ef;
@@ -53,7 +53,7 @@
   line-height: 1.6;
 }
 
-.about-summary {
+.contact-summary {
   max-width: 880px;
   margin: 17px 0 0;
   color: #9ba9bf;
@@ -65,14 +65,14 @@
    FOCUS ITEMS
    ========================================================= */
 
-.about-focus-list {
+.contact-focus-list {
   display: grid;
   gap: 15px;
   max-width: 780px;
   margin-top: 29px;
 }
 
-.about-focus-item {
+.contact-focus-item {
   display: grid;
   grid-template-columns:
     48px minmax(0, 1fr);
@@ -80,10 +80,10 @@
   align-items: center;
 }
 
-.about-focus-icon,
-.about-impact-icon,
-.about-section-icon,
-.about-skill-icon {
+.contact-focus-icon,
+.contact-impact-icon,
+.contact-section-icon,
+.contact-skill-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -96,28 +96,28 @@
     );
 }
 
-.about-focus-icon {
+.contact-focus-icon {
   width: 46px;
   height: 46px;
   border-radius: 10px;
 }
 
-.about-focus-icon svg,
-.about-impact-icon svg,
-.about-section-icon svg,
-.about-skill-icon svg {
+.contact-focus-icon svg,
+.contact-impact-icon svg,
+.contact-section-icon svg,
+.contact-skill-icon svg {
   width: 24px;
   height: 24px;
 }
 
-.about-focus-item h2 {
+.contact-focus-item h2 {
   margin: 0 0 4px;
   color: #f7faff;
   font-size: 13px;
   font-weight: 650;
 }
 
-.about-focus-item p {
+.contact-focus-item p {
   margin: 0;
   color: #8796af;
   font-size: 12px;
@@ -128,17 +128,72 @@
    ACTIONS
    ========================================================= */
 
-.about-actions,
-.about-contact-actions {
+.contact-actions,
+.contact-contact-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
-.about-actions {
+.contact-actions {
   margin-top: 31px;
 }
 
+/* =========================================================
+   BENEFITS
+   ========================================================= */
+
+.contact-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.contact-benefit {
+  display: flex;
+  min-width: 0;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.contact-benefit-icon {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(47, 143, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(8, 123, 255, 0.08);
+  color: #2f8fff;
+  filter: drop-shadow(0 0 10px rgba(47, 143, 255, 0.25));
+}
+
+.contact-benefit-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-benefit h2 {
+  margin: 2px 0 5px;
+  color: #f7faff;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.contact-benefit p {
+  margin: 0;
+  color: #8190a6;
+  font-size: 11px;
+  line-height: 1.55;
+}
 
 /* =========================================================
    RESPONSIVE
@@ -146,19 +201,27 @@
 
 
 @media (max-width: 820px) {
-  .about-overview h1 {
+  .contact-overview h1 {
     font-size: clamp(2.75rem, 10vw, 4rem);
   }
+
+  .contact-benefits {
+    max-width: 780px;
+  }
+
 }
 
 @media (max-width: 520px) {
 
-  .about-overview h1 {
+  .contact-overview h1 {
     font-size: clamp(2.55rem, 13vw, 3.4rem);
   }
 
+  .contact-benefits {
+    grid-template-columns: 1fr;
+  }
 
-  .about-actions {
+  .contact-actions {
     display: grid;
     width: 100%;
   }
