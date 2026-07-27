@@ -1,6 +1,6 @@
 import { FiGrid } from "react-icons/fi";
 
-import { featuredProjects } from "@/data/projects";
+import {  projects } from "@/data/projects";
 
 import { ProjectCard } from "@/ui/Cards";
 import { Section } from "@/ui/Section/Section";
@@ -19,7 +19,7 @@ export function FeaturedProjects() {
           }}
         > 
           <div className="featured-projects-grid">
-            {featuredProjects.map((project) => (
+            {projects.map((project) => (
               <ProjectCard
                 key={project.slug}
                 {...project}

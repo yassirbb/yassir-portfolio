@@ -1,18 +1,19 @@
+import type { Metadata } from "next";
+
+import { ProjectsGrid } from "@/components/Projects/ProjectsGrid";
+import { ProjectsHero } from "@/components/Projects/ProjectsHero";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Explore frontend engineering projects by Yassir Ben Boubker, including enterprise React applications, monitoring interfaces and personal work."
+};
+
 export default function ProjectsPage() {
   return (
-    <main className="temporary-page">
-      <div className="container">
-        <p className="temporary-page__label">
-          Projects
-        </p>
-
-        <h1>Selected projects</h1>
-
-        <p>
-          This page will present my professional and
-          personal frontend projects.
-        </p>
-      </div>
+    <main id="main-content">
+      <ProjectsHero />
+      <ProjectsGrid />
     </main>
   );
 }

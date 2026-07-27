@@ -17,6 +17,8 @@
 @import "../components/About/Experience/experience.css";
 @import "../components/About/SkillsSection/skills-section.css";
 
+/* Projects */
+@import "../components/Projects/projects.css";
 
 @import "../components/Footer/footer.css";
 

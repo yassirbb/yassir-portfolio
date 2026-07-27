@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import { Hero } from "@/components/Home/Hero/Hero";
 import { FeaturedProjects } from "@/components/Home/FeaturedProjects/FeaturedProjects";
-import { Journey } from "@/components/Home/Journey/Journey";
 import { Certifications } from "@/components/Home/Certifications/Certifications";
 
 export const metadata: Metadata = {
@@ -20,7 +19,6 @@ export default function HomePage() {
 
       <main id="main-content">
         <Hero />
-        {/* <Journey /> */}
         <FeaturedProjects />
         <Certifications />
       </main>

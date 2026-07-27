@@ -1,5 +1,4 @@
 import {
-  FiBriefcase,
   FiCheck,
   FiClock,
   FiMapPin
