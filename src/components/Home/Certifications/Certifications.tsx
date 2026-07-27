@@ -16,10 +16,6 @@ export function Certifications() {
         icon={FiAward}
         title="Certifications"
         titleId="certifications-title"
-        link={{
-          href: "/certifications",
-          label: "View all certifications"
-        }}
       > 
         <div className="certifications-grid">
           {certifications.map((certification) => (

@@ -1,18 +1,33 @@
 
 @import "@/../../../../ui/Cards/CertificationCard/certification-card.css";
 
+
+
 .certifications-grid {
   display: grid;
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  grid-auto-flow: column;
+  padding-block: 12px;
+  grid-auto-columns: calc((100% - 40px) / 3);
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(47, 143, 255, 0.45)
+    rgba(7, 26, 56, 0.42);
 }
 
+.certifications-grid > * {
+  min-width: 0;
+  scroll-snap-align: start;
+}
 
 @media (max-width: 1100px) {
   .certifications-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-auto-columns: calc((100% - 20px) / 2);
   }
 }
 
@@ -24,6 +39,6 @@
 
 @media (max-width: 680px) {
   .certifications-grid {
-    grid-template-columns: 1fr;
+    grid-auto-columns: 88%;
   }
 }

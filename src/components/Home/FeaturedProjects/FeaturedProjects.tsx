@@ -6,6 +6,8 @@ import { ProjectCard } from "@/ui/Cards";
 import { Section } from "@/ui/Section/Section";
 
 export function FeaturedProjects() {
+
+  const featuredProjects = projects.filter((project) => project.category === "enterprise");
   return (
         <Section
           id="featured-projects"
@@ -19,7 +21,7 @@ export function FeaturedProjects() {
           }}
         > 
           <div className="featured-projects-grid">
-            {projects.map((project) => (
+            {featuredProjects.map((project) => (
               <ProjectCard
                 key={project.slug}
                 {...project}
