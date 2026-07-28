@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
+import { notFound } from "next/navigation";
 
 import { siteConfig } from "@/config/site";
 
@@ -9,11 +9,17 @@ import {
   Manrope
 } from "next/font/google";
 
-import "./globals.css";
+import "../globals.css";
 
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
-import type { Language } from "@/hooks/useLanguage";
+import {
+  isLocale,
+  locales,
+  type Locale
+} from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
+import { SkipLink } from "@/ui";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -94,34 +100,44 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>;
 
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
-  children
+  children,
+  params
 }: RootLayoutProps) {
-  const cookieStore = await cookies();
+  const { locale: localeParam } = await params;
 
-  const storedLanguage = cookieStore.get(
-    "portfolio-language"
-  )?.value;
+  if (!isLocale(localeParam)) {
+    notFound();
+  }
 
-  const initialLanguage: Language =
-    storedLanguage === "fr" ? "fr" : "en";
+  const locale: Locale = localeParam;
+  const dictionary = getDictionary(locale);
 
   return (
     <html 
-      lang={initialLanguage}
+      lang={locale}
       className={[
         inter.variable,
         manrope.variable,
         jetBrainsMono.variable
       ].join(" ")} >
       <body>
-        <Header initialLanguage={initialLanguage} />
+        <SkipLink label={dictionary.common.skipToContent} />
+        <Header
+          locale={locale}
+          copy={dictionary.navigation}
+        />
 
         {children}
 
-        <Footer />
+        <Footer locale={locale} copy={dictionary.footer} />
       </body>
     </html>
   );

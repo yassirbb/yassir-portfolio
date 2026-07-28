@@ -11,60 +11,58 @@ import {
   Hero as HeroLayout,
   IconFeature
 } from "@/ui";
+import type { Locale } from "@/i18n/config";
+import { localizePath } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-export function Hero() {
+type Props = { locale: Locale; copy: Dictionary["about"] };
+export function Hero({ locale, copy }: Props) {
   return (
     <HeroLayout
       variant="about"
       titleId="about-page-title"
-      eyebrow="About me"
+      eyebrow={copy.eyebrow}
       title={
         <>
-          Hi, I&apos;m Yassir.
+          {copy.greeting}
           <span className="hero__highlight">
-            Frontend Engineer
+            {copy.title}
           </span>
         </>
       }
     >
       <p className="hero__tagline">
-        Frontend Engineer building React and TypeScript
-        interfaces for enterprise monitoring software.
+        {copy.tagline}
       </p>
 
       <p className="hero__summary">
-        I have over four years of experience developing
-        enterprise React and TypeScript applications. I
-        contributed to Centreon Map and Centreon BAM,
-        modernizing legacy interfaces, building interactive
-        monitoring and configuration features, integrating
-        REST APIs and maintaining automated Cypress coverage.
+        {copy.summary}
       </p>
 
       <div className="hero__feature-list">
         <IconFeature
           icon={FiCode}
-          title="React & TypeScript"
-          description="Building maintainable enterprise interfaces with reusable components and clear application architecture."
+          title={copy.features[0][0]}
+          description={copy.features[0][1]}
         />
         <IconFeature
           icon={FiLayers}
-          title="Legacy modernization"
-          description="Migrating Backbone.js interfaces to modern React and TypeScript while preserving business behavior."
+          title={copy.features[1][0]}
+          description={copy.features[1][1]}
         />
         <IconFeature
           icon={FiBarChart2}
-          title="Interactive applications"
-          description="Creating complex forms, monitoring views, maps and data-visualization experiences."
+          title={copy.features[2][0]}
+          description={copy.features[2][1]}
         />
       </div>
 
       <div className="hero__actions">
         <Link
           className="button button-primary"
-          href="/projects"
+          href={localizePath(locale, "/projects")}
         >
-          View my projects
+          {copy.viewProjects}
           <FiArrowRight aria-hidden="true" />
         </Link>
 
@@ -74,7 +72,7 @@ export function Hero() {
           download
         >
           <FiDownload aria-hidden="true" />
-          Download CV
+          {copy.downloadCv}
         </a>
       </div>
     </HeroLayout>

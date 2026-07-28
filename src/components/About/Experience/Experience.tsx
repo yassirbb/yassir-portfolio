@@ -3,9 +3,10 @@ import { Section } from "@/ui";
 
 import { ExperienceCard } from "@/ui/Cards";
 import { FiBriefcase } from "react-icons/fi";
-export function ExperienceList() {
+import type { Dictionary } from "@/i18n/dictionaries";
+export function ExperienceList({ copy }: { copy: Dictionary["about"] }) {
   return (
-    <Section id="experience" aria-labelledby="experience-title" title="Professional experience" titleId="experience-title" icon={FiBriefcase}>
+    <Section id="experience" aria-labelledby="experience-title" title={copy.experienceTitle} titleId="experience-title" icon={FiBriefcase}>
         <div className="about-experience-list">
         {experiences.map((experience) => (
             <ExperienceCard

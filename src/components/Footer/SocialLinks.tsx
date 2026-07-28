@@ -10,6 +10,7 @@ import {
   socialLinks,
   type SocialLinkId
 } from "@/data/contact";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 const socialIcons: Record<
   SocialLinkId,
@@ -21,19 +22,18 @@ const socialIcons: Record<
   whatsapp: FaWhatsapp
 };
 
-export function SocialLinks() {
+export function SocialLinks({ copy }: { copy: Dictionary["footer"] }) {
   return (
     <section
       className="footer-social"
       aria-labelledby="footer-social-title"
     >
       <h2 id="footer-social-title">
-        Let&apos;s connect
+        {copy.connectTitle}
       </h2>
 
       <p className="footer-panel-description">
-        Follow my work, learning journey and professional
-        progress.
+        {copy.connectDescription}
       </p>
 
       <div

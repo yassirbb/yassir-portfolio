@@ -11,6 +11,7 @@ import {
   FiMail,
   FiSend
 } from "react-icons/fi";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 const MAX_MESSAGE_LENGTH = 1500;
 
@@ -32,7 +33,11 @@ const initialValues: ContactFormValues = {
   message: ""
 };
 
-export function ContactForm() {
+export function ContactForm({
+  copy
+}: {
+  copy: Dictionary["contact"];
+}) {
   const [values, setValues] =
     useState<ContactFormValues>(initialValues);
 
@@ -141,7 +146,7 @@ export function ContactForm() {
   };
 
   return (
-    <Section id="contact" aria-labelledby="contact-title" title="Send me a message" titleId="contact-title" icon={FiMail}>
+    <Section id="contact" aria-labelledby="contact-title" title={copy.formTitle} titleId="contact-title" icon={FiMail}>
       <form
         className="contact-form"
         id="contact-form"
@@ -151,14 +156,14 @@ export function ContactForm() {
         <div className="contact-form-grid">
           <div className="contact-field">
             <label htmlFor="contact-name">
-              Your name
+              {copy.name}
             </label>
 
             <input
               id="contact-name"
               name="name"
               type="text"
-              placeholder="e.g. Ahmed Benali"
+              placeholder={copy.placeholders.name}
               autoComplete="name"
               value={values.name}
               aria-invalid={Boolean(errors.name)}
@@ -186,14 +191,14 @@ export function ContactForm() {
 
           <div className="contact-field">
             <label htmlFor="contact-email">
-              Your email
+              {copy.email}
             </label>
 
             <input
               id="contact-email"
               name="email"
               type="email"
-              placeholder="e.g. ahmed@example.com"
+              placeholder={copy.placeholders.email}
               autoComplete="email"
               value={values.email}
               aria-invalid={Boolean(errors.email)}
@@ -221,14 +226,14 @@ export function ContactForm() {
 
           <div className="contact-field contact-field-full">
             <label htmlFor="contact-subject">
-              Subject
+              {copy.subject}
             </label>
 
             <input
               id="contact-subject"
               name="subject"
               type="text"
-              placeholder="e.g. Frontend opportunity"
+              placeholder={copy.placeholders.subject}
               value={values.subject}
               aria-invalid={Boolean(
                 errors.subject
@@ -257,7 +262,7 @@ export function ContactForm() {
 
           <div className="contact-field contact-field-full">
             <label htmlFor="contact-message">
-              Message
+              {copy.message}
             </label>
 
             <textarea
@@ -265,7 +270,7 @@ export function ContactForm() {
               name="message"
               rows={7}
               maxLength={MAX_MESSAGE_LENGTH}
-              placeholder="Tell me about the opportunity, project or idea..."
+              placeholder={copy.placeholders.message}
               value={values.message}
               aria-invalid={Boolean(
                 errors.message
@@ -295,15 +300,14 @@ export function ContactForm() {
           <p className="contact-privacy">
             <FiLock aria-hidden="true" />
 
-            Your information is only used to answer
-            your message.
+            {copy.privacy}
           </p>
 
           <button
             className="button button-primary"
             type="submit"
           >
-            <span>Send message</span>
+            <span>{copy.send}</span>
             <FiSend aria-hidden="true" />
           </button>
         </div>

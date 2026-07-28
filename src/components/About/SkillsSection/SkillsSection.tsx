@@ -6,10 +6,11 @@ import {
 import {
   FiLayers
 } from "react-icons/fi";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-export function SkillsSection() {
+export function SkillsSection({ copy }: { copy: Dictionary["about"] }) {
   return (
-    <Section id="skills" aria-labelledby="skills-title" title="Skills and technologies" titleId="skills-title" icon={FiLayers}>
+    <Section id="skills" aria-labelledby="skills-title" title={copy.skillsTitle} titleId="skills-title" icon={FiLayers}>
       <div className="about-skills-grid">
         {skillCategories.map(
           ({ id, title, skills, Icon }) => (

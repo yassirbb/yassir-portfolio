@@ -1,40 +1,26 @@
-import {
-  availabilityTypes,
-  contactDetails
-} from "@/data/contact";
+import { availabilityTypes } from "@/data/contact";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-export function AvailabilityPanel() {
+export function AvailabilityPanel({
+  copy
+}: {
+  copy: Dictionary["footer"];
+}) {
   return (
-    <section
-      className="footer-availability"
-      aria-labelledby="footer-availability-title"
-    >
+    <section className="footer-availability" aria-labelledby="footer-availability-title">
       <div className="footer-panel-heading">
-        <h2 id="footer-availability-title">
-          Availability
-        </h2>
-
+        <h2 id="footer-availability-title">{copy.availabilityTitle}</h2>
         <span className="footer-availability-status">
           <span aria-hidden="true" />
-          {contactDetails.availability}
+          {copy.availability}
         </span>
       </div>
-
-      <p className="footer-panel-description">
-        I&apos;m currently interested in frontend engineering
-        opportunities, product-focused teams, remote
-        collaboration and selected freelance projects.
-      </p>
-
+      <p className="footer-panel-description">{copy.availabilityDescription}</p>
       <ul className="footer-availability-types">
-        {availabilityTypes.map((type) => (
+        {availabilityTypes.map((type, index) => (
           <li key={type.id}>
-            <span
-              className={`footer-status-dot footer-status-${type.tone}`}
-              aria-hidden="true"
-            />
-
-            {type.label}
+            <span className={`footer-status-dot footer-status-${type.tone}`} aria-hidden="true" />
+            {copy.types[index]}
           </li>
         ))}
       </ul>

@@ -1,73 +1,45 @@
-import type { IconType } from "react-icons";
 import {
   FiCheckCircle,
   FiTarget,
   FiZap
 } from "react-icons/fi";
 
+import type { Dictionary } from "@/i18n/dictionaries";
 import {
   Hero,
   IconFeature
 } from "@/ui";
 
-type ContactBenefit = {
-  id: string;
-  title: string;
-  description: string;
-  Icon: IconType;
-};
+const benefitIcons = [FiZap, FiCheckCircle, FiTarget];
 
-const contactBenefits = [
-  {
-    id: "fast-response",
-    title: "Fast response",
-    description: "I usually reply within 24–48 hours.",
-    Icon: FiZap
-  },
-  {
-    id: "professional",
-    title: "Professional",
-    description:
-      "Clear communication and reliable collaboration.",
-    Icon: FiCheckCircle
-  },
-  {
-    id: "results-driven",
-    title: "Results driven",
-    description:
-      "Focused on useful outcomes and quality delivery.",
-    Icon: FiTarget
-  }
-] satisfies ContactBenefit[];
-
-export function ContactHero() {
+export function ContactHero({
+  copy
+}: {
+  copy: Dictionary["contact"];
+}) {
   return (
     <Hero
       variant="contact"
       titleId="contact-page-title"
-      eyebrow="Get in touch"
+      eyebrow={copy.eyebrow}
       title={
         <>
-          Let&apos;s build something
+          {copy.titleStart}
           <span className="hero__highlight">
-            amazing
+            {copy.titleHighlight}
           </span>
-          together.
+          {copy.titleEnd}
         </>
       }
     >
-      <p className="hero__tagline">
-        I&apos;m open to new opportunities, meaningful
-        collaborations and projects where I can create useful,
-        accessible and maintainable digital experiences.
-      </p>
+      <p className="hero__tagline">{copy.tagline}</p>
 
       <div className="contact-benefits">
-        {contactBenefits.map(
-          ({ id, title, description, Icon }) => (
+        {copy.benefits.map(
+          ([title, description], index) => (
             <IconFeature
-              key={id}
-              icon={Icon}
+              key={title}
+              icon={benefitIcons[index]}
               title={title}
               description={description}
               variant="circle"

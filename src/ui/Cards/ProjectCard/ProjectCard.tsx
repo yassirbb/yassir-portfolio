@@ -8,10 +8,10 @@ import {
 } from "react-icons/fi";
 
 import type {
-  Project,
-  ProjectStatus
+  Project
 } from "@/data/projects";
 import { TagList } from "@/ui/TagList/TagList";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 export type ProjectCardVariant = "compact" | "detailed";
 
@@ -19,12 +19,7 @@ type ProjectCardProps = {
   project: Project;
   variant?: ProjectCardVariant;
   lang?: string;
-};
-
-const statusLabels: Record<ProjectStatus, string> = {
-  production: "In production",
-  "in-progress": "In progress",
-  completed: "Completed"
+  copy?: Dictionary["common"];
 };
 
 function getDocumentationUrl(
@@ -43,7 +38,8 @@ function getDocumentationUrl(
 export function ProjectCard({
   project,
   variant = "compact",
-  lang = ""
+  lang = "",
+  copy
 }: ProjectCardProps) {
   const className = [
     "project-card",
@@ -56,6 +52,7 @@ export function ProjectCard({
         className={className}
         project={project}
         lang={lang}
+        copy={copy}
       />
     );
   }
@@ -73,6 +70,7 @@ type ProjectCardViewProps = {
   className: string;
   project: Project;
   lang: string;
+  copy?: Dictionary["common"];
 };
 
 function CompactProjectCard({
@@ -124,7 +122,8 @@ function CompactProjectCard({
 function DetailedProjectCard({
   className,
   project,
-  lang
+  lang,
+  copy
 }: ProjectCardViewProps) {
   return (
     <article className={className}>
@@ -133,7 +132,7 @@ function DetailedProjectCard({
           <header className="project-card__header">
             <div>
               <p className="project-card__category">
-                {project.category}
+                {copy?.category[project.category] ?? project.category}
               </p>
               <h2>{project.title}</h2>
             </div>
@@ -145,7 +144,7 @@ function DetailedProjectCard({
               ].join(" ")}
             >
               <span aria-hidden="true" />
-              {statusLabels[project.status]}
+              {copy?.status[project.status] ?? project.status}
             </span>
           </header>
 
@@ -157,7 +156,7 @@ function DetailedProjectCard({
           </p>
 
           <section className="project-card__section">
-            <h3>Key contributions</h3>
+            <h3>{copy?.keyContributions ?? "Key contributions"}</h3>
             <ul className="project-card__responsibilities">
               {project.responsibilities.map(
                 (responsibility) => (
@@ -173,13 +172,14 @@ function DetailedProjectCard({
           <TagList
             className="project-card__technologies"
             items={project.technologies}
-            label={`${project.title} technologies`}
+            label={`${project.title} ${copy?.technologies ?? "technologies"}`}
           />
         </div>
 
         <ProjectCardActions
           project={project}
           lang={lang}
+          copy={copy}
         />
       </div>
     </article>
@@ -189,11 +189,13 @@ function DetailedProjectCard({
 type ProjectCardActionsProps = {
   project: Project;
   lang: string;
+  copy?: Dictionary["common"];
 };
 
 function ProjectCardActions({
   project,
-  lang
+  lang,
+  copy
 }: ProjectCardActionsProps) {
   const documentationUrl = getDocumentationUrl(
     project,
@@ -220,27 +222,27 @@ function ProjectCardActions({
       {documentationUrl && (
         <ProjectActionLink
           href={documentationUrl}
-          label="View documentation"
+          label={copy?.viewDocumentation ?? "View documentation"}
         />
       )}
       {githubUrl && (
         <ProjectActionLink
           href={githubUrl}
-          label="GitHub"
+          label={copy?.github ?? "GitHub"}
           icon={<FiGithub aria-hidden="true" />}
         />
       )}
       {demoUrl && (
         <ProjectActionLink
           href={demoUrl}
-          label="Live project"
+          label={copy?.liveProject ?? "Live project"}
           icon={<FiExternalLink aria-hidden="true" />}
         />
       )}
       {blogUrl && (
         <ProjectActionLink
           href={blogUrl}
-          label="Read article"
+          label={copy?.readArticle ?? "Read article"}
           icon={<FiBookOpen aria-hidden="true" />}
         />
       )}

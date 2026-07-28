@@ -2,10 +2,12 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 import type { Certification } from "@/data/certifications";
 import { IconType } from "react-icons";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 
 interface CertificationCardProps extends Certification {
   icon: IconType;
+  copy: Dictionary["common"];
 };
 
 export function CertificationCard({
@@ -16,7 +18,8 @@ export function CertificationCard({
   issuedAt,
     title,
     description,
-    credentialUrl
+    credentialUrl,
+    copy
 }: CertificationCardProps) {
 
   return (
@@ -37,7 +40,7 @@ export function CertificationCard({
 
         {!formattedDate ? (
             <span className="certification-card-ongoing-tag">
-            Ongoing
+            {copy.ongoing}
             </span>
         ) : (
             <>
@@ -65,12 +68,12 @@ export function CertificationCard({
             target="_blank"
             rel="noopener noreferrer"
           >
-            View credential
+            {copy.viewCredential}
             <FiArrowUpRight aria-hidden="true" />
           </a>
         ) : (
           <span className="certification-card-status">
-            Credential link coming soon
+            {copy.credentialSoon}
           </span>
         )}
       </div>

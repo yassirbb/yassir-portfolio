@@ -6,14 +6,15 @@ import { JourneyItem } from "@/ui/Cards";
 import { Section } from "@/ui";
 
 import { journeyIcons } from "@/icons/journey-icons";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-export function Journey() {
+export function Journey({ copy }: { copy: Dictionary["home"] }) {
   return (
     <Section
       id="journey"
       aria-labelledby="journey-title"
       icon={FiClock}
-      title="My Journey"
+      title={copy.journeyTitle}
       titleId="journey-title"
     >
         <ol className="journey-timeline">

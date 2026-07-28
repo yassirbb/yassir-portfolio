@@ -4,8 +4,12 @@ import {  projects } from "@/data/projects";
 
 import { ProjectCard } from "@/ui/Cards";
 import { Section } from "@/ui/Section/Section";
+import type { Locale } from "@/i18n/config";
+import { localizePath } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-export function FeaturedProjects() {
+type Props = { locale: Locale; copy: Dictionary["home"] };
+export function FeaturedProjects({ locale, copy }: Props) {
 
   const featuredProjects = projects.filter((project) => project.category === "enterprise");
   return (
@@ -13,11 +17,11 @@ export function FeaturedProjects() {
           id="featured-projects"
           aria-labelledby="featured-projects-title"
           icon={FiGrid}
-          title="Featured Projects"
+          title={copy.featuredTitle}
           titleId="featured-projects-title"
           link={{
-            href: "/projects",
-            label: "View all projects"
+            href: localizePath(locale, "/projects"),
+            label: copy.viewAllProjects
           }}
         > 
           <div className="featured-projects-grid">
@@ -26,6 +30,7 @@ export function FeaturedProjects() {
                 key={project.slug}
                 project={project}
                 variant="compact"
+                lang={locale === "fr" ? "/fr" : ""}
               />
             ))}
           </div>

@@ -4,37 +4,35 @@ import {
 } from "react-icons/fi";
 
 import { Hero } from "@/ui";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-export function ProjectsHero() {
+export function ProjectsHero({ copy }: { copy: Dictionary["projectsPage"] }) {
   return (
     <Hero
       variant="projects"
       titleId="projects-page-title"
-      eyebrow="Selected work"
+      eyebrow={copy.eyebrow}
       title={
         <>
-          Projects built for{" "}
+          {copy.titleStart}{" "}
           <span className="hero__highlight">
-            real-world problems.
+            {copy.titleHighlight}
           </span>
         </>
       }
     >
       <p className="hero__description">
-        A selection of enterprise products, personal projects
-        and learning experiments focused on frontend
-        architecture, complex interfaces and maintainable
-        React applications.
+        {copy.description}
       </p>
 
       <div className="hero__meta">
         <span>
           <FiFolder aria-hidden="true" />
-          Enterprise and personal projects
+          {copy.enterpriseMeta}
         </span>
         <span>
           <FiLayers aria-hidden="true" />
-          React and TypeScript focused
+          {copy.technologyMeta}
         </span>
       </div>
     </Hero>

@@ -2,8 +2,13 @@ import Link from "next/link";
 
 import { Hero as HeroLayout } from "@/ui";
 import { TechStack } from "./TechStack/TechStack";
+import type { Locale } from "@/i18n/config";
+import { localizePath } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-export function Hero() {
+type Props = { locale: Locale; copy: Dictionary["home"] };
+
+export function Hero({ locale, copy }: Props) {
   return (
     <HeroLayout
       id="home"
@@ -15,16 +20,16 @@ export function Hero() {
             className="hero__status-dot"
             aria-hidden="true"
           />
-          Frontend Engineer
+          {copy.eyebrow}
         </>
       }
       title={
         <>
-          I build solutions.
+          {copy.titleStart}
           <br />
-          I create{" "}
+          {copy.titleSecond}{" "}
           <span className="hero__highlight">
-            impact.
+            {copy.titleHighlight}
           </span>
         </>
       }
@@ -35,10 +40,7 @@ export function Hero() {
       }
     >
       <p className="hero__description">
-        I design and build clean, scalable and user-focused
-        interfaces. I turn complex product requirements into
-        reliable digital experiences with React and
-        TypeScript.
+        {copy.description}
       </p>
 
       <div className="hero__actions">
@@ -46,21 +48,21 @@ export function Hero() {
           className="button button-primary"
           href="#featured-projects"
         >
-          View my work
+          {copy.viewWork}
           <span aria-hidden="true">→</span>
         </Link>
 
         <Link
           className="button button-secondary"
-          href="/contact"
+          href={localizePath(locale, "/contact")}
         >
-          Let&apos;s connect
+          {copy.connect}
         </Link>
       </div>
 
       <p className="hero__note">
         <span aria-hidden="true">♡</span>
-        Building with passion. Driven by purpose.
+        {copy.note}
       </p>
     </HeroLayout>
   );

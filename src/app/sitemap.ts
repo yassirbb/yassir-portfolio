@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/config/site";
+import { locales } from "@/i18n/config";
 
 type SitemapRoute = {
   path: string;
@@ -35,10 +36,20 @@ const routes: SitemapRoute[] = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((route) => ({
-    url: `${siteConfig.url}${route.path}`,
-    lastModified: new Date(),
-    changeFrequency: route.changeFrequency,
-    priority: route.priority
-  }));
+  return locales.flatMap((locale) =>
+    routes.map((route) => ({
+      url: `${siteConfig.url}/${locale}${route.path}`,
+      lastModified: new Date(),
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((language) => [
+            language,
+            `${siteConfig.url}/${language}${route.path}`
+          ])
+        )
+      }
+    }))
+  );
 }
