@@ -3,43 +3,40 @@ import {
   FiLayers
 } from "react-icons/fi";
 
+import { Hero } from "@/ui";
+
 export function ProjectsHero() {
   return (
-    <section
-      className="hero"
-      aria-labelledby="projects-page-title"
-    >
-      <div className="container hero-inner">
-        <div className="hero-copy-block">
-        <p className="projects-eyebrow">
-          Selected work
-        </p>
-
-        <h1 id="projects-page-title">
+    <Hero
+      variant="projects"
+      titleId="projects-page-title"
+      eyebrow="Selected work"
+      title={
+        <>
           Projects built for{" "}
-          <span>real-world problems.</span>
-        </h1>
-
-        <p className="projects-hero-description">
-          A selection of enterprise products, personal
-          projects and learning experiments focused on
-          frontend architecture, complex interfaces and
-          maintainable React applications.
-        </p>
-
-        <div className="projects-hero-meta">
-          <span>
-            <FiFolder aria-hidden="true" />
-            Enterprise and personal projects
+          <span className="hero__highlight">
+            real-world problems.
           </span>
+        </>
+      }
+    >
+      <p className="hero__description">
+        A selection of enterprise products, personal projects
+        and learning experiments focused on frontend
+        architecture, complex interfaces and maintainable
+        React applications.
+      </p>
 
-          <span>
-            <FiLayers aria-hidden="true" />
-            React and TypeScript focused
-          </span>
-          </div>
-        </div>
+      <div className="hero__meta">
+        <span>
+          <FiFolder aria-hidden="true" />
+          Enterprise and personal projects
+        </span>
+        <span>
+          <FiLayers aria-hidden="true" />
+          React and TypeScript focused
+        </span>
       </div>
-    </section>
+    </Hero>
   );
 }

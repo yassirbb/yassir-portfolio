@@ -5,6 +5,8 @@ import {
   FiZap
 } from "react-icons/fi";
 
+import { Hero } from "@/ui";
+
 type ContactBenefit = {
   id: string;
   title: string;
@@ -16,8 +18,7 @@ const contactBenefits = [
   {
     id: "fast-response",
     title: "Fast response",
-    description:
-      "I usually reply within 24–48 hours.",
+    description: "I usually reply within 24–48 hours.",
     Icon: FiZap
   },
   {
@@ -38,54 +39,44 @@ const contactBenefits = [
 
 export function ContactHero() {
   return (
-    <header
-      className="hero contact-overview"
-      aria-labelledby="contact-page-title"
+    <Hero
+      variant="contact"
+      titleId="contact-page-title"
+      eyebrow="Get in touch"
+      title={
+        <>
+          Let&apos;s build something
+          <span className="hero__highlight">
+            amazing
+          </span>
+          together.
+        </>
+      }
     >
-        <div className="container hero-inner">
-            <div className="hero-copy-block">
+      <p className="hero__tagline">
+        I&apos;m open to new opportunities, meaningful
+        collaborations and projects where I can create useful,
+        accessible and maintainable digital experiences.
+      </p>
 
-                <p className="contact-eyebrow">
-                    Get in touch
-                </p>
-
-                <h1 id="contact-page-title">
-                    Let&apos;s build something
-                    <span>amazing</span>
-                    together.
-                </h1>
-
-                <p className="contact-tagline">
-                    I&apos;m open to new opportunities, meaningful
-                    collaborations and projects where I can create
-                    useful, accessible and maintainable digital
-                    experiences.
-                </p>
-
-                <div className="contact-benefits">
-                    {contactBenefits.map(
-                    ({ id, title, description, Icon }) => (
-                        <article
-                        className="contact-benefit"
-                        key={id}
-                        >
-                        <span
-                            className="contact-benefit-icon"
-                            aria-hidden="true"
-                        >
-                            <Icon />
-                        </span>
-
-                        <div>
-                            <h2>{title}</h2>
-                            <p>{description}</p>
-                        </div>
-                        </article>
-                    )
-                    )}
-                </div>
-            </div>
-        </div>
-    </header>
+      <div className="contact-benefits">
+        {contactBenefits.map(
+          ({ id, title, description, Icon }) => (
+            <article className="contact-benefit" key={id}>
+              <span
+                className="contact-benefit-icon"
+                aria-hidden="true"
+              >
+                <Icon />
+              </span>
+              <div>
+                <h2>{title}</h2>
+                <p>{description}</p>
+              </div>
+            </article>
+          )
+        )}
+      </div>
+    </Hero>
   );
 }

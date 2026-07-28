@@ -5,17 +5,17 @@
 @import "../components/NotFound/not-found.css";
 
 @import '../ui/Section/section.css';
+@import "../ui/Hero/hero.css";
 @import "../ui/Cards/ProjectCard/project-card.css";
 
 @import "../components/Header/header.css";
 
 /* Home */
-@import "../components/Home/Hero/hero.css";
+@import "../components/Home/Hero/TechStack/tech-stack.css";
 @import "../components/Home/FeaturedProjects/featured-projects.css";
 @import "../components/Home/Certifications/certifications.css";
 
 /* About */
-@import "../components/About/Hero/hero.css";
 @import "../components/Home/Journey/journey.css";
 @import "../components/About/Experience/experience.css";
 @import "../components/About/SkillsSection/skills-section.css";
@@ -24,7 +24,6 @@
 @import "../components/Projects/projects.css";
 
 /* Contact */
-@import "../components/Contact/Hero/hero.css";
 @import "../components/Contact/ContactForm/contact-form.css";
 
 
