@@ -8,6 +8,17 @@ export type ProjectStatus =
   | "in-progress"
   | "completed";
 
+interface Doc {
+  host: string;
+  path: string;
+}
+
+export interface Links {
+  doc?: Doc;
+  github?: string;
+  demo?: string;
+  blog?: string;
+}
 export type Project = {
   id: string;
   slug: string;
@@ -26,6 +37,7 @@ export type Project = {
   repositoryUrl?: string;
   liveUrl?: string;
   blogUrl?: string;
+  links: Links;
 };
 
 export const projects = [
@@ -57,7 +69,13 @@ export const projects = [
       "Leaflet.js",
       "React Query",
       "Cypress"
-    ]
+    ],
+    links: {
+      doc: {
+        host: 'https://docs.centreon.com',
+        path: '/docs/graph-views/introduction-map/'
+      }
+    }
   },
   {
     id: "centreon-bam",
@@ -88,7 +106,13 @@ export const projects = [
       "Yup",
       "Material UI",
       "Cypress"
-    ]
+    ],
+    links: {
+      doc: {
+        host: 'https://docs.centreon.com',
+        path: '/docs/service-mapping/introduction/'
+      }
+    }
   },
   {
     id: "equipment-transport-management",
@@ -119,10 +143,11 @@ export const projects = [
       "REST APIs"
     ],
     image: {
-      src: "/images/projects/equipment-transport-management.webp",
+      src: "/images/projects/bam-simulation.webp",
       alt:
         "Equipment transport management and inspection application interface"
-    }
+    },
+    links: {}
   },
   {
     id: "developer-portfolio",
@@ -153,7 +178,8 @@ export const projects = [
     image: {
       src: "/images/projects/developer-portfolio.webp",
       alt: "Developer portfolio homepage interface"
-    }
+    },
+    links: {}
   },
   {
     id: "react-learning-project",
@@ -185,6 +211,7 @@ export const projects = [
     image: {
       src: "/images/projects/react-learning-project.webp",
       alt: "React learning project interface"
-    }
+    },
+    links: {}
   }
 ] satisfies Project[];

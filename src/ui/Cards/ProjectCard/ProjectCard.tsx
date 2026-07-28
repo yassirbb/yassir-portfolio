@@ -1,53 +1,276 @@
 import Image from "next/image";
-import Link from "next/link";
+import {
+  FiArrowRight,
+  FiArrowUpRight,
+  FiBookOpen,
+  FiCheck,
+  FiExternalLink,
+  FiGithub
+} from "react-icons/fi";
 
 import type {
   Project,
+  ProjectStatus
 } from "@/data/projects";
 
+export type ProjectCardVariant = "compact" | "detailed";
+
+type ProjectCardProps = {
+  project: Project;
+  variant?: ProjectCardVariant;
+  lang?: string;
+};
+
+const statusLabels: Record<ProjectStatus, string> = {
+  production: "In production",
+  "in-progress": "In progress",
+  completed: "Completed"
+};
+
+function getDocumentationUrl(
+  project: Project,
+  lang: string
+) {
+  const documentation = project.links.doc;
+
+  if (!documentation) {
+    return undefined;
+  }
+
+  return `${documentation.host}${lang}${documentation.path}`;
+}
+
 export function ProjectCard({
-  slug,
-  title,
-  description,
-  image
-}: Project) {
-  const projectHref = `/projects/${slug}`;
+  project,
+  variant = "compact",
+  lang = ""
+}: ProjectCardProps) {
+  const className = [
+    "project-card",
+    `project-card--${variant}`
+  ].join(" ");
+
+  if (variant === "detailed") {
+    return (
+      <DetailedProjectCard
+        className={className}
+        project={project}
+        lang={lang}
+      />
+    );
+  }
 
   return (
-    <article className="project-card">
-      <Link
-        className="project-card-image-link"
-        href={projectHref}
-        aria-label={`View ${title} project`}
-      >
+    <CompactProjectCard
+      className={className}
+      project={project}
+      lang={lang}
+    />
+  );
+}
+
+type ProjectCardViewProps = {
+  className: string;
+  project: Project;
+  lang: string;
+};
+
+function CompactProjectCard({
+  className,
+  project,
+  lang
+}: ProjectCardViewProps) {
+  const documentationUrl = getDocumentationUrl(
+    project,
+    lang
+  );
+
+  return (
+    <article className={className}>
+      <div className="project-card__media">
         <Image
-          className="project-card-image"
-          src={image.src}
-          alt={image.alt}
+          className="project-card__image"
+          src={project.image.src}
+          alt={project.image.alt}
           width={720}
           height={405}
         />
-      </Link>
+      </div>
 
-      <div className="project-card-content">
-        <h3>
-          <Link href={projectHref}>
-            {title}
-          </Link>
-        </h3>
+      <div className="project-card__content">
+        <h3>{project.title}</h3>
+        <p className="project-card__description">
+          {project.description}
+        </p>
 
-        <p>{description}</p>
-
-        <footer className="project-card-footer">
-          <Link
-            className="project-card-action"
-            href={projectHref}
-            aria-label={`Open ${title} project`}
-          >
-            <span aria-hidden="true">→</span>
-          </Link>
-        </footer>
+        {documentationUrl && (
+          <footer className="project-card__footer">
+            <a
+              className="project-card__icon-action"
+              href={documentationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${project.title} documentation`}
+            >
+              <FiArrowUpRight aria-hidden="true" />
+            </a>
+          </footer>
+        )}
       </div>
     </article>
+  );
+}
+
+function DetailedProjectCard({
+  className,
+  project,
+  lang
+}: ProjectCardViewProps) {
+  return (
+    <article className={className}>
+      <div className="project-card__content">
+        <div>
+          <header className="project-card__header">
+            <div>
+              <p className="project-card__category">
+                {project.category}
+              </p>
+              <h2>{project.title}</h2>
+            </div>
+
+            <span
+              className={[
+                "project-card__status",
+                `project-card__status--${project.status}`
+              ].join(" ")}
+            >
+              <span aria-hidden="true" />
+              {statusLabels[project.status]}
+            </span>
+          </header>
+
+          <p className="project-card__summary">
+            {project.summary}
+          </p>
+          <p className="project-card__description">
+            {project.description}
+          </p>
+
+          <section className="project-card__section">
+            <h3>Key contributions</h3>
+            <ul className="project-card__responsibilities">
+              {project.responsibilities.map(
+                (responsibility) => (
+                  <li key={responsibility}>
+                    <FiCheck aria-hidden="true" />
+                    <span>{responsibility}</span>
+                  </li>
+                )
+              )}
+            </ul>
+          </section>
+
+          <ul
+            className="project-card__technologies"
+            aria-label={`${project.title} technologies`}
+          >
+            {project.technologies.map((technology) => (
+              <li key={technology}>{technology}</li>
+            ))}
+          </ul>
+        </div>
+
+        <ProjectCardActions
+          project={project}
+          lang={lang}
+        />
+      </div>
+    </article>
+  );
+}
+
+type ProjectCardActionsProps = {
+  project: Project;
+  lang: string;
+};
+
+function ProjectCardActions({
+  project,
+  lang
+}: ProjectCardActionsProps) {
+  const documentationUrl = getDocumentationUrl(
+    project,
+    lang
+  );
+  const githubUrl =
+    project.links.github ?? project.repositoryUrl;
+  const demoUrl =
+    project.links.demo ?? project.liveUrl;
+  const blogUrl =
+    project.links.blog ?? project.blogUrl;
+
+  if (
+    !documentationUrl &&
+    !githubUrl &&
+    !demoUrl &&
+    !blogUrl
+  ) {
+    return null;
+  }
+
+  return (
+    <footer className="project-card__footer">
+      {documentationUrl && (
+        <ProjectActionLink
+          href={documentationUrl}
+          label="View documentation"
+        />
+      )}
+      {githubUrl && (
+        <ProjectActionLink
+          href={githubUrl}
+          label="GitHub"
+          icon={<FiGithub aria-hidden="true" />}
+        />
+      )}
+      {demoUrl && (
+        <ProjectActionLink
+          href={demoUrl}
+          label="Live project"
+          icon={<FiExternalLink aria-hidden="true" />}
+        />
+      )}
+      {blogUrl && (
+        <ProjectActionLink
+          href={blogUrl}
+          label="Read article"
+          icon={<FiBookOpen aria-hidden="true" />}
+        />
+      )}
+    </footer>
+  );
+}
+
+type ProjectActionLinkProps = {
+  href: string;
+  label: string;
+  icon?: React.ReactNode;
+};
+
+function ProjectActionLink({
+  href,
+  label,
+  icon
+}: ProjectActionLinkProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {icon}
+      {label}
+      <FiArrowUpRight aria-hidden="true" />
+    </a>
   );
 }

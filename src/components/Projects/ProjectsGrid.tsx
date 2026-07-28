@@ -1,14 +1,14 @@
 import { projects } from "@/data/projects";
-
-import { DetailedProjectCard } from "./DetailedProjectCard";
+import { ProjectCard } from "@/ui/Cards";
 
 export function ProjectsGrid() {
   return (
     <div className="container projects-grid">
         {projects.map((project) => (
-        <DetailedProjectCard
-            key={project.id}
-            project={project}
+        <ProjectCard
+          key={project.id}
+          project={project}
+          variant="detailed"
         />
         ))}
     </div>

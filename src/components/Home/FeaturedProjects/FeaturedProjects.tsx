@@ -24,7 +24,8 @@ export function FeaturedProjects() {
             {featuredProjects.map((project) => (
               <ProjectCard
                 key={project.slug}
-                {...project}
+                project={project}
+                variant="compact"
               />
             ))}
           </div>
