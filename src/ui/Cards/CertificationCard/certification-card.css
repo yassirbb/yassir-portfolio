@@ -104,9 +104,10 @@
 
 .certification-card-content h3 {
   margin: 0 0 15px;
-  height: 60px;
+  min-height: 60px;
   font-size: 22px;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .certification-card-content > p {
@@ -190,6 +191,11 @@
 
   .certification-card-content {
     margin-top: 28px;
+  }
+
+  .certification-card-content h3 {
+    min-height: 0;
+    font-size: 20px;
   }
 }
 
