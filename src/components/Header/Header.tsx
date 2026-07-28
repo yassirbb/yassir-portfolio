@@ -21,10 +21,6 @@ const navigationItems = [
     href: "/projects"
   },
   {
-    label: "Journey",
-    href: "/journey"
-  },
-  {
     label: "Contact",
     href: "/contact"
   }

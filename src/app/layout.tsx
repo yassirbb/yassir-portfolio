@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 
+import { siteConfig } from "@/config/site";
+
 import {
   Inter,
   JetBrains_Mono,
@@ -33,9 +35,62 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yassir Ben Boubker | Frontend Engineer",
-  description:
-    "Frontend Engineer building React and TypeScript interfaces."
+  metadataBase: new URL(siteConfig.url),
+
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`
+  },
+
+  description: siteConfig.description,
+
+  authors: [
+    {
+      name: siteConfig.author.name,
+      url: siteConfig.url
+    }
+  ],
+
+  creator: siteConfig.author.name,
+  publisher: siteConfig.author.name,
+
+  keywords: [
+    "Frontend Engineer",
+    "React Developer",
+    "TypeScript Developer",
+    "Next.js Developer",
+    "Frontend Developer Morocco",
+    "Enterprise Frontend",
+    "Yassir Ben Boubker"
+  ],
+
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+
+    images: [
+      {
+        url: siteConfig.images.social,
+        width: 1200,
+        height: 630,
+        alt:
+          "Yassir Ben Boubker Frontend Engineer portfolio"
+      }
+    ]
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [
+      siteConfig.images.social
+    ]
+  }
 };
 
 type RootLayoutProps = Readonly<{

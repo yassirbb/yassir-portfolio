@@ -6,9 +6,14 @@ import { ExperienceList } from "@/components/About/Experience/Experience";
 import { SkillsSection } from "@/components/About/SkillsSection/SkillsSection";
 
 export const metadata: Metadata = {
-  title: "Frontend Engineer",
+  title: "About",
+
   description:
-    "Portfolio of Yassir Ben Boubker, a frontend engineer specializing in React, TypeScript and data-rich interfaces."
+    "Learn about Yassir Ben Boubker, his frontend engineering experience, technical skills and professional journey.",
+
+  alternates: {
+    canonical: "/about"
+  }
 };
 
 export default function AboutPage() {

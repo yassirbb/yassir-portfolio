@@ -6,8 +6,13 @@ import { Certifications } from "@/components/Home/Certifications/Certifications"
 
 export const metadata: Metadata = {
   title: "Frontend Engineer",
+
   description:
-    "Portfolio of Yassir Ben Boubker, a frontend engineer specializing in React, TypeScript and data-rich interfaces."
+    "Portfolio of Yassir Ben Boubker, a Frontend Engineer specializing in React, TypeScript and enterprise web interfaces.",
+
+  alternates: {
+    canonical: "/"
+  }
 };
 
 export default function HomePage() {

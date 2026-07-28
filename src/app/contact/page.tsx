@@ -3,9 +3,14 @@ import { ContactHero } from "@/components/Contact/Hero/Hero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Frontend Engineer",
+  title: "Contact",
+
   description:
-    "Portfolio of Yassir Ben Boubker, a frontend engineer specializing in React, TypeScript and data-rich interfaces."
+    "Contact Yassir Ben Boubker regarding frontend engineering opportunities, React projects and professional collaborations.",
+
+  alternates: {
+    canonical: "/contact"
+  }
 };
 
 export default function AboutPage() {

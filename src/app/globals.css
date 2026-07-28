@@ -2,6 +2,8 @@
 @import "../styles/global.css";
 @import "../styles/buttons.css";
 
+@import "../components/NotFound/not-found.css";
+
 @import '../ui/Section/section.css';
 
 @import "../components/Header/header.css";
