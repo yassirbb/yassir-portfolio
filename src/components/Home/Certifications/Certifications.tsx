@@ -2,20 +2,24 @@ import {
   FiAward
 } from "react-icons/fi";
 
-import { certifications } from "@/data/certifications";
+import { getCertifications } from "@/data/certifications";
 
 import { CertificationCard } from "@/ui/Cards";
 import { Section } from "@/ui/Section/Section";
 import { certificationIcons } from "@/icons/certification-icons";
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
 
 export function Certifications({
   copy,
-  common
+  common,
+  locale
 }: {
   copy: Dictionary["home"];
   common: Dictionary["common"];
+  locale: Locale;
 }) {
+  const certifications = getCertifications(locale);
   return (
       <Section
         id="certifications"

@@ -19,7 +19,6 @@ import {
   type Locale
 } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { SkipLink } from "@/ui";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -129,7 +128,6 @@ export default async function RootLayout({
         jetBrainsMono.variable
       ].join(" ")} >
       <body>
-        <SkipLink label={dictionary.common.skipToContent} />
         <Header
           locale={locale}
           copy={dictionary.navigation}

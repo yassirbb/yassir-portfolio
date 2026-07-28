@@ -1,4 +1,4 @@
-import { skillCategories } from "@/data/skills";
+import { getSkillCategories } from "@/data/skills";
 import {
   Section,
   TagList
@@ -7,8 +7,10 @@ import {
   FiLayers
 } from "react-icons/fi";
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
 
-export function SkillsSection({ copy }: { copy: Dictionary["about"] }) {
+export function SkillsSection({ copy, locale }: { copy: Dictionary["about"]; locale: Locale }) {
+  const skillCategories = getSkillCategories(locale);
   return (
     <Section id="skills" aria-labelledby="skills-title" title={copy.skillsTitle} titleId="skills-title" icon={FiLayers}>
       <div className="about-skills-grid">

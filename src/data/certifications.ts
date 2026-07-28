@@ -15,7 +15,7 @@ export type Certification = {
   credentialUrl?: string;
 };
 
-export const certifications = [
+const certificationSources = [
   {
     id: "epic-react",
     title: "Epic React",
@@ -28,7 +28,10 @@ export const certifications = [
         "Testing",
         "Performance",
         "Architecture"
-    ]
+    ],
+    translations: { fr: {
+      description: "Formation React avancée axée sur les modèles de composants, l'architecture applicative, les performances, les tests et la maintenabilité."
+    } }
   },
   {
     id: "html-css-javascript",
@@ -46,7 +49,12 @@ export const certifications = [
       "JavaScript",
       "Responsive Design"
     ],
-    credentialId: "JSFBNUZ3H7HJ"
+    credentialId: "JSFBNUZ3H7HJ",
+    translations: { fr: {
+      formattedDate: "Janvier 2021",
+      title: "HTML, CSS et JavaScript pour les développeurs web",
+      description: "Fondamentaux du développement frontend : HTML sémantique, CSS responsive et applications web interactives avec JavaScript."
+    } }
   },
   {
     id: "node-express-mongodb",
@@ -64,6 +72,17 @@ export const certifications = [
       "MongoDB",
       "REST APIs"
     ],
-    credentialId: "XNV5NXWPED46"
+    credentialId: "XNV5NXWPED46",
+    translations: { fr: {
+      formattedDate: "Novembre 2021",
+      title: "Développement serveur avec NodeJS, Express et MongoDB",
+      description: "Développement d'applications serveur avec Node.js, Express et MongoDB, incluant les API REST et l'intégration de bases de données."
+    } }
   }
-] satisfies Certification[];
+] satisfies LocalizedSource<Certification>[];
+
+export const certifications = localizeItems(certificationSources, "en");
+export const getCertifications = (locale: Locale) =>
+  localizeItems(certificationSources, locale);
+import type { Locale } from "@/i18n/config";
+import { localizeItems, type LocalizedSource } from "./localize";

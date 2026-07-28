@@ -25,9 +25,9 @@ export default async function AboutPage({ params }: PageProps) {
   return (
     <main id="main-content">
       <Hero locale={locale} copy={dictionary.about} />
-      <Journey copy={dictionary.home} />
-      <ExperienceList copy={dictionary.about} />
-      <SkillsSection copy={dictionary.about} />
+      <Journey copy={dictionary.home} locale={locale} />
+      <ExperienceList copy={dictionary.about} locale={locale} />
+      <SkillsSection copy={dictionary.about} locale={locale} />
     </main>
   );
 }

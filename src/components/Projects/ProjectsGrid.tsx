@@ -1,10 +1,11 @@
-import { projects } from "@/data/projects";
+import { getProjects } from "@/data/projects";
 import { ProjectCard } from "@/ui/Cards";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 type Props = { locale: Locale; copy: Dictionary["common"] };
 export function ProjectsGrid({ locale, copy }: Props) {
+  const projects = getProjects(locale);
   return (
     <div className="container projects-grid">
         {projects.map((project) => (

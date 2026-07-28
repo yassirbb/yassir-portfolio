@@ -34,6 +34,7 @@ export default async function HomePage({ params }: PageProps) {
       <Certifications
         copy={dictionary.home}
         common={dictionary.common}
+        locale={locale}
       />
     </main>
   );

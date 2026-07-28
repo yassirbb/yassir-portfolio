@@ -1,10 +1,12 @@
-import { experiences } from "@/data/experience";
+import { getExperiences } from "@/data/experience";
 import { Section } from "@/ui";
 
 import { ExperienceCard } from "@/ui/Cards";
 import { FiBriefcase } from "react-icons/fi";
 import type { Dictionary } from "@/i18n/dictionaries";
-export function ExperienceList({ copy }: { copy: Dictionary["about"] }) {
+import type { Locale } from "@/i18n/config";
+export function ExperienceList({ copy, locale }: { copy: Dictionary["about"]; locale: Locale }) {
+  const experiences = getExperiences(locale);
   return (
     <Section id="experience" aria-labelledby="experience-title" title={copy.experienceTitle} titleId="experience-title" icon={FiBriefcase}>
         <div className="about-experience-list">

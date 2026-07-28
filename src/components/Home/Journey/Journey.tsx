@@ -1,14 +1,16 @@
 import { FiClock } from "react-icons/fi";
 
-import { journeyEntries } from "@/data/journey";
+import { getJourneyEntries } from "@/data/journey";
 
 import { JourneyItem } from "@/ui/Cards";
 import { Section } from "@/ui";
 
 import { journeyIcons } from "@/icons/journey-icons";
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
 
-export function Journey({ copy }: { copy: Dictionary["home"] }) {
+export function Journey({ copy, locale }: { copy: Dictionary["home"]; locale: Locale }) {
+  const journeyEntries = getJourneyEntries(locale);
   return (
     <Section
       id="journey"

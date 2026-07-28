@@ -5,6 +5,8 @@ import {
   FiCode,
   FiDatabase
 } from "react-icons/fi";
+import type { Locale } from "@/i18n/config";
+import { localizeItems, type LocalizedSource } from "./localize";
 
 
 type SkillCategory = {
@@ -14,7 +16,7 @@ type SkillCategory = {
   Icon: IconType;
 };
 
-export const skillCategories = [
+const skillSources = [
   {
     id: "core-frontend",
     title: "Core frontend",
@@ -27,7 +29,8 @@ export const skillCategories = [
       "React Router",
       "Git"
     ],
-    Icon: FiCode
+    Icon: FiCode,
+    translations: { fr: { title: "Fondamentaux frontend" } }
   },
   {
     id: "state-and-forms",
@@ -38,7 +41,8 @@ export const skillCategories = [
       "Formik",
       "Yup"
     ],
-    Icon: FiDatabase
+    Icon: FiDatabase,
+    translations: { fr: { title: "État et formulaires" } }
   },
   {
     id: "ui-and-visualization",
@@ -50,7 +54,8 @@ export const skillCategories = [
       "D3.js",
       "Leaflet.js"
     ],
-    Icon: FiBarChart2
+    Icon: FiBarChart2,
+    translations: { fr: { title: "UI et visualisation" } }
   },
   {
     id: "testing-and-tooling",
@@ -61,6 +66,11 @@ export const skillCategories = [
       "Vite",
       "Docker"
     ],
-    Icon: FiCheckSquare
+    Icon: FiCheckSquare,
+    translations: { fr: { title: "Tests et outils" } }
   }
-] satisfies SkillCategory[];
+] satisfies LocalizedSource<SkillCategory>[];
+
+export const skillCategories = localizeItems(skillSources, "en");
+export const getSkillCategories = (locale: Locale) =>
+  localizeItems(skillSources, locale);
