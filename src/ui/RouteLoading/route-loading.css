@@ -1,0 +1,50 @@
+.route-loading {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.route-loading__bar {
+  display: block;
+  width: 45%;
+  height: 100%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--primary-400),
+      var(--cyan)
+    );
+  opacity: 0;
+  transform: translateX(-100%);
+  animation:
+    route-loading-progress 850ms ease-in-out
+    120ms infinite;
+}
+
+@keyframes route-loading-progress {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(320%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-loading__bar {
+    animation: none;
+  }
+}

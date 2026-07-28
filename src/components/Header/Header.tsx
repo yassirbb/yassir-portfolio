@@ -40,11 +40,20 @@ export function Header({ locale, copy }: HeaderProps) {
     return segments.join("/") || `/${nextLocale}`;
   }
 
+  function rememberLocale(nextLocale: Locale) {
+    document.cookie = [
+      `portfolio-language=${nextLocale}`,
+      "path=/",
+      "max-age=31536000",
+      "samesite=lax"
+    ].join("; ");
+  }
+
   return (
     <>
       <header className="site-header">
         <div className="container nav-inner">
-          <Link className="brand" href={localizePath(locale)} aria-label={copy.homepageLabel}>
+          <Link className="brand" href={localizePath(locale)} aria-label={copy.homepageLabel} prefetch>
             <Image className="brand-logo" src="/yb-logo.webp" alt="" width={52} height={52} priority />
           </Link>
 
@@ -62,8 +71,13 @@ export function Header({ locale, copy }: HeaderProps) {
                   ref={index === 0 ? firstMenuLinkRef : undefined}
                   className={active ? "active" : undefined}
                   href={href}
+                  prefetch
                   aria-current={active ? "page" : undefined}
-                  onClick={() => closeMenu()}
+                  onClick={
+                    isMenuOpen
+                      ? () => closeMenu()
+                      : undefined
+                  }
                 >
                   {item.label}
                 </Link>
@@ -75,6 +89,8 @@ export function Header({ locale, copy }: HeaderProps) {
             <Link
               className={["language-option", locale === "en" ? "active" : ""].filter(Boolean).join(" ")}
               href={switchLocale("en")}
+              prefetch
+              onClick={() => rememberLocale("en")}
               aria-current={locale === "en" ? "page" : undefined}
               hrefLang="en"
             >
@@ -84,6 +100,8 @@ export function Header({ locale, copy }: HeaderProps) {
             <Link
               className={["language-option", locale === "fr" ? "active" : ""].filter(Boolean).join(" ")}
               href={switchLocale("fr")}
+              prefetch
+              onClick={() => rememberLocale("fr")}
               aria-current={locale === "fr" ? "page" : undefined}
               hrefLang="fr"
             >
@@ -91,7 +109,7 @@ export function Header({ locale, copy }: HeaderProps) {
             </Link>
           </div>
 
-          <Link className="button button-small button-primary nav-cta" href={localizePath(locale, "/contact")}>
+          <Link className="button button-small button-primary nav-cta" href={localizePath(locale, "/contact")} prefetch>
             {copy.connect}
             <span aria-hidden="true">↗</span>
           </Link>

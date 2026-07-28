@@ -20,17 +20,6 @@ function preferredLocale(request: NextRequest): Locale {
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const firstSegment = pathname.split("/")[1];
-
-  if (isLocale(firstSegment)) {
-    const response = NextResponse.next();
-    response.cookies.set("portfolio-language", firstSegment, {
-      maxAge: 31_536_000,
-      path: "/",
-      sameSite: "lax"
-    });
-    return response;
-  }
 
   const locale = preferredLocale(request);
   const url = request.nextUrl.clone();
@@ -40,6 +29,6 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|apple-icon.png|robots.txt|sitemap.xml|images|documents|.*\\..*).*)"
+    "/((?!api|_next/static|_next/image|favicon.ico|apple-icon.png|robots.txt|sitemap.xml|images|documents|en(?:/|$)|fr(?:/|$)|.*\\..*).*)"
   ]
 };

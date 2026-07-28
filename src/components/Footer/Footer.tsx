@@ -10,6 +10,8 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { AvailabilityPanel } from "./AvailabilityPanel";
 import { SocialLinks } from "./SocialLinks";
 
+const currentYear = new Date().getFullYear();
+
 export function Footer({
   locale,
   copy
@@ -17,8 +19,6 @@ export function Footer({
   locale: Locale;
   copy: Dictionary["footer"];
 }) {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="portfolio-footer" id="contact">
       <div className="container footer-content">
