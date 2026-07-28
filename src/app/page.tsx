@@ -17,16 +17,10 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <>
-      <a className="skip-link" href="#main-content">
-        Skip to content
-      </a>
-
-      <main id="main-content">
-        <Hero />
-        <FeaturedProjects />
-        <Certifications />
-      </main>
-    </>
+    <main id="main-content">
+      <Hero />
+      <FeaturedProjects />
+      <Certifications />
+    </main>
   );
 }

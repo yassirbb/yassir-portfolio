@@ -15,15 +15,9 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <>
-      <a className="skip-link" href="#main-content">
-        Skip to content
-      </a>
-
-      <main id="main-content">
-        <ContactHero />
-        <ContactForm />
-      </main>
-    </>
+    <main id="main-content">
+      <ContactHero />
+      <ContactForm />
+    </main>
   );
 }

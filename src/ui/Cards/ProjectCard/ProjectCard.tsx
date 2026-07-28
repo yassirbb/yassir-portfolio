@@ -11,6 +11,7 @@ import type {
   Project,
   ProjectStatus
 } from "@/data/projects";
+import { TagList } from "@/ui/TagList/TagList";
 
 export type ProjectCardVariant = "compact" | "detailed";
 
@@ -169,14 +170,11 @@ function DetailedProjectCard({
             </ul>
           </section>
 
-          <ul
+          <TagList
             className="project-card__technologies"
-            aria-label={`${project.title} technologies`}
-          >
-            {project.technologies.map((technology) => (
-              <li key={technology}>{technology}</li>
-            ))}
-          </ul>
+            items={project.technologies}
+            label={`${project.title} technologies`}
+          />
         </div>
 
         <ProjectCardActions

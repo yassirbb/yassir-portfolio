@@ -7,7 +7,10 @@ import {
   FiLayers
 } from "react-icons/fi";
 
-import { Hero as HeroLayout } from "@/ui";
+import {
+  Hero as HeroLayout,
+  IconFeature
+} from "@/ui";
 
 export function Hero() {
   return (
@@ -39,46 +42,21 @@ export function Hero() {
       </p>
 
       <div className="hero__feature-list">
-        <article className="hero__feature">
-          <span className="hero__feature-icon" aria-hidden="true">
-            <FiCode />
-          </span>
-          <div>
-            <h2>React &amp; TypeScript</h2>
-            <p>
-              Building maintainable enterprise interfaces with
-              reusable components and clear application
-              architecture.
-            </p>
-          </div>
-        </article>
-
-        <article className="hero__feature">
-          <span className="hero__feature-icon" aria-hidden="true">
-            <FiLayers />
-          </span>
-          <div>
-            <h2>Legacy modernization</h2>
-            <p>
-              Migrating Backbone.js interfaces to modern React
-              and TypeScript while preserving business
-              behavior.
-            </p>
-          </div>
-        </article>
-
-        <article className="hero__feature">
-          <span className="hero__feature-icon" aria-hidden="true">
-            <FiBarChart2 />
-          </span>
-          <div>
-            <h2>Interactive applications</h2>
-            <p>
-              Creating complex forms, monitoring views, maps
-              and data-visualization experiences.
-            </p>
-          </div>
-        </article>
+        <IconFeature
+          icon={FiCode}
+          title="React & TypeScript"
+          description="Building maintainable enterprise interfaces with reusable components and clear application architecture."
+        />
+        <IconFeature
+          icon={FiLayers}
+          title="Legacy modernization"
+          description="Migrating Backbone.js interfaces to modern React and TypeScript while preserving business behavior."
+        />
+        <IconFeature
+          icon={FiBarChart2}
+          title="Interactive applications"
+          description="Creating complex forms, monitoring views, maps and data-visualization experiences."
+        />
       </div>
 
       <div className="hero__actions">

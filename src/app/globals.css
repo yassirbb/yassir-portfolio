@@ -6,6 +6,8 @@
 
 @import '../ui/Section/section.css';
 @import "../ui/Hero/hero.css";
+@import "../ui/IconFeature/icon-feature.css";
+@import "../ui/TagList/tag-list.css";
 @import "../ui/Cards/ProjectCard/project-card.css";
 
 @import "../components/Header/header.css";

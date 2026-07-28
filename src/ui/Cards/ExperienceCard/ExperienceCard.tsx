@@ -5,6 +5,7 @@ import {
 } from "react-icons/fi";
 
 import type { Experience } from "@/data/experience";
+import { TagList } from "@/ui";
 
 type ExperienceCardProps = {
   experience: Experience;
@@ -55,18 +56,11 @@ export function ExperienceCard({
           )}
         </ul>
 
-        <ul
+        <TagList
           className="about-technology-tags"
-          aria-label={`${experience.title} technologies`}
-        >
-          {experience.technologies.map(
-            (technology) => (
-              <li key={technology}>
-                {technology}
-              </li>
-            )
-          )}
-        </ul>
+          items={experience.technologies}
+          label={`${experience.title} technologies`}
+        />
       </div>
     </article>
   );

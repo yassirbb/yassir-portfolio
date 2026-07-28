@@ -5,7 +5,10 @@ import {
   FiZap
 } from "react-icons/fi";
 
-import { Hero } from "@/ui";
+import {
+  Hero,
+  IconFeature
+} from "@/ui";
 
 type ContactBenefit = {
   id: string;
@@ -62,18 +65,13 @@ export function ContactHero() {
       <div className="contact-benefits">
         {contactBenefits.map(
           ({ id, title, description, Icon }) => (
-            <article className="contact-benefit" key={id}>
-              <span
-                className="contact-benefit-icon"
-                aria-hidden="true"
-              >
-                <Icon />
-              </span>
-              <div>
-                <h2>{title}</h2>
-                <p>{description}</p>
-              </div>
-            </article>
+            <IconFeature
+              key={id}
+              icon={Icon}
+              title={title}
+              description={description}
+              variant="circle"
+            />
           )
         )}
       </div>

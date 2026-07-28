@@ -1,5 +1,8 @@
 import { skillCategories } from "@/data/skills";
-import { Section } from "@/ui";
+import {
+  Section,
+  TagList
+} from "@/ui";
 import {
   FiLayers
 } from "react-icons/fi";
@@ -23,14 +26,11 @@ export function SkillsSection() {
 
               <h3>{title}</h3>
 
-              <ul
+              <TagList
                 className="about-skill-tags"
-                aria-label={`${title} technologies`}
-              >
-                {skills.map((skill) => (
-                  <li key={skill}>{skill}</li>
-                ))}
-              </ul>
+                items={skills}
+                label={`${title} technologies`}
+              />
             </article>
           )
         )}

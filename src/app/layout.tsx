@@ -15,7 +15,6 @@ import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
 import type { Language } from "@/hooks/useLanguage";
 
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
