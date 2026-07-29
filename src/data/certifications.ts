@@ -1,3 +1,11 @@
+import type { Locale } from "@/i18n/config";
+import { localizeItems, type LocalizedSource } from "./localize";
+import {
+  certificationSourceSchema,
+  validateData
+} from "./validation";
+import { paths } from "@/config/paths";
+
 export type CertificationProviderId =
   | "epic-react"
   | "coursera"
@@ -140,9 +148,12 @@ const certificationSources = [
   }
 ] satisfies LocalizedSource<Certification>[];
 
+validateData(
+  certificationSourceSchema,
+  certificationSources,
+  "certifications"
+);
+
 export const certifications = localizeItems(certificationSources, "en");
 export const getCertifications = (locale: Locale) =>
   localizeItems(certificationSources, locale);
-import type { Locale } from "@/i18n/config";
-import { localizeItems, type LocalizedSource } from "./localize";
-import { paths } from "@/config/paths";

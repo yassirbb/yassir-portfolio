@@ -1,3 +1,10 @@
+import type { Locale } from "@/i18n/config";
+import { localizeItems, type LocalizedSource } from "./localize";
+import {
+  experienceSourceSchema,
+  validateData
+} from "./validation";
+
 export type Experience = {
   id: string;
   period: string;
@@ -81,8 +88,12 @@ const experienceSources = [
   }
 ] satisfies LocalizedSource<Experience>[];
 
+validateData(
+  experienceSourceSchema,
+  experienceSources,
+  "experiences"
+);
+
 export const experiences = localizeItems(experienceSources, "en");
 export const getExperiences = (locale: Locale) =>
   localizeItems(experienceSources, locale);
-import type { Locale } from "@/i18n/config";
-import { localizeItems, type LocalizedSource } from "./localize";

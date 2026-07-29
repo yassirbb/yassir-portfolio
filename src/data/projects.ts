@@ -1,3 +1,14 @@
+import type { Locale } from "@/i18n/config";
+import {
+  localizeItems,
+  type LocalizedSource
+} from "./localize";
+import {
+  projectSourceSchema,
+  validateData
+} from "./validation";
+import { paths } from "@/config/paths";
+
 export type ProjectCategory =
   | "enterprise"
   | "personal"
@@ -331,14 +342,10 @@ const projectSources = [
   }
 ] satisfies LocalizedSource<Project>[];
 
+validateData(projectSourceSchema, projectSources, "projects");
+
 export const projects = localizeItems(projectSources, "en");
 
 export function getProjects(locale: Locale) {
   return localizeItems(projectSources, locale);
 }
-import type { Locale } from "@/i18n/config";
-import {
-  localizeItems,
-  type LocalizedSource
-} from "./localize";
-import { paths } from "@/config/paths";
