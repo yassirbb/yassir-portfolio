@@ -4,7 +4,7 @@
   height: 100svh;
   overflow: hidden;
   background-color: var(--bg-primary);
-  background-image: url("/images/home/hero-background.webp");
+  background-image: var(--hero-background-image);
   background-repeat: no-repeat;
   background-position: 60%;
   background-size: cover;

@@ -1,7 +1,9 @@
 import type {
   ComponentPropsWithoutRef,
+  CSSProperties,
   ReactNode
 } from "react";
+import { paths } from "@/config/paths";
 import "./hero.css";
 
 export type HeroVariant =
@@ -30,11 +32,19 @@ export function Hero({
   children,
   footer,
   className,
+  style,
   ...sectionProps
 }: HeroProps) {
+  const heroStyle = {
+    "--hero-background-image":
+      `url("${paths.images.heroBackground}")`,
+    ...style
+  } as CSSProperties;
+
   return (
     <section
       {...sectionProps}
+      style={heroStyle}
       className={[
         "hero",
         `hero--${variant}`,

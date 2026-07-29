@@ -19,6 +19,7 @@ export const paths = {
   },
   images: {
     logo: "/yb-logo.webp",
+    heroBackground: "/images/home/hero-background.webp",
     socialPreview: "/images/social/portfolio-preview.webp",
     projects: {
       centreonMap:
