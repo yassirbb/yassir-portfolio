@@ -1,8 +1,9 @@
-import Link from "next/link";
 import {
   FiArrowLeft,
   FiCompass
 } from "react-icons/fi";
+
+import { Button } from "@/ui";
 
 export default function NotFound() {
   return (
@@ -31,20 +32,18 @@ export default function NotFound() {
         </p>
 
         <div className="not-found-actions">
-          <Link
-            className="button button-primary"
-            href="/"
-          >
+          <Button as="link" href="/">
             <FiArrowLeft aria-hidden="true" />
             Back to homepage
-          </Link>
+          </Button>
 
-          <Link
-            className="button button-secondary"
+          <Button
+            as="link"
+            variant="secondary"
             href="/projects"
           >
             View projects
-          </Link>
+          </Button>
         </div>
       </div>
     </main>

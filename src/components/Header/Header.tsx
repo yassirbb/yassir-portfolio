@@ -10,6 +10,7 @@ import {
   type Locale
 } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { Button } from "@/ui";
 
 type HeaderProps = {
   locale: Locale;
@@ -109,10 +110,16 @@ export function Header({ locale, copy }: HeaderProps) {
             </Link>
           </div>
 
-          <Link className="button button-small button-primary nav-cta" href={localizePath(locale, "/contact")} prefetch>
+          <Button
+            as="link"
+            className="nav-cta"
+            href={localizePath(locale, "/contact")}
+            size="small"
+            prefetch
+          >
             {copy.connect}
             <span aria-hidden="true">↗</span>
-          </Link>
+          </Button>
 
           <button
             ref={menuButtonRef}

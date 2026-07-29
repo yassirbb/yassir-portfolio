@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   FiArrowRight,
   FiBarChart2,
@@ -8,6 +7,7 @@ import {
 } from "react-icons/fi";
 
 import {
+  Button,
   Hero as HeroLayout,
   IconFeature
 } from "@/ui";
@@ -58,22 +58,23 @@ export function Hero({ locale, copy }: Props) {
       </div>
 
       <div className="hero__actions">
-        <Link
-          className="button button-primary"
+        <Button
+          as="link"
           href={localizePath(locale, "/projects")}
         >
           {copy.viewProjects}
           <FiArrowRight aria-hidden="true" />
-        </Link>
+        </Button>
 
-        <a
-          className="button button-secondary"
+        <Button
+          as="anchor"
+          variant="secondary"
           href="/documents/yassir-ben-boubker-cv.pdf"
           download
         >
           <FiDownload aria-hidden="true" />
           {copy.downloadCv}
-        </a>
+        </Button>
       </div>
     </HeroLayout>
   );

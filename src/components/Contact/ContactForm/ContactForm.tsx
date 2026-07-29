@@ -1,6 +1,6 @@
 "use client";
 
-import { Section } from "@/ui";
+import { Button, Section } from "@/ui";
 import {
   type ChangeEvent,
   type FormEvent,
@@ -303,13 +303,10 @@ export function ContactForm({
             {copy.privacy}
           </p>
 
-          <button
-            className="button button-primary"
-            type="submit"
-          >
+          <Button type="submit">
             <span>{copy.send}</span>
             <FiSend aria-hidden="true" />
-          </button>
+          </Button>
         </div>
 
         <p

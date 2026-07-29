@@ -1,6 +1,6 @@
 @import "../styles/root.css";
 @import "../styles/global.css";
-@import "../styles/buttons.css";
+@import "../ui/Button/button.css";
 
 @import "../components/NotFound/not-found.css";
 

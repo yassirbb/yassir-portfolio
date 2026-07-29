@@ -30,13 +30,11 @@
     var(--primary-600)
   );
   color: #ffffff;
-  box-shadow:
-    0 10px 30px rgba(8, 123, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(8, 123, 255, 0.3);
 }
 
 .button-primary:hover {
-  box-shadow:
-    0 14px 40px rgba(8, 123, 255, 0.42);
+  box-shadow: 0 14px 40px rgba(8, 123, 255, 0.42);
 }
 
 .button-secondary {
@@ -62,4 +60,3 @@
   outline: 2px solid var(--primary-400);
   outline-offset: 4px;
 }
-

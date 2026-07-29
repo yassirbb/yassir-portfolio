@@ -1,6 +1,4 @@
-import Link from "next/link";
-
-import { Hero as HeroLayout } from "@/ui";
+import { Button, Hero as HeroLayout } from "@/ui";
 import { TechStack } from "./TechStack/TechStack";
 import type { Locale } from "@/i18n/config";
 import { localizePath } from "@/i18n/config";
@@ -44,20 +42,21 @@ export function Hero({ locale, copy }: Props) {
       </p>
 
       <div className="hero__actions">
-        <Link
-          className="button button-primary"
+        <Button
+          as="link"
           href="#featured-projects"
         >
           {copy.viewWork}
           <span aria-hidden="true">→</span>
-        </Link>
+        </Button>
 
-        <Link
-          className="button button-secondary"
+        <Button
+          as="link"
+          variant="secondary"
           href={localizePath(locale, "/contact")}
         >
           {copy.connect}
-        </Link>
+        </Button>
       </div>
 
       <p className="hero__note">
