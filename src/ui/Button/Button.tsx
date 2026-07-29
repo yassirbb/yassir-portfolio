@@ -1,4 +1,5 @@
 import Link, { type LinkProps } from "next/link";
+import "./button.css";
 import type {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "./project-card.css";
 import {
   FiArrowUpRight,
   FiBookOpen,

@@ -1,5 +1,6 @@
 import { getProjects } from "@/data/projects";
-import { ProjectCard } from "@/ui/Cards";
+import "./projects.css";
+import { ProjectCard } from "@/ui/Cards/ProjectCard/ProjectCard";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 

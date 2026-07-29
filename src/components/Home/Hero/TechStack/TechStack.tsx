@@ -1,5 +1,6 @@
 import { technologies } from "@/data/technologies";
 import type { Dictionary } from "@/i18n/dictionaries";
+import "./tech-stack.css";
 
 import { technologyIcons } from "../../../../icons/technology-icons";
 

@@ -1,4 +1,5 @@
 import type { IconType } from "react-icons";
+import "./icon-feature.css";
 
 type IconFeatureProps = {
   title: string;

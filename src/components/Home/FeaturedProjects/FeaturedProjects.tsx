@@ -1,9 +1,10 @@
 import { FiGrid } from "react-icons/fi";
+import "./featured-projects.css";
 
 import { getProjects } from "@/data/projects";
 import { paths } from "@/config/paths";
 
-import { ProjectCard } from "@/ui/Cards";
+import { ProjectCard } from "@/ui/Cards/ProjectCard/ProjectCard";
 import { Section } from "@/ui/Section/Section";
 import type { Locale } from "@/i18n/config";
 import { localizePath } from "@/i18n/config";

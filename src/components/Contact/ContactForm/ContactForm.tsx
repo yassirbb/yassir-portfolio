@@ -1,6 +1,9 @@
 "use client";
 
-import { Button, Section } from "@/ui";
+import "./contact-form.css";
+
+import { Button } from "@/ui/Button/Button";
+import { Section } from "@/ui/Section/Section";
 import {
   type ChangeEvent,
   type FormEvent,

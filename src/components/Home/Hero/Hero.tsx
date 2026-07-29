@@ -1,4 +1,5 @@
-import { Button, Hero as HeroLayout } from "@/ui";
+import { Button } from "@/ui/Button/Button";
+import { Hero as HeroLayout } from "@/ui/Hero/Hero";
 import { TechStack } from "./TechStack/TechStack";
 import type { Locale } from "@/i18n/config";
 import { localizePath } from "@/i18n/config";

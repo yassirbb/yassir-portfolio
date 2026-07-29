@@ -3,9 +3,10 @@ import {
   FiClock,
   FiMapPin
 } from "react-icons/fi";
+import "./experience-card.css";
 
 import type { Experience } from "@/data/experience";
-import { TagList } from "@/ui";
+import { TagList } from "@/ui/TagList/TagList";
 
 type ExperienceCardProps = {
   experience: Experience;

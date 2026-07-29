@@ -6,11 +6,9 @@ import {
   FiLayers
 } from "react-icons/fi";
 
-import {
-  Button,
-  Hero as HeroLayout,
-  IconFeature
-} from "@/ui";
+import { Button } from "@/ui/Button/Button";
+import { Hero as HeroLayout } from "@/ui/Hero/Hero";
+import { IconFeature } from "@/ui/IconFeature/IconFeature";
 import type { Locale } from "@/i18n/config";
 import { localizePath } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";

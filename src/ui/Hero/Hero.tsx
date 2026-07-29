@@ -2,6 +2,7 @@ import type {
   ComponentPropsWithoutRef,
   ReactNode
 } from "react";
+import "./hero.css";
 
 export type HeroVariant =
   | "home"

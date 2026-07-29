@@ -1,3 +1,5 @@
+import "./tag-list.css";
+
 type TagListProps = {
   items: readonly string[];
   label: string;

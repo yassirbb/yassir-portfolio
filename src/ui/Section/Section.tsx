@@ -4,6 +4,7 @@ import type {
 } from "react";
 import type { IconType } from "react-icons";
 import Link from "next/link";
+import "./section.css";
 
 export interface SectionProps
   extends ComponentPropsWithoutRef<"section"> {

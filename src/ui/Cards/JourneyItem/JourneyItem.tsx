@@ -1,5 +1,6 @@
 import type { JourneyEntry } from "@/data/journey";
 import { IconType } from "react-icons";
+import "./journey-item.css";
 
 // import { journeyIcons } from "../../../icons/journey-icons";
 

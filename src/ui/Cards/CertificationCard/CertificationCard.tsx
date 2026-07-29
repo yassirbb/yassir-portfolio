@@ -1,4 +1,5 @@
 import { FiArrowUpRight } from "react-icons/fi";
+import "./certification-card.css";
 
 import type { Certification } from "@/data/certifications";
 import { IconType } from "react-icons";

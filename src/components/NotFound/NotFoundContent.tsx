@@ -2,8 +2,9 @@ import {
   FiArrowLeft,
   FiCompass
 } from "react-icons/fi";
+import "./not-found.css";
 
-import { Button } from "@/ui";
+import { Button } from "@/ui/Button/Button";
 import { paths } from "@/config/paths";
 import {
   localizePath,

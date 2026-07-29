@@ -1,10 +1,11 @@
 import {
   FiAward
 } from "react-icons/fi";
+import "./certifications.css";
 
 import { getCertifications } from "@/data/certifications";
 
-import { CertificationCard } from "@/ui/Cards";
+import { CertificationCard } from "@/ui/Cards/CertificationCard/CertificationCard";
 import { Section } from "@/ui/Section/Section";
 import { certificationIcons } from "@/icons/certification-icons";
 import type { Dictionary } from "@/i18n/dictionaries";

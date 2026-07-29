@@ -5,10 +5,8 @@ import {
 } from "react-icons/fi";
 
 import type { Dictionary } from "@/i18n/dictionaries";
-import {
-  Hero,
-  IconFeature
-} from "@/ui";
+import { Hero } from "@/ui/Hero/Hero";
+import { IconFeature } from "@/ui/IconFeature/IconFeature";
 
 const benefitIcons = [FiZap, FiCheckCircle, FiTarget];
 

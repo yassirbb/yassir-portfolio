@@ -1,8 +1,7 @@
 import { getSkillCategories } from "@/data/skills";
-import {
-  Section,
-  TagList
-} from "@/ui";
+import "./skills-section.css";
+import { Section } from "@/ui/Section/Section";
+import { TagList } from "@/ui/TagList/TagList";
 import {
   FiLayers
 } from "react-icons/fi";

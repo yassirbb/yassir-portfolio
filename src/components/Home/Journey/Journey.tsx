@@ -1,9 +1,10 @@
 import { FiClock } from "react-icons/fi";
+import "./journey.css";
 
 import { getJourneyEntries } from "@/data/journey";
 
-import { JourneyItem } from "@/ui/Cards";
-import { Section } from "@/ui";
+import { JourneyItem } from "@/ui/Cards/JourneyItem/JourneyItem";
+import { Section } from "@/ui/Section/Section";
 
 import { journeyIcons } from "@/icons/journey-icons";
 import type { Dictionary } from "@/i18n/dictionaries";

@@ -1,3 +1,5 @@
+import "@/ui/RouteLoading/route-loading.css";
+
 export default function LocaleRouteLoading() {
   return (
     <div

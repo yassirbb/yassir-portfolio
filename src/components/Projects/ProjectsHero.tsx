@@ -3,7 +3,7 @@ import {
   FiLayers
 } from "react-icons/fi";
 
-import { Hero } from "@/ui";
+import { Hero } from "@/ui/Hero/Hero";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 export function ProjectsHero({ copy }: { copy: Dictionary["projectsPage"] }) {

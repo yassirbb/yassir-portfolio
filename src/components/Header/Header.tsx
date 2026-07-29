@@ -10,7 +10,7 @@ import {
   type Locale
 } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { Button } from "@/ui";
+import { Button } from "@/ui/Button/Button";
 import { paths } from "@/config/paths";
 
 type HeaderProps = {

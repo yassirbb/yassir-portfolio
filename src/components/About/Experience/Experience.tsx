@@ -1,7 +1,8 @@
 import { getExperiences } from "@/data/experience";
-import { Section } from "@/ui";
+import { Section } from "@/ui/Section/Section";
+import "./experience.css";
 
-import { ExperienceCard } from "@/ui/Cards";
+import { ExperienceCard } from "@/ui/Cards/ExperienceCard/ExperienceCard";
 import { FiBriefcase } from "react-icons/fi";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
