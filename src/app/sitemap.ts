@@ -40,7 +40,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) =>
     routes.map((route) => ({
       url: `${siteConfig.url}${localizePath(locale, route.path)}`,
-      lastModified: new Date(),
       changeFrequency: route.changeFrequency,
       priority: route.priority,
       alternates: {
