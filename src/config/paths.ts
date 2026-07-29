@@ -18,11 +18,17 @@ export const paths = {
     logo: "/yb-logo.webp",
     socialPreview: "/images/social/portfolio-preview.webp",
     projects: {
-      centreonMap: "/images/projects/centreon-map.webp",
-      bamSimulation: "/images/projects/bam-simulation.webp",
+      centreonMap:
+        "/images/projects/centreon-map-brand.svg",
+      bamSimulation:
+        "/images/projects/centreon-bam-brand.svg",
+      equipmentTransport:
+        "/images/projects/equipment-transport-brand.svg",
       portfolio: "/images/projects/developer-portfolio.webp",
-      reactLearning:
-        "/images/projects/react-learning-project.webp"
+      socialMediaClone:
+        "/images/projects/social-media-clone.svg",
+      flappyBirdClone:
+        "/images/projects/flappy-bird-clone.svg"
     }
   },
   external: {
@@ -35,10 +41,10 @@ export const paths = {
       portfolioRepository:
         "https://github.com/Yassir-BenBOUBKER/portfolio",
       portfolioLive: "https://your-portfolio-domain.com",
-      reactLearningRepository:
-        "https://github.com/Yassir-BenBOUBKER/react-learning-project",
-      reactLearningArticle:
-        "https://medium.com/@your-profile/react-learning-project"
+      flappyBirdRepository:
+        "https://github.com/yassirbb/Flappy-Clone",
+      flappyBirdArticle:
+        "https://medium.com/@yassirbb/build-your-own-flappy-bird-clone-with-html-css-javascript-85cf61b97cf4"
     }
   },
   documentation: {

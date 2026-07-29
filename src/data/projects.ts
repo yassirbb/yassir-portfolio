@@ -23,6 +23,7 @@ export type Project = {
   id: string;
   slug: string;
   title: string;
+  year?: string;
   category: ProjectCategory;
   status: ProjectStatus;
   summary: string;
@@ -169,7 +170,7 @@ const projectSources = [
       "REST APIs"
     ],
     image: {
-      src: paths.images.projects.bamSimulation,
+      src: paths.images.projects.equipmentTransport,
       alt:
         "Equipment transport management and inspection application interface"
     },
@@ -238,48 +239,92 @@ const projectSources = [
     }
   },
   {
-    id: "react-learning-project",
-    slug: "react-learning-project",
-    title: "React Learning Project",
+    id: "social-media-app-clone",
+    slug: "social-media-app-clone",
+    title: "Social Media App Clone",
+    year: "2025",
     category: "pet",
-    status: "in-progress",
+    status: "completed",
     summary:
-      "A small experimental project used to practice advanced React concepts.",
+      "A tutorial-based mobile social application built to explore the React Native ecosystem.",
     description:
-      "A personal playground for component patterns, accessibility, testing and frontend performance.",
-    role: "Frontend Developer",
+      "Built following a YouTube tutorial to explore mobile authentication flows, backend-as-a-service logic and reusable interfaces with Expo and React Native.",
+    role: "React Native Developer",
     responsibilities: [
-      "Practiced reusable component patterns",
-      "Added automated tests",
-      "Improved accessibility",
-      "Documented lessons learned"
+      "Implemented authentication flows with Clerk",
+      "Used Convex for backend logic and persistent application data",
+      "Built reusable interfaces with Expo and React Native components",
+      "Explored mobile application architecture and navigation patterns"
     ],
     technologies: [
-      "React",
-      "TypeScript",
-      "Vitest",
-      "Testing Library"
+      "React Native",
+      "Expo",
+      "Clerk",
+      "Convex"
     ],
-    repositoryUrl:
-      paths.external.projects.reactLearningRepository,
-    blogUrl:
-      paths.external.projects.reactLearningArticle,
     image: {
-      src: paths.images.projects.reactLearning,
-      alt: "React learning project interface"
+      src: paths.images.projects.socialMediaClone,
+      alt: "Social media mobile application illustration"
     },
     links: {},
     translations: {
       fr: {
-        title: "Projet d'apprentissage React",
-        summary: "Petit projet expérimental pour pratiquer des concepts React avancés.",
-        description: "Un espace personnel pour explorer les modèles de composants, l'accessibilité, les tests et les performances frontend.",
+        title: "Clone d'application de réseau social",
+        summary: "Application sociale mobile réalisée à partir d'un tutoriel pour explorer l'écosystème React Native.",
+        description: "Application développée en suivant un tutoriel YouTube pour explorer l'authentification mobile, la logique backend-as-a-service et les interfaces réutilisables avec Expo et React Native.",
+        role: "Développeur React Native",
+        responsibilities: [
+          "Mise en place des parcours d'authentification avec Clerk",
+          "Utilisation de Convex pour la logique backend et la persistance des données",
+          "Création d'interfaces réutilisables avec Expo et les composants React Native",
+          "Exploration de l'architecture et de la navigation d'une application mobile"
+        ]
+      }
+    }
+  },
+  {
+    id: "flappy-bird-clone",
+    slug: "flappy-bird-clone",
+    title: "Flappy Bird Clone",
+    year: "2025",
+    category: "pet",
+    status: "completed",
+    summary:
+      "A lightweight browser game recreating the classic Flappy Bird mechanics.",
+    description:
+      "Built to revisit core web fundamentals and browser game loops using modular HTML, CSS and JavaScript.",
+    role: "Frontend Developer",
+    responsibilities: [
+      "Implemented collision detection and score tracking",
+      "Created parallax scrolling and animated sprite behavior",
+      "Built the game loop with modular JavaScript",
+      "Revisited browser rendering and core web fundamentals"
+    ],
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    repositoryUrl:
+      paths.external.projects.flappyBirdRepository,
+    blogUrl:
+      paths.external.projects.flappyBirdArticle,
+    image: {
+      src: paths.images.projects.flappyBirdClone,
+      alt: "Flappy Bird browser game illustration"
+    },
+    links: {},
+    translations: {
+      fr: {
+        title: "Clone de Flappy Bird",
+        summary: "Jeu léger pour navigateur reproduisant les mécaniques classiques de Flappy Bird.",
+        description: "Projet réalisé pour revisiter les fondamentaux du web et les boucles de jeu dans le navigateur avec une architecture modulaire en HTML, CSS et JavaScript.",
         role: "Développeur Frontend",
         responsibilities: [
-          "Expérimentation de modèles de composants réutilisables",
-          "Ajout de tests automatisés",
-          "Amélioration de l'accessibilité",
-          "Documentation des apprentissages"
+          "Mise en place de la détection des collisions et du suivi du score",
+          "Création du défilement parallaxe et des animations de sprites",
+          "Développement de la boucle de jeu avec du JavaScript modulaire",
+          "Révision du rendu navigateur et des fondamentaux du web"
         ]
       }
     }

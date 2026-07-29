@@ -96,10 +96,12 @@ function CompactProjectCard({
       </div>
 
       <div className="project-card__content">
-        <h3>{project.title}</h3>
-        <p className="project-card__description">
-          {project.description}
-        </p>
+        <div>
+          <h3>{project.title}</h3>
+          <p className="project-card__description">
+            {project.description}
+          </p>
+        </div>
 
         {documentationUrl && (
           <footer className="project-card__footer">
@@ -133,6 +135,7 @@ function DetailedProjectCard({
             <div>
               <p className="project-card__category">
                 {copy?.category[project.category] ?? project.category}
+                {project.year ? ` · ${project.year}` : ""}
               </p>
               <h2>{project.title}</h2>
             </div>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-labelledby="title description">
+  <title id="title">Flappy Bird browser game</title>
+  <desc id="description">A stylized bird flying between pipes in a browser game scene.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#087bff"/>
+      <stop offset="1" stop-color="#18c8ff"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f5c451"/>
+      <stop offset=".5" stop-color="#d9ef72"/>
+      <stop offset="1" stop-color="#f5c451"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="405" fill="#020816"/>
+  <rect x="26" y="24" width="668" height="357" rx="24" fill="url(#sky)"/>
+  <circle cx="116" cy="90" r="30" fill="#fff" opacity=".75"/>
+  <circle cx="151" cy="94" r="39" fill="#fff" opacity=".75"/>
+  <circle cx="189" cy="91" r="27" fill="#fff" opacity=".75"/>
+  <circle cx="555" cy="111" r="25" fill="#fff" opacity=".55"/>
+  <circle cx="584" cy="105" r="34" fill="#fff" opacity=".55"/>
+  <circle cx="618" cy="113" r="23" fill="#fff" opacity=".55"/>
+  <rect x="495" y="24" width="92" height="125" fill="#38d975"/>
+  <rect x="482" y="130" width="118" height="30" rx="5" fill="#67df92" stroke="#071a38" stroke-width="5"/>
+  <rect x="495" y="279" width="92" height="102" fill="#38d975"/>
+  <rect x="482" y="264" width="118" height="30" rx="5" fill="#67df92" stroke="#071a38" stroke-width="5"/>
+  <rect x="103" y="24" width="78" height="70" fill="#38d975"/>
+  <rect x="91" y="78" width="102" height="28" rx="5" fill="#67df92" stroke="#071a38" stroke-width="5"/>
+  <rect x="103" y="315" width="78" height="66" fill="#38d975"/>
+  <rect x="91" y="300" width="102" height="28" rx="5" fill="#67df92" stroke="#071a38" stroke-width="5"/>
+  <g transform="translate(330 190)">
+    <ellipse cx="0" cy="0" rx="48" ry="35" fill="#f5c451" stroke="#071a38" stroke-width="5"/>
+    <path d="M-8 1c-20-21-39-15-43 1 14 1 27 8 38 20" fill="#ff9b60" stroke="#071a38" stroke-width="5" stroke-linejoin="round"/>
+    <circle cx="20" cy="-13" r="13" fill="#fff" stroke="#071a38" stroke-width="4"/>
+    <circle cx="24" cy="-13" r="4" fill="#071a38"/>
+    <path d="M43-2l28 9-28 12z" fill="#ff9b60" stroke="#071a38" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+  <text x="360" y="76" fill="#fff" font-family="Arial, sans-serif" font-size="35" font-weight="700" text-anchor="middle" stroke="#071a38" stroke-width="3" paint-order="stroke">SCORE 08</text>
+  <rect x="26" y="344" width="668" height="37" fill="url(#ground)"/>
+  <path d="M26 344h668" stroke="#071a38" stroke-width="6"/>
+  <path d="M28 354l40 27m20-27l40 27m20-27l40 27m20-27l40 27m20-27l40 27m20-27l40 27m20-27l40 27m20-27l40 27m20-27l40 27m20-27l40 27m20-27l40 27" stroke="#fff" stroke-opacity=".45" stroke-width="8"/>
+</svg>
