@@ -70,8 +70,9 @@ export function Hero({ locale, copy }: Props) {
         <Button
           as="anchor"
           variant="secondary"
-          href={paths.documents.resume}
-          download
+          href={paths.documents.resume[locale]}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <FiDownload aria-hidden="true" />
           {copy.downloadCv}

@@ -44,7 +44,7 @@ export function Hero({ locale, copy }: Props) {
 
       <div className="hero__actions">
         <Button
-          as="link"
+          as="anchor"
           href={paths.anchors.featuredProjects}
         >
           {copy.viewWork}

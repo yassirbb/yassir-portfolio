@@ -12,7 +12,10 @@ export const paths = {
     featuredProjects: "#featured-projects"
   },
   documents: {
-    resume: "/documents/yassir-ben-boubker-cv.pdf"
+    resume: {
+      en: "/documents/yassir-ben-boubker-cv-en.pdf",
+      fr: "/documents/yassir-ben-boubker-cv-fr.pdf"
+    }
   },
   images: {
     logo: "/yb-logo.webp",

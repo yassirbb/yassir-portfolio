@@ -42,7 +42,8 @@
 }
 
 .hero__content {
-  width: min(680px, 52%);
+  width: min(880px, 80%);
+  
 }
 
 .hero__eyebrow {
