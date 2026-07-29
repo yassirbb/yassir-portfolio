@@ -75,7 +75,9 @@ export function Button({
       <a
         className={classes}
         {...omitElementType(props)}
-      />
+      >
+        {props.children}
+      </a>
     );
   }
 
