@@ -11,6 +11,7 @@ const en = {
   },
   common: {
     skipToContent: "Skip to main content",
+    opensInNewTab: "opens in a new tab",
     viewDocumentation: "View documentation",
     openProjectDocumentation: "Open documentation for",
     github: "GitHub",
@@ -41,6 +42,8 @@ const en = {
     homepageLabel: "Go to homepage",
     primaryLabel: "Primary navigation",
     languageLabel: "Select language",
+    switchToEnglish: "Switch to English",
+    switchToFrench: "Switch to French",
     open: "Open navigation",
     close: "Close navigation"
   },
@@ -107,6 +110,7 @@ const en = {
     message: "Message",
     send: "Send message",
     privacy: "Your information is only used to answer your message.",
+    characterCount: "characters used",
     validation: {
       nameRequired: "Please enter your name.",
       emailRequired: "Please enter your email address.",
@@ -135,6 +139,7 @@ const en = {
     availabilityDescription: "I'm currently interested in frontend engineering opportunities, product-focused teams, remote collaboration and selected freelance projects.",
     types: ["Full-time", "Freelance", "Consulting", "Remote"],
     connectTitle: "Let's connect",
+    socialLinksLabel: "Social links",
     connectDescription: "Follow my work, learning journey and professional progress.",
     rights: "All rights reserved.",
     madeWith: "Designed and built with",
@@ -157,6 +162,7 @@ const fr: DictionaryShape = {
   },
   common: {
     skipToContent: "Aller au contenu principal",
+    opensInNewTab: "s'ouvre dans un nouvel onglet",
     viewDocumentation: "Voir la documentation",
     openProjectDocumentation: "Ouvrir la documentation de",
     github: "GitHub",
@@ -174,6 +180,8 @@ const fr: DictionaryShape = {
     home: "Accueil", about: "À propos", projects: "Projets", contact: "Contact",
     connect: "Échangeons", homepageLabel: "Aller à l'accueil",
     primaryLabel: "Navigation principale", languageLabel: "Choisir la langue",
+    switchToEnglish: "Passer en anglais",
+    switchToFrench: "Passer en français",
     open: "Ouvrir la navigation", close: "Fermer la navigation"
   },
   home: {
@@ -221,6 +229,7 @@ const fr: DictionaryShape = {
     formTitle: "Envoyez-moi un message", name: "Votre nom", email: "Votre e-mail",
     subject: "Sujet", message: "Message", send: "Envoyer le message",
     privacy: "Vos informations sont uniquement utilisées pour répondre à votre message.",
+    characterCount: "caractères utilisés",
     validation: {
       nameRequired: "Veuillez saisir votre nom.",
       emailRequired: "Veuillez saisir votre adresse e-mail.",
@@ -245,7 +254,8 @@ const fr: DictionaryShape = {
     availabilityTitle: "Disponibilité", availability: "Ouvert aux opportunités",
     availabilityDescription: "Je m'intéresse aux opportunités frontend, aux équipes produit, au travail à distance et à certains projets freelance.",
     types: ["Temps plein", "Freelance", "Conseil", "À distance"],
-    connectTitle: "Échangeons", connectDescription: "Suivez mes projets, mon apprentissage et mon parcours professionnel.",
+    connectTitle: "Échangeons", socialLinksLabel: "Liens vers les réseaux sociaux",
+    connectDescription: "Suivez mes projets, mon apprentissage et mon parcours professionnel.",
     rights: "Tous droits réservés.", madeWith: "Conçu et développé avec",
     coffee: "et beaucoup de café", motto: "Toujours apprendre. Toujours construire. Toujours progresser.",
     backToTop: "Retour en haut"

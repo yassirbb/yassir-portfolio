@@ -144,7 +144,11 @@ export default async function RootLayout({
 
         {children}
 
-        <Footer locale={locale} copy={dictionary.footer} />
+        <Footer
+          locale={locale}
+          copy={dictionary.footer}
+          common={dictionary.common}
+        />
       </body>
     </html>
   );

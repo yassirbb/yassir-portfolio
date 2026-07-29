@@ -23,6 +23,7 @@ export function Header({ locale, copy }: HeaderProps) {
   const pathname = usePathname();
   const {
     isMenuOpen,
+    headerRef,
     menuButtonRef,
     hasMenuInteraction,
     firstMenuLinkRef,
@@ -54,7 +55,7 @@ export function Header({ locale, copy }: HeaderProps) {
 
   return (
     <>
-      <header className="site-header">
+      <header ref={headerRef} className="site-header">
         <div className="container nav-inner">
           <Link className="brand" href={localizePath(locale)} aria-label={copy.homepageLabel} prefetch>
             <Image className="brand-logo" src={paths.images.logo} alt="" width={52} height={52} priority />
@@ -96,6 +97,7 @@ export function Header({ locale, copy }: HeaderProps) {
               href={switchLocale("en")}
               prefetch
               onClick={() => rememberLocale("en")}
+              aria-label={copy.switchToEnglish}
               aria-current={locale === "en" ? "page" : undefined}
               hrefLang="en"
             >
@@ -108,6 +110,7 @@ export function Header({ locale, copy }: HeaderProps) {
               href={switchLocale("fr")}
               prefetch
               onClick={() => rememberLocale("fr")}
+              aria-label={copy.switchToFrench}
               aria-current={locale === "fr" ? "page" : undefined}
               hrefLang="fr"
             >

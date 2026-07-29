@@ -23,7 +23,13 @@ const socialIcons: Record<
   whatsapp: FaWhatsapp
 };
 
-export function SocialLinks({ copy }: { copy: Dictionary["footer"] }) {
+export function SocialLinks({
+  copy,
+  common
+}: {
+  copy: Dictionary["footer"];
+  common: Dictionary["common"];
+}) {
   return (
     <section
       className="footer-social"
@@ -37,9 +43,9 @@ export function SocialLinks({ copy }: { copy: Dictionary["footer"] }) {
         {copy.connectDescription}
       </p>
 
-      <div
+      <nav
         className="footer-social-links"
-        aria-label="Social links"
+        aria-label={copy.socialLinksLabel}
       >
         {socialLinks.map((socialLink) => {
           const SocialIcon =
@@ -49,7 +55,11 @@ export function SocialLinks({ copy }: { copy: Dictionary["footer"] }) {
             <a
               key={socialLink.id}
               href={socialLink.href}
-              aria-label={socialLink.label}
+              aria-label={
+                socialLink.external
+                  ? `${socialLink.label} (${common.opensInNewTab})`
+                  : socialLink.label
+              }
               target={
                 socialLink.external
                   ? "_blank"
@@ -65,7 +75,7 @@ export function SocialLinks({ copy }: { copy: Dictionary["footer"] }) {
             </a>
           );
         })}
-      </div>
+      </nav>
     </section>
   );
 }

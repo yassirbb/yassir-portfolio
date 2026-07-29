@@ -7,6 +7,7 @@ import { Section } from "@/ui/Section/Section";
 import {
   type ChangeEvent,
   type FormEvent,
+  useRef,
   useState
 } from "react";
 import {
@@ -51,6 +52,9 @@ export function ContactForm({
 
   const [feedback, setFeedback] =
     useState("");
+
+  const formRef = useRef<HTMLFormElement>(null);
+  const hasErrors = Object.values(errors).some(Boolean);
 
   const updateField = (
     field: keyof ContactFormValues,
@@ -121,6 +125,18 @@ export function ContactForm({
     ) {
       setErrors(validationErrors);
       setFeedback(copy.validation.formInvalid);
+
+      const firstInvalidField =
+        Object.keys(validationErrors)[0];
+
+      window.requestAnimationFrame(() => {
+        formRef.current
+          ?.querySelector<HTMLElement>(
+            `[name="${firstInvalidField}"]`
+          )
+          ?.focus();
+      });
+
       return;
     }
 
@@ -147,6 +163,7 @@ export function ContactForm({
   return (
     <Section id="contact" aria-labelledby="contact-title" title={copy.formTitle} titleId="contact-title" icon={FiMail}>
       <form
+        ref={formRef}
         className="contact-form"
         id="contact-form"
         noValidate
@@ -290,6 +307,10 @@ export function ContactForm({
               <small id="contact-character-count">
                 {values.message.length} /{" "}
                 {MAX_MESSAGE_LENGTH}
+                <span className="visually-hidden">
+                  {" "}
+                  {copy.characterCount}
+                </span>
               </small>
             </div>
           </div>
@@ -310,8 +331,11 @@ export function ContactForm({
 
         <p
           className="contact-form-feedback"
-          role="status"
-          aria-live="polite"
+          role={hasErrors ? "alert" : "status"}
+          aria-live={
+            hasErrors ? "assertive" : "polite"
+          }
+          aria-atomic="true"
         >
           {feedback}
         </p>

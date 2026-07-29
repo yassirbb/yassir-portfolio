@@ -13,12 +13,11 @@ export function TechStack({
     <section
       className="tech-stack-section"
       id="tech-stack"
-      aria-labelledby="tech-stack-title"
+      aria-label={label}
     >
       <div className="container">
         <ul
           className="tech-stack-list"
-          aria-label={label}
         >
           {technologies.map((technology) => {
             const TechnologyIcon =

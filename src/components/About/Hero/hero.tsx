@@ -14,8 +14,12 @@ import { localizePath } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { paths } from "@/config/paths";
 
-type Props = { locale: Locale; copy: Dictionary["about"] };
-export function Hero({ locale, copy }: Props) {
+type Props = {
+  locale: Locale;
+  copy: Dictionary["about"];
+  common: Dictionary["common"];
+};
+export function Hero({ locale, copy, common }: Props) {
   return (
     <HeroLayout
       variant="about"
@@ -71,6 +75,7 @@ export function Hero({ locale, copy }: Props) {
           href={paths.documents.resume[locale]}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`${copy.downloadCv} (${common.opensInNewTab})`}
         >
           <FiDownload aria-hidden="true" />
           {copy.downloadCv}

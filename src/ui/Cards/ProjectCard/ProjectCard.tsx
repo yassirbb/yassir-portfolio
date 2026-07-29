@@ -113,7 +113,7 @@ function CompactProjectCard({
               href={documentationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${copy.openProjectDocumentation} ${project.title}`}
+              aria-label={`${copy.openProjectDocumentation} ${project.title} (${copy.opensInNewTab})`}
             >
               <FiArrowUpRight aria-hidden="true" />
             </a>
@@ -229,12 +229,14 @@ function ProjectCardActions({
         <ProjectActionLink
           href={documentationUrl}
           label={copy.viewDocumentation}
+          opensInNewTab={copy.opensInNewTab}
         />
       )}
       {githubUrl && (
         <ProjectActionLink
           href={githubUrl}
           label={copy.github}
+          opensInNewTab={copy.opensInNewTab}
           icon={<FiGithub aria-hidden="true" />}
         />
       )}
@@ -242,6 +244,7 @@ function ProjectCardActions({
         <ProjectActionLink
           href={demoUrl}
           label={copy.liveProject}
+          opensInNewTab={copy.opensInNewTab}
           icon={<FiExternalLink aria-hidden="true" />}
         />
       )}
@@ -249,6 +252,7 @@ function ProjectCardActions({
         <ProjectActionLink
           href={blogUrl}
           label={copy.readArticle}
+          opensInNewTab={copy.opensInNewTab}
           icon={<FiBookOpen aria-hidden="true" />}
         />
       )}
@@ -259,12 +263,14 @@ function ProjectCardActions({
 type ProjectActionLinkProps = {
   href: string;
   label: string;
+  opensInNewTab: string;
   icon?: React.ReactNode;
 };
 
 function ProjectActionLink({
   href,
   label,
+  opensInNewTab,
   icon
 }: ProjectActionLinkProps) {
   return (
@@ -272,6 +278,7 @@ function ProjectActionLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`${label} (${opensInNewTab})`}
     >
       {icon}
       {label}

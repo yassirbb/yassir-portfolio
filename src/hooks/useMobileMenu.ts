@@ -32,6 +32,9 @@ export function useMobileMenu() {
   const menuButtonRef =
     useRef<HTMLButtonElement>(null);
 
+  const headerRef =
+    useRef<HTMLElement>(null);
+
   const firstMenuLinkRef =
     useRef<HTMLAnchorElement>(null);
 
@@ -93,6 +96,15 @@ export function useMobileMenu() {
       "mobile-navigation-open"
     );
 
+    const backgroundElements =
+      document.querySelectorAll<HTMLElement>(
+        "main, footer"
+      );
+
+    backgroundElements.forEach((element) => {
+      element.inert = true;
+    });
+
     firstMenuLinkRef.current?.focus();
 
     function handleKeyDown(event: KeyboardEvent) {
@@ -100,6 +112,37 @@ export function useMobileMenu() {
         closeMenu({
           restoreFocus: true
         });
+
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusableElements = Array.from(
+        headerRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled])'
+        ) ?? []
+      ).filter(
+        (element) => element.getClientRects().length > 0
+      );
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements.at(-1);
+
+      if (
+        event.shiftKey &&
+        document.activeElement === firstElement
+      ) {
+        event.preventDefault();
+        lastElement?.focus();
+      } else if (
+        !event.shiftKey &&
+        document.activeElement === lastElement
+      ) {
+        event.preventDefault();
+        firstElement?.focus();
       }
     }
 
@@ -113,6 +156,10 @@ export function useMobileMenu() {
         "mobile-navigation-open"
       );
 
+      backgroundElements.forEach((element) => {
+        element.inert = false;
+      });
+
       window.removeEventListener(
         "keydown",
         handleKeyDown
@@ -123,6 +170,7 @@ export function useMobileMenu() {
   return {
     isMenuOpen,
     hasMenuInteraction,
+    headerRef,
     menuButtonRef,
     firstMenuLinkRef,
     openMenu,

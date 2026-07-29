@@ -15,17 +15,19 @@ const currentYear = new Date().getFullYear();
 
 export function Footer({
   locale,
-  copy
+  copy,
+  common
 }: {
   locale: Locale;
   copy: Dictionary["footer"];
+  common: Dictionary["common"];
 }) {
   return (
-    <footer className="portfolio-footer" id="contact">
+    <footer className="portfolio-footer">
       <div className="container footer-content">
         <div className="footer-network-grid">
           <AvailabilityPanel copy={copy} />
-          <SocialLinks copy={copy} />
+          <SocialLinks copy={copy} common={common} />
         </div>
 
         <div className="footer-bottom">

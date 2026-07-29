@@ -68,6 +68,7 @@ export function CertificationCard({
             href={credentialUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`${copy.viewCredential}: ${title} (${copy.opensInNewTab})`}
           >
             {copy.viewCredential}
             <FiArrowUpRight aria-hidden="true" />
