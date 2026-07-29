@@ -1,6 +1,7 @@
 import { FiGrid } from "react-icons/fi";
 
 import { getProjects } from "@/data/projects";
+import { paths } from "@/config/paths";
 
 import { ProjectCard } from "@/ui/Cards";
 import { Section } from "@/ui/Section/Section";
@@ -22,7 +23,7 @@ export function FeaturedProjects({ locale, copy }: Props) {
           title={copy.featuredTitle}
           titleId="featured-projects-title"
           link={{
-            href: localizePath(locale, "/projects"),
+            href: localizePath(locale, paths.routes.projects),
             label: copy.viewAllProjects
           }}
         > 

@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import { paths } from "@/config/paths";
 
 import { ProjectsGrid } from "@/components/Projects/ProjectsGrid";
 import { ProjectsHero } from "@/components/Projects/ProjectsHero";
-import { isLocale, type Locale } from "@/i18n/config";
+import {
+  isLocale,
+  localizePath,
+  type Locale
+} from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { notFound } from "next/navigation";
 
@@ -12,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const copy = getDictionary(locale).metadata;
-  return { title: copy.projectsTitle, description: copy.projectsDescription, alternates: { canonical: `/${locale}/projects` } };
+  return { title: copy.projectsTitle, description: copy.projectsDescription, alternates: { canonical: localizePath(locale, paths.routes.projects) } };
 }
 
 export default async function ProjectsPage({ params }: PageProps) {

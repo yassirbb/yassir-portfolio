@@ -59,7 +59,7 @@ const projectSources = [
       "Maintained component and end-to-end Cypress tests"
     ],
     image: {
-      src: "/images/projects/centreon-map.webp",
+      src: paths.images.projects.centreonMap,
       alt: "Centreon Map monitoring interface"
     },
     technologies: [
@@ -72,8 +72,8 @@ const projectSources = [
     ],
     links: {
       doc: {
-        host: 'https://docs.centreon.com',
-        path: '/docs/graph-views/introduction-map/'
+        host: paths.documentation.centreon.host,
+        path: paths.documentation.centreon.map
       }
     },
     translations: {
@@ -108,7 +108,7 @@ const projectSources = [
       "Integrated API Platform and Hydra responses"
     ],
     image: {
-      src: "/images/projects/bam-simulation.webp",
+      src: paths.images.projects.bamSimulation,
       alt: "BAM simulation and monitoring dashboard"
     },
     technologies: [
@@ -122,8 +122,8 @@ const projectSources = [
     ],
     links: {
       doc: {
-        host: 'https://docs.centreon.com',
-        path: '/docs/service-mapping/introduction/'
+        host: paths.documentation.centreon.host,
+        path: paths.documentation.centreon.bam
       }
     },
     translations: {
@@ -169,7 +169,7 @@ const projectSources = [
       "REST APIs"
     ],
     image: {
-      src: "/images/projects/bam-simulation.webp",
+      src: paths.images.projects.bamSimulation,
       alt:
         "Equipment transport management and inspection application interface"
     },
@@ -215,10 +215,10 @@ const projectSources = [
       "CSS"
     ],
     repositoryUrl:
-      "https://github.com/Yassir-BenBOUBKER/portfolio",
-    liveUrl: "https://your-portfolio-domain.com",
+      paths.external.projects.portfolioRepository,
+    liveUrl: paths.external.projects.portfolioLive,
     image: {
-      src: "/images/projects/developer-portfolio.webp",
+      src: paths.images.projects.portfolio,
       alt: "Developer portfolio homepage interface"
     },
     links: {},
@@ -261,11 +261,11 @@ const projectSources = [
       "Testing Library"
     ],
     repositoryUrl:
-      "https://github.com/Yassir-BenBOUBKER/react-learning-project",
+      paths.external.projects.reactLearningRepository,
     blogUrl:
-      "https://medium.com/@your-profile/react-learning-project",
+      paths.external.projects.reactLearningArticle,
     image: {
-      src: "/images/projects/react-learning-project.webp",
+      src: paths.images.projects.reactLearning,
       alt: "React learning project interface"
     },
     links: {},
@@ -296,3 +296,4 @@ import {
   localizeItems,
   type LocalizedSource
 } from "./localize";
+import { paths } from "@/config/paths";

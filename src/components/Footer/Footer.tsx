@@ -6,6 +6,7 @@ import {
   localizePath,
   type Locale
 } from "@/i18n/config";
+import { paths } from "@/config/paths";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { AvailabilityPanel } from "./AvailabilityPanel";
 import { SocialLinks } from "./SocialLinks";
@@ -34,7 +35,7 @@ export function Footer({
               href={localizePath(locale)}
               aria-label={copy.backToTop}
             >
-              <Image src="/yb-logo.webp" alt="" width={48} height={48} />
+              <Image src={paths.images.logo} alt="" width={48} height={48} />
             </Link>
             <span>
               © {currentYear} Yassir Ben Boubker. {copy.rights}
@@ -48,7 +49,7 @@ export function Footer({
             <span aria-hidden="true">☕</span>
           </p>
           <p className="footer-motto">{copy.motto}</p>
-          <a className="footer-back-to-top" href="#main-content">
+          <a className="footer-back-to-top" href={paths.anchors.mainContent}>
             {copy.backToTop}
             <FiArrowUp aria-hidden="true" />
           </a>

@@ -11,6 +11,7 @@ import {
 } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Button } from "@/ui";
+import { paths } from "@/config/paths";
 
 type HeaderProps = {
   locale: Locale;
@@ -29,10 +30,10 @@ export function Header({ locale, copy }: HeaderProps) {
   } = useMobileMenu();
 
   const navigationItems = [
-    { label: copy.home, path: "" },
-    { label: copy.about, path: "/about" },
-    { label: copy.projects, path: "/projects" },
-    { label: copy.contact, path: "/contact" }
+    { label: copy.home, path: paths.routes.home },
+    { label: copy.about, path: paths.routes.about },
+    { label: copy.projects, path: paths.routes.projects },
+    { label: copy.contact, path: paths.routes.contact }
   ];
 
   function switchLocale(nextLocale: Locale) {
@@ -55,7 +56,7 @@ export function Header({ locale, copy }: HeaderProps) {
       <header className="site-header">
         <div className="container nav-inner">
           <Link className="brand" href={localizePath(locale)} aria-label={copy.homepageLabel} prefetch>
-            <Image className="brand-logo" src="/yb-logo.webp" alt="" width={52} height={52} priority />
+            <Image className="brand-logo" src={paths.images.logo} alt="" width={52} height={52} priority />
           </Link>
 
           <nav
@@ -113,7 +114,7 @@ export function Header({ locale, copy }: HeaderProps) {
           <Button
             as="link"
             className="nav-cta"
-            href={localizePath(locale, "/contact")}
+            href={localizePath(locale, paths.routes.contact)}
             size="small"
             prefetch
           >

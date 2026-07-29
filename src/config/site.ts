@@ -1,3 +1,5 @@
+import { paths } from "./paths";
+
 export const siteConfig = {
   name: "Yassir Ben Boubker",
 
@@ -6,7 +8,7 @@ export const siteConfig = {
   description:
     "Frontend Engineer based in Morocco, specializing in React, TypeScript, and enterprise web interfaces.",
 
-  url: "https://ybenboubker.dev",
+  url: paths.external.site,
 
   locale: "en_MA",
 
@@ -16,10 +18,10 @@ export const siteConfig = {
   },
 
   social: {
-    github: "https://github.com/Yassir-BenBOUBKER",
-    linkedin: "https://linkedin.com/in/yassir-benboubker"
+    github: paths.external.github,
+    linkedin: paths.external.linkedin
   },
   images: {
-    social: "/images/social/portfolio-preview.webp",
+    social: paths.images.socialPreview,
   }
 } as const;

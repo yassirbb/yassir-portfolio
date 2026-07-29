@@ -57,24 +57,25 @@ export const socialLinks = [
   {
     id: "github",
     label: "GitHub",
-    href: "https://github.com/Yassir-BenBOUBKER",
+    href: paths.external.github,
     external: true
   },
   {
     id: "linkedin",
     label: "LinkedIn",
-    href: "https://ma.linkedin.com/in/yassir-benboubker/fr",
+    href: paths.external.linkedin,
     external: true
   },
   {
     id: "email",
     label: "Email",
-    href: `mailto:${contactDetails.email}`
+    href: createMailto(contactDetails.email)
   },
   {
     id: "whatsapp",
     label: "WhatsApp",
-    href: "https://wa.me/212643009846",
+    href: paths.external.whatsapp,
     external: true
   }
 ] satisfies SocialLink[];
+import { createMailto, paths } from "@/config/paths";

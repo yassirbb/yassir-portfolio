@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
+import { paths } from "@/config/paths";
 
 import { Hero } from "@/components/About/Hero/Hero";
 import { Journey } from "@/components/Home/Journey/Journey";
 import { ExperienceList } from "@/components/About/Experience/Experience";
 import { SkillsSection } from "@/components/About/SkillsSection/SkillsSection";
-import { isLocale, type Locale } from "@/i18n/config";
+import {
+  isLocale,
+  localizePath,
+  type Locale
+} from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { notFound } from "next/navigation";
 
@@ -14,7 +19,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const copy = getDictionary(locale).metadata;
-  return { title: copy.aboutTitle, description: copy.aboutDescription, alternates: { canonical: `/${locale}/about` } };
+  return { title: copy.aboutTitle, description: copy.aboutDescription, alternates: { canonical: localizePath(locale, paths.routes.about) } };
 }
 
 export default async function AboutPage({ params }: PageProps) {

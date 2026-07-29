@@ -12,6 +12,8 @@ import {
   FiSend
 } from "react-icons/fi";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { createMailto } from "@/config/paths";
+import { contactDetails } from "@/data/contact";
 
 const MAX_MESSAGE_LENGTH = 1500;
 
@@ -137,8 +139,10 @@ export function ContactForm({
       body: emailBody
     });
 
-    window.location.href =
-      `mailto:benboubker.yassir@gmail.com?${query.toString()}`;
+    window.location.href = createMailto(
+      contactDetails.email,
+      query
+    );
 
     setFeedback(
       "Your email application is opening with the prepared message."

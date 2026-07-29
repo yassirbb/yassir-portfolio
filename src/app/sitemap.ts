@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/config/site";
-import { locales } from "@/i18n/config";
+import { paths } from "@/config/paths";
+import { locales, localizePath } from "@/i18n/config";
 
 type SitemapRoute = {
   path: string;
@@ -14,22 +15,22 @@ type SitemapRoute = {
 
 const routes: SitemapRoute[] = [
   {
-    path: "",
+    path: paths.routes.home,
     priority: 1,
     changeFrequency: "monthly"
   },
   {
-    path: "/about",
+    path: paths.routes.about,
     priority: 0.8,
     changeFrequency: "monthly"
   },
   {
-    path: "/projects",
+    path: paths.routes.projects,
     priority: 0.9,
     changeFrequency: "monthly"
   },
   {
-    path: "/contact",
+    path: paths.routes.contact,
     priority: 0.8,
     changeFrequency: "yearly"
   }
@@ -38,7 +39,7 @@ const routes: SitemapRoute[] = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) =>
     routes.map((route) => ({
-      url: `${siteConfig.url}/${locale}${route.path}`,
+      url: `${siteConfig.url}${localizePath(locale, route.path)}`,
       lastModified: new Date(),
       changeFrequency: route.changeFrequency,
       priority: route.priority,
@@ -46,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: Object.fromEntries(
           locales.map((language) => [
             language,
-            `${siteConfig.url}/${language}${route.path}`
+            `${siteConfig.url}${localizePath(language, route.path)}`
           ])
         )
       }

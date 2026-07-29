@@ -1,7 +1,11 @@
 import { ContactForm } from "@/components/Contact/ContactForm/ContactForm";
 import { ContactHero } from "@/components/Contact/Hero/Hero";
 import type { Metadata } from "next";
-import { isLocale } from "@/i18n/config";
+import { paths } from "@/config/paths";
+import {
+  isLocale,
+  localizePath
+} from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { notFound } from "next/navigation";
 
@@ -11,7 +15,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const copy = getDictionary(locale).metadata;
-  return { title: copy.contactTitle, description: copy.contactDescription, alternates: { canonical: `/${locale}/contact` } };
+  return { title: copy.contactTitle, description: copy.contactDescription, alternates: { canonical: localizePath(locale, paths.routes.contact) } };
 }
 
 export default async function ContactPage({ params }: PageProps) {

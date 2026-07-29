@@ -3,6 +3,7 @@ import { TechStack } from "./TechStack/TechStack";
 import type { Locale } from "@/i18n/config";
 import { localizePath } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { paths } from "@/config/paths";
 
 type Props = { locale: Locale; copy: Dictionary["home"] };
 
@@ -44,7 +45,7 @@ export function Hero({ locale, copy }: Props) {
       <div className="hero__actions">
         <Button
           as="link"
-          href="#featured-projects"
+          href={paths.anchors.featuredProjects}
         >
           {copy.viewWork}
           <span aria-hidden="true">→</span>
@@ -53,7 +54,7 @@ export function Hero({ locale, copy }: Props) {
         <Button
           as="link"
           variant="secondary"
-          href={localizePath(locale, "/contact")}
+          href={localizePath(locale, paths.routes.contact)}
         >
           {copy.connect}
         </Button>

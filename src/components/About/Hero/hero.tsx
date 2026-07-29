@@ -14,6 +14,7 @@ import {
 import type { Locale } from "@/i18n/config";
 import { localizePath } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { paths } from "@/config/paths";
 
 type Props = { locale: Locale; copy: Dictionary["about"] };
 export function Hero({ locale, copy }: Props) {
@@ -60,7 +61,7 @@ export function Hero({ locale, copy }: Props) {
       <div className="hero__actions">
         <Button
           as="link"
-          href={localizePath(locale, "/projects")}
+          href={localizePath(locale, paths.routes.projects)}
         >
           {copy.viewProjects}
           <FiArrowRight aria-hidden="true" />
@@ -69,7 +70,7 @@ export function Hero({ locale, copy }: Props) {
         <Button
           as="anchor"
           variant="secondary"
-          href="/documents/yassir-ben-boubker-cv.pdf"
+          href={paths.documents.resume}
           download
         >
           <FiDownload aria-hidden="true" />

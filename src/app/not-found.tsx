@@ -4,6 +4,7 @@ import {
 } from "react-icons/fi";
 
 import { Button } from "@/ui";
+import { paths } from "@/config/paths";
 
 export default function NotFound() {
   return (
@@ -32,7 +33,7 @@ export default function NotFound() {
         </p>
 
         <div className="not-found-actions">
-          <Button as="link" href="/">
+          <Button as="link" href={paths.routes.root}>
             <FiArrowLeft aria-hidden="true" />
             Back to homepage
           </Button>
@@ -40,7 +41,7 @@ export default function NotFound() {
           <Button
             as="link"
             variant="secondary"
-            href="/projects"
+            href={paths.routes.projects}
           >
             View projects
           </Button>

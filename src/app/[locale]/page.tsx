@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import { paths } from "@/config/paths";
 
 import { Hero } from "@/components/Home/Hero/Hero";
 import { FeaturedProjects } from "@/components/Home/FeaturedProjects/FeaturedProjects";
 import { Certifications } from "@/components/Home/Certifications/Certifications";
-import { isLocale, type Locale } from "@/i18n/config";
+import {
+  isLocale,
+  localizePath,
+  type Locale
+} from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { notFound } from "next/navigation";
 
@@ -18,7 +23,9 @@ export async function generateMetadata({
   return {
     title: copy.homeTitle,
     description: copy.homeDescription,
-    alternates: { canonical: `/${locale}` }
+    alternates: {
+      canonical: localizePath(locale, paths.routes.home)
+    }
   };
 }
 
