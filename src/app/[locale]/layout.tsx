@@ -19,6 +19,8 @@ import {
   type Locale
 } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { paths } from "@/config/paths";
+import { SkipLink } from "@/ui/SkipLink/SkipLink";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -130,6 +132,11 @@ export default async function RootLayout({
       ].join(" ")}
     >
       <body>
+        <SkipLink
+          href={paths.anchors.mainContent}
+          label={dictionary.common.skipToContent}
+        />
+
         <Header
           locale={locale}
           copy={dictionary.navigation}

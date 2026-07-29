@@ -35,7 +35,7 @@ export default async function HomePage({ params }: PageProps) {
   const locale: Locale = value;
   const dictionary = getDictionary(locale);
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <Hero locale={locale} copy={dictionary.home} />
       <FeaturedProjects
         locale={locale}

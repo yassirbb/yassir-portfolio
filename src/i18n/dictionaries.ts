@@ -10,6 +10,7 @@ const en = {
     contactDescription: "Contact Yassir Ben Boubker regarding frontend engineering opportunities, React projects and professional collaborations."
   },
   common: {
+    skipToContent: "Skip to main content",
     viewDocumentation: "View documentation",
     openProjectDocumentation: "Open documentation for",
     github: "GitHub",
@@ -155,6 +156,7 @@ const fr: DictionaryShape = {
     contactDescription: "Contactez Yassir Ben Boubker pour des opportunités frontend, des projets React et des collaborations professionnelles."
   },
   common: {
+    skipToContent: "Aller au contenu principal",
     viewDocumentation: "Voir la documentation",
     openProjectDocumentation: "Ouvrir la documentation de",
     github: "GitHub",

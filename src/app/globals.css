@@ -3,6 +3,8 @@
 @import "../styles/global.css";
 
 /* Shared page chrome */
+@import "../ui/Button/button.css";
+@import "../ui/SkipLink/skip-link.css";
 @import "../components/Header/header.css";
 @import "../components/Footer/footer.css";
 @import "../components/NotFound/not-found.css";

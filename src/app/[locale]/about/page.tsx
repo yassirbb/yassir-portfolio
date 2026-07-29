@@ -28,7 +28,7 @@ export default async function AboutPage({ params }: PageProps) {
   const locale: Locale = value;
   const dictionary = getDictionary(locale);
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <Hero locale={locale} copy={dictionary.about} />
       <Journey copy={dictionary.home} locale={locale} />
       <ExperienceList copy={dictionary.about} locale={locale} />

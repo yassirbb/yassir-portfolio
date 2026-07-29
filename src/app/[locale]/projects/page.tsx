@@ -26,7 +26,7 @@ export default async function ProjectsPage({ params }: PageProps) {
   const locale: Locale = value;
   const dictionary = getDictionary(locale);
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <ProjectsHero copy={dictionary.projectsPage} />
       <ProjectsGrid locale={locale} copy={dictionary.common} />
     </main>

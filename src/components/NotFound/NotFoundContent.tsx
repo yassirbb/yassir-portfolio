@@ -24,6 +24,7 @@ export function NotFoundContent({
     <main
       className="not-found-page"
       id="main-content"
+      tabIndex={-1}
     >
       <div className="container not-found-content">
         <span

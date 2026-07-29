@@ -23,7 +23,7 @@ export default async function ContactPage({ params }: PageProps) {
   if (!isLocale(locale)) notFound();
   const dictionary = getDictionary(locale);
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <ContactHero copy={dictionary.contact} />
       <ContactForm copy={dictionary.contact} />
     </main>
