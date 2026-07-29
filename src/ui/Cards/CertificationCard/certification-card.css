@@ -1,11 +1,12 @@
 
+/* Card shell */
 .certification-card {
   position: relative;
   display: flex;
   min-width: 0;
   min-height: 390px;
   overflow: hidden;
-  padding: 28px;
+  padding: var(--space-7);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   background:
@@ -54,6 +55,7 @@
     var(--shadow-glow);
 }
 
+/* Provider identity */
 .certification-card-top {
   display: flex;
   height: 60px;
@@ -98,6 +100,7 @@
   font-size: var(--font-size-xs);
 }
 
+/* Card content */
 .certification-card-content {
   margin-top: 34px;
 }
@@ -125,6 +128,7 @@
   border-top: 1px solid var(--border-subtle);
 }
 
+/* Actions and states */
 .certification-card-ongoing-tag {
   display: inline-flex;
   width: fit-content;
@@ -144,7 +148,7 @@
 .certification-card-action {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
   color: var(--primary-400);
   font-size: var(--font-size-sm);
   font-weight: 650;
@@ -172,6 +176,16 @@
     outline-offset: 4px;
 }
 
+/* Provider variants */
+.certification-provider-epic-react {
+  color: #61dafb;
+}
+
+.certification-provider-coursera {
+  color: #6eb4ff;
+}
+
+/* Responsive layout */
 @media (max-width: 680px) {
   .certification-card {
     min-height: auto;
@@ -180,7 +194,7 @@
 
 @media (max-width: 520px) {
   .certification-card {
-    padding: 24px;
+    padding: var(--space-6);
   }
 
   .certification-provider-icon {
@@ -190,7 +204,7 @@
   }
 
   .certification-card-content {
-    margin-top: 28px;
+    margin-top: var(--space-7);
   }
 
   .certification-card-content h3 {

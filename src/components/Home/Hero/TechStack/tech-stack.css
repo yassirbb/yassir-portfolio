@@ -16,13 +16,13 @@
   display: flex;
   min-width: 0;
   min-height: 84px;
-  padding: 12px 8px;
+  padding: var(--space-3) var(--space-2);
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--space-2);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: rgba(7, 26, 56, 0.42);
+  background: var(--surface-panel-translucent);
   color: var(--text-secondary);
   flex-direction: column;
   scroll-snap-align: start;
@@ -34,7 +34,7 @@
 
 .tech-card:hover {
   border-color: var(--border-strong);
-  background: rgba(8, 123, 255, 0.08);
+  background: var(--primary-500-alpha-08);
   transform: translateY(-3px);
 }
 
@@ -106,8 +106,8 @@
     overscroll-behavior-inline: contain;
     scrollbar-width: thin;
     scrollbar-color:
-      rgba(47, 143, 255, 0.45)
-      rgba(7, 26, 56, 0.42);
+      var(--primary-400-alpha-45)
+      var(--surface-panel-translucent);
   }
 
   .tech-card {
@@ -122,12 +122,12 @@
 
   .tech-stack-list::-webkit-scrollbar-track {
     border-radius: var(--radius-round);
-    background: rgba(7, 26, 56, 0.42);
+    background: var(--surface-panel-translucent);
   }
 
   .tech-stack-list::-webkit-scrollbar-thumb {
     border-radius: var(--radius-round);
-    background: rgba(47, 143, 255, 0.45);
+    background: var(--primary-400-alpha-45);
   }
 
   .tech-stack-list::-webkit-scrollbar-thumb:hover {
@@ -149,7 +149,7 @@
 
 @media (max-width: 520px) {
   .tech-stack-list {
-    gap: 8px;
+    gap: var(--space-2);
     padding-bottom: 7px;
   }
 

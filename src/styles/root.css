@@ -9,11 +9,20 @@
   --primary-400: #2f8fff;
   --primary-500: #087bff;
   --primary-600: #1458e8;
+  --primary-400-alpha-18: rgba(47, 143, 255, 0.18);
+  --primary-400-alpha-22: rgba(47, 143, 255, 0.22);
+  --primary-400-alpha-42: rgba(47, 143, 255, 0.42);
+  --primary-400-alpha-45: rgba(47, 143, 255, 0.45);
+  --primary-400-alpha-72: rgba(47, 143, 255, 0.72);
+  --primary-500-alpha-06: rgba(8, 123, 255, 0.06);
+  --primary-500-alpha-08: rgba(8, 123, 255, 0.08);
+  --primary-500-alpha-18: rgba(8, 123, 255, 0.18);
 
   /* Supporting colors */
   --cyan: #18c8ff;
   --success: #38d975;
   --danger: #ff5f72;
+  --white: #ffffff;
 
   /* Text */
   --text-primary: #f7faff;
@@ -23,7 +32,11 @@
   /* Borders */
   --border-subtle: rgba(126, 164, 220, 0.14);
   --border-default: rgba(126, 164, 220, 0.24);
-  --border-strong: rgba(47, 143, 255, 0.42);
+  --border-strong: var(--primary-400-alpha-42);
+
+  /* Surfaces */
+  --surface-panel-translucent: rgba(7, 26, 56, 0.42);
+  --surface-white-subtle: rgba(255, 255, 255, 0.025);
 
   /* Fonts */
   --font-body:
@@ -48,6 +61,18 @@
   --font-size-md: 1.125rem;
   --font-size-lg: 1.25rem;
 
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
   /* Layout */
   --container-width: 1540px;
   --header-height: 76px;
@@ -68,5 +93,6 @@
 
   /* Transitions */
   --transition-fast: 160ms ease;
+  --transition-interactive: 180ms ease;
   --transition-default: 220ms ease;
 }

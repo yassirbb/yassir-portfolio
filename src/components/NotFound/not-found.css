@@ -31,7 +31,7 @@
   justify-content: center;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
-  background: rgba(8, 123, 255, 0.08);
+  background: var(--primary-500-alpha-08);
   color: var(--primary-400);
 }
 
@@ -41,7 +41,7 @@
 }
 
 .not-found-code {
-  margin: 28px 0 8px;
+  margin: var(--space-7) 0 var(--space-2);
   color: var(--primary-400);
   font-family: var(--font-code);
   font-weight: 700;
@@ -57,7 +57,7 @@
 
 .not-found-description {
   max-width: 620px;
-  margin: 24px auto 0;
+  margin: var(--space-6) auto 0;
   color: var(--text-secondary);
   line-height: 1.8;
 }
@@ -66,7 +66,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 32px;
+  margin-top: var(--space-8);
   justify-content: center;
 }
 

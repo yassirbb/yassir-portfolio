@@ -16,7 +16,7 @@
   background: rgba(8, 123, 255, 0.07);
   color: var(--primary-400);
   filter:
-    drop-shadow(0 0 8px rgba(47, 143, 255, 0.22));
+    drop-shadow(0 0 8px var(--primary-400-alpha-22));
 }
 
 .icon-feature__icon svg {
@@ -41,7 +41,7 @@
   display: flex;
   min-width: 0;
   align-items: flex-start;
-  gap: 12px;
+  gap: var(--space-3);
 }
 
 .icon-feature--circle .icon-feature__icon {

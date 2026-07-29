@@ -1,9 +1,7 @@
-@import "@/../../../../ui/Cards/ExperienceCard/experience-card.css";
-
 .about-experience-list {
   position: relative;
   display: grid;
-  gap: 24px;
+  gap: var(--space-6);
 }
 
 .about-experience-list::before {

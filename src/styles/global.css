@@ -85,7 +85,7 @@ ol {
 
 ::selection {
   background: rgba(47, 143, 255, 0.34);
-  color: #ffffff;
+  color: var(--white);
 }
 
 .visually-hidden {

@@ -1,41 +1,38 @@
+/* Foundation */
 @import "../styles/root.css";
 @import "../styles/global.css";
+
+/* UI primitives */
 @import "../ui/Button/button.css";
-
-@import "../components/NotFound/not-found.css";
-
-@import '../ui/Section/section.css';
+@import "../ui/Section/section.css";
 @import "../ui/Hero/hero.css";
 @import "../ui/IconFeature/icon-feature.css";
 @import "../ui/TagList/tag-list.css";
 @import "../ui/RouteLoading/route-loading.css";
+
+/* UI cards */
+@import "../ui/Cards/CertificationCard/certification-card.css";
+@import "../ui/Cards/ExperienceCard/experience-card.css";
+@import "../ui/Cards/JourneyItem/journey-item.css";
 @import "../ui/Cards/ProjectCard/project-card.css";
 
+/* Shared page chrome */
 @import "../components/Header/header.css";
+@import "../components/Footer/footer.css";
+@import "../components/NotFound/not-found.css";
 
-/* Home */
+/* Home sections */
 @import "../components/Home/Hero/TechStack/tech-stack.css";
 @import "../components/Home/FeaturedProjects/featured-projects.css";
 @import "../components/Home/Certifications/certifications.css";
-
-/* About */
 @import "../components/Home/Journey/journey.css";
+
+/* About sections */
 @import "../components/About/Experience/experience.css";
 @import "../components/About/SkillsSection/skills-section.css";
 
-/* Projects */
+/* Projects sections */
 @import "../components/Projects/projects.css";
 
-/* Contact */
+/* Contact sections */
 @import "../components/Contact/ContactForm/contact-form.css";
-
-
-@import "../components/Footer/footer.css";
-
-.certification-provider-epic-react {
-  color: #61dafb;
-}
-
-.certification-provider-coursera {
-  color: #6eb4ff;
-}

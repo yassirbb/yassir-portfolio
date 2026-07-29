@@ -18,7 +18,7 @@
 
 .contact-field label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-2);
   color: #b9c5d6;
   font-size: 12px;
   font-weight: 500;
@@ -37,9 +37,9 @@
   font: inherit;
   font-size: 13px;
   transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease;
+    border-color var(--transition-interactive),
+    background var(--transition-interactive),
+    box-shadow var(--transition-interactive);
 }
 
 .contact-field input {
@@ -66,11 +66,11 @@
 
 .contact-field input:focus,
 .contact-field textarea:focus {
-  border-color: rgba(47, 143, 255, 0.72);
+  border-color: var(--primary-400-alpha-72);
   background: rgba(4, 17, 39, 0.72);
   box-shadow:
     0 0 0 3px rgba(8, 123, 255, 0.09),
-    0 0 22px rgba(8, 123, 255, 0.06);
+    0 0 22px var(--primary-500-alpha-06);
 }
 
 .contact-field-error {
@@ -84,7 +84,7 @@
 .contact-message-footer {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: var(--space-5);
 }
 
 .contact-message-footer > small:last-child {
@@ -97,7 +97,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: var(--space-6);
   margin-top: 6px;
 }
 
@@ -107,7 +107,7 @@
   max-width: 220px;
   margin: 0;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
   color: #77869c;
   font-size: 10px;
   line-height: 1.5;

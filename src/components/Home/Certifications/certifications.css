@@ -1,14 +1,10 @@
 
-@import "@/../../../../ui/Cards/CertificationCard/certification-card.css";
-
-
-
 .certifications-grid {
   display: grid;
   grid-auto-flow: column;
   padding-block: 12px;
   grid-auto-columns: calc((100% - 40px) / 3);
-  gap: 20px;
+  gap: var(--space-5);
   overflow-x: auto;
   padding-bottom: 12px;
   scroll-behavior: smooth;
@@ -16,8 +12,8 @@
   overscroll-behavior-inline: contain;
   scrollbar-width: thin;
   scrollbar-color:
-    rgba(47, 143, 255, 0.45)
-    rgba(7, 26, 56, 0.42);
+    var(--primary-400-alpha-45)
+    var(--surface-panel-translucent);
 }
 
 .certifications-grid > * {
