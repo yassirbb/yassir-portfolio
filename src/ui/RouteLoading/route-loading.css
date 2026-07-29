@@ -22,6 +22,9 @@
     );
   opacity: 0;
   transform: translateX(-100%);
+}
+
+.route-loading.is-pending .route-loading__bar {
   animation:
     route-loading-progress 850ms ease-in-out
     120ms infinite;
@@ -44,7 +47,9 @@
 }
 
 @media (--reduced-motion) {
-  .route-loading__bar {
+  .route-loading.is-pending .route-loading__bar {
     animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

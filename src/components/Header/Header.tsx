@@ -11,6 +11,7 @@ import {
 } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { Button } from "@/ui/Button/Button";
+import { RouteLoadingIndicator } from "@/ui/RouteLoading/RouteLoadingIndicator";
 import { paths } from "@/config/paths";
 
 type HeaderProps = {
@@ -57,6 +58,7 @@ export function Header({ locale, copy }: HeaderProps) {
         <div className="container nav-inner">
           <Link className="brand" href={localizePath(locale)} aria-label={copy.homepageLabel} prefetch>
             <Image className="brand-logo" src={paths.images.logo} alt="" width={52} height={52} priority />
+            <RouteLoadingIndicator />
           </Link>
 
           <nav
@@ -82,6 +84,7 @@ export function Header({ locale, copy }: HeaderProps) {
                   }
                 >
                   {item.label}
+                  <RouteLoadingIndicator />
                 </Link>
               );
             })}
@@ -97,6 +100,7 @@ export function Header({ locale, copy }: HeaderProps) {
               hrefLang="en"
             >
               EN
+              <RouteLoadingIndicator />
             </Link>
             <span aria-hidden="true" />
             <Link
@@ -108,6 +112,7 @@ export function Header({ locale, copy }: HeaderProps) {
               hrefLang="fr"
             >
               FR
+              <RouteLoadingIndicator />
             </Link>
           </div>
 
@@ -120,6 +125,7 @@ export function Header({ locale, copy }: HeaderProps) {
           >
             {copy.connect}
             <span aria-hidden="true">↗</span>
+            <RouteLoadingIndicator />
           </Button>
 
           <button
