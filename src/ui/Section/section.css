@@ -66,15 +66,6 @@
   text-shadow: 0 0 16px rgba(33, 140, 255, 0.48);
 }
 
-.section-period {
-  margin: 0 0 6px;
-  color: #2f8fff;
-  font-family: var(--font-code, "JetBrains Mono", monospace);
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
 .section-link {
   display: inline-flex;
   align-items: center;

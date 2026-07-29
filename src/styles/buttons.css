@@ -63,8 +63,3 @@
   outline-offset: 4px;
 }
 
-@media (max-width: 520px) {
-  .button-mobile-full {
-    width: 100%;
-  }
-}

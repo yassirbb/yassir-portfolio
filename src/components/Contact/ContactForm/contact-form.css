@@ -73,11 +73,6 @@
     0 0 22px rgba(8, 123, 255, 0.06);
 }
 
-.contact-field.is-invalid input,
-.contact-field.is-invalid textarea {
-  border-color: rgba(255, 91, 111, 0.65);
-}
-
 .contact-field-error {
   display: block;
   min-height: 16px;
@@ -152,14 +147,6 @@
 }
 
 @media (max-width: 520px) {
-  .contact-form-panel,
-  .contact-information-panel,
-  .contact-network-panel,
-  .contact-closing {
-    padding: 22px 17px;
-    border-radius: 15px;
-  }
-
   .contact-form-footer {
     align-items: stretch;
     flex-direction: column;

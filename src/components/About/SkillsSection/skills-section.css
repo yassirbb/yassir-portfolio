@@ -53,10 +53,6 @@
 }
 
 @media (max-width: 760px) {
-  .about-section-heading {
-    flex-direction: column;
-  }
-
   .about-skills-grid {
     grid-template-columns: 1fr;
   }
