@@ -34,7 +34,7 @@ export function Hero({ locale, copy }: Props) {
       }
       footer={
         <div className="container hero__footer">
-          <TechStack />
+          <TechStack label={copy.technologiesLabel} />
         </div>
       }
     >

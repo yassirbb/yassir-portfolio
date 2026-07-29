@@ -82,29 +82,25 @@ export function ContactForm({
     const nextErrors: ContactFormErrors = {};
 
     if (!values.name.trim()) {
-      nextErrors.name = "Please enter your name.";
+      nextErrors.name = copy.validation.nameRequired;
     }
 
     if (!values.email.trim()) {
-      nextErrors.email =
-        "Please enter your email address.";
+      nextErrors.email = copy.validation.emailRequired;
     } else if (
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
         values.email
       )
     ) {
-      nextErrors.email =
-        "Please enter a valid email address.";
+      nextErrors.email = copy.validation.emailInvalid;
     }
 
     if (!values.subject.trim()) {
-      nextErrors.subject =
-        "Please enter a subject.";
+      nextErrors.subject = copy.validation.subjectRequired;
     }
 
     if (!values.message.trim()) {
-      nextErrors.message =
-        "Please enter your message.";
+      nextErrors.message = copy.validation.messageRequired;
     }
 
     return nextErrors;
@@ -121,15 +117,13 @@ export function ContactForm({
       Object.keys(validationErrors).length > 0
     ) {
       setErrors(validationErrors);
-      setFeedback(
-        "Please correct the highlighted fields."
-      );
+      setFeedback(copy.validation.formInvalid);
       return;
     }
 
     const emailBody = [
-      `Name: ${values.name.trim()}`,
-      `Email: ${values.email.trim()}`,
+      `${copy.emailBodyLabels.name}: ${values.name.trim()}`,
+      `${copy.emailBodyLabels.email}: ${values.email.trim()}`,
       "",
       values.message.trim()
     ].join("\n");
@@ -144,9 +138,7 @@ export function ContactForm({
       query
     );
 
-    setFeedback(
-      "Your email application is opening with the prepared message."
-    );
+    setFeedback(copy.feedback.emailOpening);
   };
 
   return (

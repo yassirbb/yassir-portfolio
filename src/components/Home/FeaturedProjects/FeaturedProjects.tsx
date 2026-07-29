@@ -9,8 +9,12 @@ import type { Locale } from "@/i18n/config";
 import { localizePath } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-type Props = { locale: Locale; copy: Dictionary["home"] };
-export function FeaturedProjects({ locale, copy }: Props) {
+type Props = {
+  locale: Locale;
+  copy: Dictionary["home"];
+  common: Dictionary["common"];
+};
+export function FeaturedProjects({ locale, copy, common }: Props) {
 
   const featuredProjects = getProjects(locale).filter(
     (project) => project.category === "enterprise"
@@ -34,6 +38,7 @@ export function FeaturedProjects({ locale, copy }: Props) {
                 project={project}
                 variant="compact"
                 lang={locale === "fr" ? "/fr" : ""}
+                copy={common}
               />
             ))}
           </div>

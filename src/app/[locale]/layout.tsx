@@ -120,13 +120,15 @@ export default async function RootLayout({
   const dictionary = getDictionary(locale);
 
   return (
-    <html 
+    <html
       lang={locale}
+      data-scroll-behavior="smooth"
       className={[
         inter.variable,
         manrope.variable,
         jetBrainsMono.variable
-      ].join(" ")} >
+      ].join(" ")}
+    >
       <body>
         <Header
           locale={locale}

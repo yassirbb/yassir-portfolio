@@ -10,8 +10,8 @@ const en = {
     contactDescription: "Contact Yassir Ben Boubker regarding frontend engineering opportunities, React projects and professional collaborations."
   },
   common: {
-    skipToContent: "Skip to content",
     viewDocumentation: "View documentation",
+    openProjectDocumentation: "Open documentation for",
     github: "GitHub",
     liveProject: "Live project",
     readArticle: "Read article",
@@ -58,6 +58,12 @@ const en = {
     journeyTitle: "My Journey",
     technologiesLabel: "Main technologies"
   },
+  notFound: {
+    title: "Page not found",
+    description: "The page you are looking for does not exist, may have moved or is not available in this version of the portfolio.",
+    backHome: "Back to homepage",
+    viewProjects: "View projects"
+  },
   about: {
     eyebrow: "About me",
     greeting: "Hi, I'm Yassir.",
@@ -100,6 +106,21 @@ const en = {
     message: "Message",
     send: "Send message",
     privacy: "Your information is only used to answer your message.",
+    validation: {
+      nameRequired: "Please enter your name.",
+      emailRequired: "Please enter your email address.",
+      emailInvalid: "Please enter a valid email address.",
+      subjectRequired: "Please enter a subject.",
+      messageRequired: "Please enter your message.",
+      formInvalid: "Please correct the highlighted fields."
+    },
+    feedback: {
+      emailOpening: "Your email application is opening with the prepared message."
+    },
+    emailBodyLabels: {
+      name: "Name",
+      email: "Email"
+    },
     placeholders: {
       name: "e.g. Ahmed Benali",
       email: "e.g. ahmed@example.com",
@@ -134,8 +155,8 @@ const fr: DictionaryShape = {
     contactDescription: "Contactez Yassir Ben Boubker pour des opportunités frontend, des projets React et des collaborations professionnelles."
   },
   common: {
-    skipToContent: "Aller au contenu",
     viewDocumentation: "Voir la documentation",
+    openProjectDocumentation: "Ouvrir la documentation de",
     github: "GitHub",
     liveProject: "Voir le projet",
     readArticle: "Lire l'article",
@@ -161,6 +182,12 @@ const fr: DictionaryShape = {
     featuredTitle: "Projets sélectionnés", viewAllProjects: "Voir tous les projets",
     certificationsTitle: "Certifications", journeyTitle: "Mon parcours",
     technologiesLabel: "Technologies principales"
+  },
+  notFound: {
+    title: "Page introuvable",
+    description: "La page que vous recherchez n'existe pas, a peut-être été déplacée ou n'est pas disponible dans cette version du portfolio.",
+    backHome: "Retour à l'accueil",
+    viewProjects: "Voir les projets"
   },
   about: {
     eyebrow: "À propos", greeting: "Bonjour, je suis Yassir.", title: "Ingénieur Frontend",
@@ -192,6 +219,21 @@ const fr: DictionaryShape = {
     formTitle: "Envoyez-moi un message", name: "Votre nom", email: "Votre e-mail",
     subject: "Sujet", message: "Message", send: "Envoyer le message",
     privacy: "Vos informations sont uniquement utilisées pour répondre à votre message.",
+    validation: {
+      nameRequired: "Veuillez saisir votre nom.",
+      emailRequired: "Veuillez saisir votre adresse e-mail.",
+      emailInvalid: "Veuillez saisir une adresse e-mail valide.",
+      subjectRequired: "Veuillez saisir un sujet.",
+      messageRequired: "Veuillez saisir votre message.",
+      formInvalid: "Veuillez corriger les champs indiqués."
+    },
+    feedback: {
+      emailOpening: "Votre application de messagerie s'ouvre avec le message préparé."
+    },
+    emailBodyLabels: {
+      name: "Nom",
+      email: "E-mail"
+    },
     placeholders: {
       name: "ex. Ahmed Benali", email: "ex. ahmed@example.com",
       subject: "ex. Opportunité frontend", message: "Parlez-moi de l'opportunité, du projet ou de votre idée..."

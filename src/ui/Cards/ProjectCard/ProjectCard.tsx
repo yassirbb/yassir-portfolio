@@ -19,7 +19,7 @@ type ProjectCardProps = {
   project: Project;
   variant?: ProjectCardVariant;
   lang?: string;
-  copy?: Dictionary["common"];
+  copy: Dictionary["common"];
 };
 
 function getDocumentationUrl(
@@ -62,6 +62,7 @@ export function ProjectCard({
       className={className}
       project={project}
       lang={lang}
+      copy={copy}
     />
   );
 }
@@ -70,13 +71,14 @@ type ProjectCardViewProps = {
   className: string;
   project: Project;
   lang: string;
-  copy?: Dictionary["common"];
+  copy: Dictionary["common"];
 };
 
 function CompactProjectCard({
   className,
   project,
-  lang
+  lang,
+  copy
 }: ProjectCardViewProps) {
   const documentationUrl = getDocumentationUrl(
     project,
@@ -110,7 +112,7 @@ function CompactProjectCard({
               href={documentationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Open ${project.title} documentation`}
+              aria-label={`${copy.openProjectDocumentation} ${project.title}`}
             >
               <FiArrowUpRight aria-hidden="true" />
             </a>
@@ -134,7 +136,7 @@ function DetailedProjectCard({
           <header className="project-card__header">
             <div>
               <p className="project-card__category">
-                {copy?.category[project.category] ?? project.category}
+                {copy.category[project.category]}
                 {project.year ? ` · ${project.year}` : ""}
               </p>
               <h2>{project.title}</h2>
@@ -147,7 +149,7 @@ function DetailedProjectCard({
               ].join(" ")}
             >
               <span aria-hidden="true" />
-              {copy?.status[project.status] ?? project.status}
+              {copy.status[project.status]}
             </span>
           </header>
 
@@ -159,7 +161,7 @@ function DetailedProjectCard({
           </p>
 
           <section className="project-card__section">
-            <h3>{copy?.keyContributions ?? "Key contributions"}</h3>
+            <h3>{copy.keyContributions}</h3>
             <ul className="project-card__responsibilities">
               {project.responsibilities.map(
                 (responsibility) => (
@@ -175,7 +177,7 @@ function DetailedProjectCard({
           <TagList
             className="project-card__technologies"
             items={project.technologies}
-            label={`${project.title} ${copy?.technologies ?? "technologies"}`}
+            label={`${project.title} ${copy.technologies}`}
           />
         </div>
 
@@ -192,7 +194,7 @@ function DetailedProjectCard({
 type ProjectCardActionsProps = {
   project: Project;
   lang: string;
-  copy?: Dictionary["common"];
+  copy: Dictionary["common"];
 };
 
 function ProjectCardActions({
@@ -225,27 +227,27 @@ function ProjectCardActions({
       {documentationUrl && (
         <ProjectActionLink
           href={documentationUrl}
-          label={copy?.viewDocumentation ?? "View documentation"}
+          label={copy.viewDocumentation}
         />
       )}
       {githubUrl && (
         <ProjectActionLink
           href={githubUrl}
-          label={copy?.github ?? "GitHub"}
+          label={copy.github}
           icon={<FiGithub aria-hidden="true" />}
         />
       )}
       {demoUrl && (
         <ProjectActionLink
           href={demoUrl}
-          label={copy?.liveProject ?? "Live project"}
+          label={copy.liveProject}
           icon={<FiExternalLink aria-hidden="true" />}
         />
       )}
       {blogUrl && (
         <ProjectActionLink
           href={blogUrl}
-          label={copy?.readArticle ?? "Read article"}
+          label={copy.readArticle}
           icon={<FiBookOpen aria-hidden="true" />}
         />
       )}

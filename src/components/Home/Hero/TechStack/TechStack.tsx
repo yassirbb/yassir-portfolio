@@ -1,8 +1,13 @@
 import { technologies } from "@/data/technologies";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 import { technologyIcons } from "../../../../icons/technology-icons";
 
-export function TechStack() {
+export function TechStack({
+  label
+}: {
+  label: Dictionary["home"]["technologiesLabel"];
+}) {
   return (
     <section
       className="tech-stack-section"
@@ -12,7 +17,7 @@ export function TechStack() {
       <div className="container">
         <ul
           className="tech-stack-list"
-          aria-label="Main technologies"
+          aria-label={label}
         >
           {technologies.map((technology) => {
             const TechnologyIcon =

@@ -37,7 +37,11 @@ export default async function HomePage({ params }: PageProps) {
   return (
     <main id="main-content">
       <Hero locale={locale} copy={dictionary.home} />
-      <FeaturedProjects locale={locale} copy={dictionary.home} />
+      <FeaturedProjects
+        locale={locale}
+        copy={dictionary.home}
+        common={dictionary.common}
+      />
       <Certifications
         copy={dictionary.home}
         common={dictionary.common}
