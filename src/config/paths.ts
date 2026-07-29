@@ -34,9 +34,20 @@ export const paths = {
   external: {
     site: "https://ybenboubker.dev",
     github: "https://github.com/Yassir-BenBOUBKER",
+    githubYassirbb: "https://github.com/yassirbb",
     linkedin:
       "https://ma.linkedin.com/in/yassir-benboubker/fr",
     whatsapp: "https://wa.me/212643009846",
+    credentials: {
+      courseraHtmlCssJavaScript:
+        "https://www.coursera.org/account/accomplishments/certificate/JSFBNUZ3H7HJ",
+      courseraNodeExpressMongoDb:
+        "https://www.coursera.org/account/accomplishments/certificate/XNV5NXWPED46",
+      ibmCloudMastery:
+        "https://www.youracclaim.com/badges/22b60871-8d9d-421d-9aaa-4af3480ed194?source=linked_in_profile",
+      ibmCloudExplorer:
+        "https://www.credly.com/badges/c8cabe52-fdce-48ab-8e9d-d712b5489a79?source=linked_in_profile"
+    },
     projects: {
       portfolioRepository:
         "https://github.com/Yassir-BenBOUBKER/portfolio",

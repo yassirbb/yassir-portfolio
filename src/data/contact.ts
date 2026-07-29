@@ -12,6 +12,7 @@ export type AvailabilityType = {
 
 export type SocialLinkId =
   | "github"
+  | "github-yassirbb"
   | "linkedin"
   | "email"
   | "whatsapp";
@@ -58,6 +59,12 @@ export const socialLinks = [
     id: "github",
     label: "GitHub",
     href: paths.external.github,
+    external: true
+  },
+  {
+    id: "github-yassirbb",
+    label: "GitHub — yassirbb",
+    href: paths.external.githubYassirbb,
     external: true
   },
   {

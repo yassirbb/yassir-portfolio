@@ -17,6 +17,7 @@ const socialIcons: Record<
   IconType
 > = {
   github: FiGithub,
+  "github-yassirbb": FiGithub,
   linkedin: FiLinkedin,
   email: FiMail,
   whatsapp: FaWhatsapp

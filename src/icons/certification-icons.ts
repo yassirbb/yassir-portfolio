@@ -3,6 +3,7 @@ import {
   SiCoursera,
   SiReact
 } from "react-icons/si";
+import { FiCloud } from "react-icons/fi";
 
 import type { CertificationProviderId } from "@/data/certifications";
 
@@ -11,5 +12,6 @@ export const certificationIcons: Record<
   IconType
 > = {
   "epic-react": SiReact,
-  coursera: SiCoursera
+  coursera: SiCoursera,
+  ibm: FiCloud
 };

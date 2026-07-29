@@ -185,6 +185,10 @@
   color: var(--primary-300);
 }
 
+.certification-provider-ibm {
+  color: var(--cyan);
+}
+
 /* Responsive layout */
 @media (--viewport-compact) {
   .certification-card {
