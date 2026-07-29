@@ -298,13 +298,17 @@ body.mobile-navigation-open {
     transition:
       transform 260ms ease,
       opacity var(--transition-default),
-      visibility var(--transition-default);
+      visibility 0s linear 260ms;
   }
 
   .main-nav.is-open {
     visibility: visible;
     opacity: 1;
     transform: translateX(0);
+    transition:
+      transform 260ms ease,
+      opacity var(--transition-default),
+      visibility 0s;
   }
 
   .main-nav a {

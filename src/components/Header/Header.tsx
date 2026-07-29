@@ -26,7 +26,6 @@ export function Header({ locale, copy }: HeaderProps) {
     headerRef,
     menuButtonRef,
     hasMenuInteraction,
-    firstMenuLinkRef,
     closeMenu,
     toggleMenu
   } = useMobileMenu();
@@ -67,13 +66,12 @@ export function Header({ locale, copy }: HeaderProps) {
             id="primary-navigation"
             aria-label={copy.primaryLabel}
           >
-            {navigationItems.map((item, index) => {
+            {navigationItems.map((item) => {
               const href = localizePath(locale, item.path);
               const active = pathname === href;
               return (
                 <Link
                   key={href}
-                  ref={index === 0 ? firstMenuLinkRef : undefined}
                   className={active ? "active" : undefined}
                   href={href}
                   prefetch

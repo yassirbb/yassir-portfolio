@@ -35,9 +35,6 @@ export function useMobileMenu() {
   const headerRef =
     useRef<HTMLElement>(null);
 
-  const firstMenuLinkRef =
-    useRef<HTMLAnchorElement>(null);
-
   const isMenuOpen =
     menuState.isRequestedOpen &&
     menuState.openedAtPath === pathname;
@@ -105,7 +102,15 @@ export function useMobileMenu() {
       element.inert = true;
     });
 
-    firstMenuLinkRef.current?.focus();
+    const focusFrame = window.requestAnimationFrame(
+      () => {
+        headerRef.current
+          ?.querySelector<HTMLElement>(
+            "#primary-navigation a[href]"
+          )
+          ?.focus();
+      }
+    );
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -156,6 +161,8 @@ export function useMobileMenu() {
         "mobile-navigation-open"
       );
 
+      window.cancelAnimationFrame(focusFrame);
+
       backgroundElements.forEach((element) => {
         element.inert = false;
       });
@@ -172,7 +179,6 @@ export function useMobileMenu() {
     hasMenuInteraction,
     headerRef,
     menuButtonRef,
-    firstMenuLinkRef,
     openMenu,
     closeMenu,
     toggleMenu
