@@ -59,7 +59,7 @@
   height: 28px;
   align-items: center;
   justify-content: center;
-  color: #218cff;
+  color: var(--primary-400);
   font-family: var(--font-code, "JetBrains Mono", monospace);
   font-size: 20px;
   font-weight: 700;
@@ -86,7 +86,7 @@
 }
 
 .section-link:hover {
-  color: #65adff;
+  color: var(--primary-300);
 }
 
 .section-link:hover span {

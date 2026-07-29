@@ -19,7 +19,7 @@
 .contact-field label {
   display: block;
   margin-bottom: var(--space-2);
-  color: #b9c5d6;
+  color: var(--text-secondary);
   font-size: 12px;
   font-weight: 500;
 }
@@ -33,7 +33,7 @@
   border-radius: 9px;
   outline: 0;
   background: rgba(2, 10, 25, 0.48);
-  color: #eff5ff;
+  color: var(--text-primary);
   font: inherit;
   font-size: 13px;
   transition:
@@ -56,7 +56,7 @@
 
 .contact-field input::placeholder,
 .contact-field textarea::placeholder {
-  color: #52627a;
+  color: var(--text-muted);
 }
 
 .contact-field input:hover,
@@ -77,7 +77,7 @@
   display: block;
   min-height: 16px;
   margin-top: 5px;
-  color: #ff768a;
+  color: var(--danger);
   font-size: 10px;
 }
 
@@ -89,7 +89,7 @@
 
 .contact-message-footer > small:last-child {
   margin-top: 5px;
-  color: #53637b;
+  color: var(--text-muted);
   font-size: 10px;
 }
 
@@ -108,7 +108,7 @@
   margin: 0;
   align-items: center;
   gap: var(--space-2);
-  color: #77869c;
+  color: var(--text-muted);
   font-size: 10px;
   line-height: 1.5;
 }
@@ -127,7 +127,7 @@
 .contact-form-feedback {
   min-height: 20px;
   margin: 15px 0 0;
-  color: #7be6a8;
+  color: var(--success-text);
   font-size: 11px;
 }
 
@@ -135,7 +135,7 @@
    RESPONSIVE
    ========================================================= */
 
-@media (max-width: 760px) {
+@media (--viewport-content) {
 
   .contact-form-grid {
     grid-template-columns: 1fr;
@@ -146,7 +146,7 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (--viewport-mobile) {
   .contact-form-footer {
     align-items: stretch;
     flex-direction: column;

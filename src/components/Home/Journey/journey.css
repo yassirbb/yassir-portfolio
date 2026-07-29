@@ -41,7 +41,7 @@
    TABLET
    ========================================================= */
 
-@media (max-width: 1100px) {
+@media (--viewport-desktop) {
   .journey-timeline {
     gap: var(--space-7);
   }
@@ -51,7 +51,7 @@
    MOBILE: VERTICAL TIMELINE
    ========================================================= */
 
-@media (max-width: 760px) {
+@media (--viewport-content) {
   .journey-timeline {
     display: grid;
     grid-template-columns: 1fr;
@@ -104,7 +104,7 @@
    SMALL MOBILE
    ========================================================= */
 
-@media (max-width: 440px) {
+@media (--viewport-narrow) {
   .journey-timeline {
     gap: 26px;
   }
@@ -147,7 +147,7 @@
    REDUCED MOTION
    ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media (--reduced-motion) {
   .journey-marker {
     transition: none;
   }

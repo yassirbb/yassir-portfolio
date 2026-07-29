@@ -70,7 +70,7 @@
   justify-content: center;
 }
 
-@media (max-width: 520px) {
+@media (--viewport-mobile) {
   .not-found-actions {
     display: grid;
   }

@@ -141,7 +141,7 @@
       rgba(17, 45, 83, 0.92),
       rgba(7, 24, 51, 0.96)
     );
-  color: #edf4ff;
+  color: var(--text-bright);
   font-size: 20px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
@@ -155,7 +155,7 @@
 
 .project-card__icon-action:hover {
   border-color: rgba(47, 143, 255, 0.62);
-  color: #69afff;
+  color: var(--primary-300);
   box-shadow: 0 0 20px var(--primary-500-alpha-18);
 }
 
@@ -207,7 +207,7 @@
 }
 
 .project-card__status--production {
-  color: #67df92;
+  color: var(--success-text);
 }
 
 .project-card__status--production > span {
@@ -215,19 +215,19 @@
 }
 
 .project-card__status--in-progress {
-  color: #6eb4ff;
+  color: var(--primary-300);
 }
 
 .project-card__status--in-progress > span {
-  background: #4ca3ff;
+  background: var(--info);
 }
 
 .project-card__status--completed {
-  color: #c39aff;
+  color: var(--purple);
 }
 
 .project-card__status--completed > span {
-  background: #ad78ff;
+  background: var(--purple);
 }
 
 .project-card__summary {
@@ -302,7 +302,7 @@
   border-top: 1px solid var(--border-subtle);
 }
 
-@media (max-width: 1100px) {
+@media (--viewport-desktop) {
   .featured-projects-grid
     .project-card--compact:last-child {
     grid-column: 1 / -1;
@@ -310,13 +310,13 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (--viewport-grid) {
   .project-card--detailed {
     min-height: auto;
   }
 }
 
-@media (max-width: 760px) {
+@media (--viewport-content) {
   .featured-projects-grid
     .project-card--compact:last-child {
     grid-column: auto;
@@ -324,7 +324,7 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (--viewport-mobile) {
   .project-card--detailed {
     padding: 22px;
   }
@@ -340,9 +340,7 @@
   .project-card--detailed h2 {
     font-size: 23px;
   }
-}
 
-@media (max-width: 480px) {
   .project-card--compact .project-card__content {
     min-height: auto;
     padding: 18px 15px 14px;
@@ -363,7 +361,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (--reduced-motion) {
   .project-card,
   .project-card__image,
   .project-card__icon-action,

@@ -91,7 +91,7 @@
 .hero__tagline {
   max-width: 820px;
   margin: 25px 0 0;
-  color: #d8e2ef;
+  color: var(--text-soft);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.6;
@@ -100,7 +100,7 @@
 .hero__summary {
   max-width: 880px;
   margin: 17px 0 0;
-  color: #9ba9bf;
+  color: var(--text-subtle);
   font-size: 14px;
   line-height: 1.8;
 }
@@ -220,13 +220,13 @@
   margin-top: 34px;
 }
 
-@media (max-width: 1100px) {
+@media (--viewport-desktop) {
   .hero__content {
     width: 58%;
   }
 }
 
-@media (max-width: 820px) {
+@media (--viewport-tablet) {
   .hero {
     min-height: 980px;
     height: auto;
@@ -272,7 +272,7 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (--viewport-mobile) {
   .hero {
     min-height: 940px;
     background-position: 68% bottom;
@@ -314,7 +314,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (--reduced-motion) {
   .hero__status-dot {
     box-shadow: none;
   }

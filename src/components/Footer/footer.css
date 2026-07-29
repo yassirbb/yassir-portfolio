@@ -50,7 +50,7 @@
   border: 1px solid rgba(56, 217, 117, 0.24);
   border-radius: var(--radius-round);
   background: rgba(56, 217, 117, 0.07);
-  color: #67df92;
+  color: var(--success-text);
   font-size: var(--font-size-xs);
   font-weight: 650;
   white-space: nowrap;
@@ -102,15 +102,15 @@
 }
 
 .footer-status-blue {
-  background: #4ca3ff;
+  background: var(--info);
 }
 
 .footer-status-purple {
-  background: #ad78ff;
+  background: var(--purple);
 }
 
 .footer-status-yellow {
-  background: #f5c451;
+  background: var(--warning);
 }
 
 .footer-social {
@@ -195,7 +195,7 @@
 }
 
 .footer-made-with span:first-of-type {
-  color: #ff6877;
+  color: var(--love);
 }
 
 .footer-motto {
@@ -226,7 +226,7 @@
 }
 
 /* Responsive layout */
-@media (max-width: 1050px) {
+@media (--viewport-desktop) {
   .footer-network-grid {
     gap: 44px;
   }
@@ -251,7 +251,7 @@
   }
 }
 
-@media (max-width: 760px)  {
+@media (--viewport-content) {
   .footer-network-grid {
     grid-template-columns: 1fr;
     gap: 42px;
@@ -277,7 +277,7 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (--viewport-mobile) {
   .footer-panel-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -299,7 +299,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (--reduced-motion) {
   .footer-social-links a {
     transition: none;
   }

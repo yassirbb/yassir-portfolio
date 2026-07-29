@@ -94,7 +94,7 @@
 
 /* Laptop and smaller screens */
 
-@media (max-width: 1180px) {
+@media (--viewport-wide) {
   .tech-stack-list {
     display: flex;
     min-width: 0;
@@ -137,7 +137,7 @@
 
 /* Tablet */
 
-@media (max-width: 820px) {
+@media (--viewport-tablet) {
   .tech-card {
     width: 92px;
     min-width: 92px;
@@ -147,7 +147,7 @@
 
 /* Mobile */
 
-@media (max-width: 520px) {
+@media (--viewport-mobile) {
   .tech-stack-list {
     gap: var(--space-2);
     padding-bottom: 7px;
@@ -173,7 +173,7 @@
 
 /* Reduced motion */
 
-@media (prefers-reduced-motion: reduce) {
+@media (--reduced-motion) {
   .tech-stack-list {
     scroll-behavior: auto;
   }

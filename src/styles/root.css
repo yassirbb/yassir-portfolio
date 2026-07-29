@@ -9,6 +9,7 @@
   --primary-400: #2f8fff;
   --primary-500: #087bff;
   --primary-600: #1458e8;
+  --primary-300: #72b4ff;
   --primary-400-alpha-18: rgba(47, 143, 255, 0.18);
   --primary-400-alpha-22: rgba(47, 143, 255, 0.22);
   --primary-400-alpha-42: rgba(47, 143, 255, 0.42);
@@ -21,12 +22,21 @@
   /* Supporting colors */
   --cyan: #18c8ff;
   --success: #38d975;
+  --success-text: #67df92;
   --danger: #ff5f72;
+  --info: #4ca3ff;
+  --purple: #ad78ff;
+  --warning: #f5c451;
+  --love: #ff6877;
   --white: #ffffff;
 
   /* Text */
   --text-primary: #f7faff;
+  --text-bright: #edf4ff;
+  --text-soft: #d8e2ef;
   --text-secondary: #aebbd0;
+  --text-subtle: #9ba9bf;
+  --text-dim: #8796af;
   --text-muted: #74839b;
 
   /* Borders */
@@ -75,6 +85,7 @@
 
   /* Layout */
   --container-width: 1540px;
+  --container-gutter: 64px;
   --header-height: 76px;
 
   /* Radius */
@@ -95,4 +106,23 @@
   --transition-fast: 160ms ease;
   --transition-interactive: 180ms ease;
   --transition-default: 220ms ease;
+}
+
+@media (--viewport-desktop) {
+  :root {
+    --container-gutter: 36px;
+  }
+}
+
+@media (--viewport-tablet) {
+  :root {
+    --container-gutter: 20px;
+    --header-height: 68px;
+  }
+}
+
+@media (--viewport-mobile) {
+  :root {
+    --container-gutter: 16px;
+  }
 }
