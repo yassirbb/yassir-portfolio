@@ -10,6 +10,7 @@ export const frContact = {
     ],
     formTitle: "Envoyez-moi un message", name: "Votre nom", email: "Votre e-mail",
     subject: "Sujet", message: "Message", send: "Envoyer le message",
+    sending: "Envoi en cours...",
     privacy: "Vos informations sont uniquement utilisées pour répondre à votre message.",
     characterCount: "caractères utilisés",
     validation: {
@@ -21,11 +22,9 @@ export const frContact = {
       formInvalid: "Veuillez corriger les champs indiqués."
     },
     feedback: {
-      emailOpening: "Votre application de messagerie s'ouvre avec le message préparé."
-    },
-    emailBodyLabels: {
-      name: "Nom",
-      email: "E-mail"
+      sendSuccess: "Votre message a bien été envoyé.",
+      sendError: "Votre message n'a pas pu être envoyé. Veuillez réessayer.",
+      serviceUnavailable: "Le service de contact est temporairement indisponible. Veuillez réessayer plus tard."
     },
     placeholders: {
       name: "ex. Ahmed Benali", email: "ex. ahmed@example.com",

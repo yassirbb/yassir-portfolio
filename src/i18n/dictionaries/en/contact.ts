@@ -16,6 +16,7 @@ export const enContact = {
     subject: "Subject",
     message: "Message",
     send: "Send message",
+    sending: "Sending...",
     privacy: "Your information is only used to answer your message.",
     characterCount: "characters used",
     validation: {
@@ -27,11 +28,9 @@ export const enContact = {
       formInvalid: "Please correct the highlighted fields."
     },
     feedback: {
-      emailOpening: "Your email application is opening with the prepared message."
-    },
-    emailBodyLabels: {
-      name: "Name",
-      email: "Email"
+      sendSuccess: "Your message was sent successfully.",
+      sendError: "Your message could not be sent. Please try again.",
+      serviceUnavailable: "The contact service is temporarily unavailable. Please try again later."
     },
     placeholders: {
       name: "e.g. Ahmed Benali",

@@ -16,8 +16,6 @@ import {
   FiSend
 } from "react-icons/fi";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { createMailto } from "@/config/paths";
-import { contactDetails } from "@/data/contact";
 
 const MAX_MESSAGE_LENGTH = 1500;
 
@@ -53,6 +51,17 @@ export function ContactForm({
   const [feedback, setFeedback] =
     useState("");
 
+  const [feedbackType, setFeedbackType] =
+    useState<"success" | "error" | null>(
+      null
+    );
+
+  const [isSubmitting, setIsSubmitting] =
+    useState(false);
+
+  const [honeypotValue, setHoneypotValue] =
+    useState("");
+
   const formRef = useRef<HTMLFormElement>(null);
   const hasErrors = Object.values(errors).some(Boolean);
 
@@ -71,6 +80,7 @@ export function ContactForm({
     }));
 
     setFeedback("");
+    setFeedbackType(null);
   };
 
   const handleMessageChange = (
@@ -113,10 +123,14 @@ export function ContactForm({
     return nextErrors;
   };
 
-  const handleSubmit = (
+  const handleSubmit = async (
     event: FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
+
+    if (isSubmitting) {
+      return;
+    }
 
     const validationErrors = validateForm();
 
@@ -125,6 +139,7 @@ export function ContactForm({
     ) {
       setErrors(validationErrors);
       setFeedback(copy.validation.formInvalid);
+      setFeedbackType("error");
 
       const firstInvalidField =
         Object.keys(validationErrors)[0];
@@ -140,24 +155,55 @@ export function ContactForm({
       return;
     }
 
-    const emailBody = [
-      `${copy.emailBodyLabels.name}: ${values.name.trim()}`,
-      `${copy.emailBodyLabels.email}: ${values.email.trim()}`,
-      "",
-      values.message.trim()
-    ].join("\n");
+    setIsSubmitting(true);
+    setFeedback("");
+    setFeedbackType(null);
 
-    const query = new URLSearchParams({
-      subject: values.subject.trim(),
-      body: emailBody
-    });
+    try {
+      const response = await fetch(
+        "/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            ...values,
+            website: honeypotValue
+          })
+        }
+      );
 
-    window.location.href = createMailto(
-      contactDetails.email,
-      query
-    );
+      const result = (await response
+        .json()
+        .catch(() => null)) as {
+        code?: string;
+      } | null;
 
-    setFeedback(copy.feedback.emailOpening);
+      if (
+        response.ok &&
+        result?.code === "MESSAGE_SENT"
+      ) {
+        setValues(initialValues);
+        setErrors({});
+        setHoneypotValue("");
+        setFeedback(copy.feedback.sendSuccess);
+        setFeedbackType("success");
+        return;
+      }
+
+      setFeedback(
+        result?.code === "SERVICE_UNAVAILABLE"
+          ? copy.feedback.serviceUnavailable
+          : copy.feedback.sendError
+      );
+      setFeedbackType("error");
+    } catch {
+      setFeedback(copy.feedback.sendError);
+      setFeedbackType("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -167,8 +213,31 @@ export function ContactForm({
         className="contact-form"
         id="contact-form"
         noValidate
+        aria-busy={isSubmitting}
         onSubmit={handleSubmit}
       >
+        <div
+          className="visually-hidden"
+          aria-hidden="true"
+        >
+          <label htmlFor="contact-website">
+            Website
+          </label>
+          <input
+            id="contact-website"
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypotValue}
+            onChange={(event) =>
+              setHoneypotValue(
+                event.target.value
+              )
+            }
+          />
+        </div>
+
         <div className="contact-form-grid">
           <div className="contact-field">
             <label htmlFor="contact-name">
@@ -323,17 +392,37 @@ export function ContactForm({
             {copy.privacy}
           </p>
 
-          <Button type="submit">
-            <span>{copy.send}</span>
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+          >
+            <span>
+              {isSubmitting
+                ? copy.sending
+                : copy.send}
+            </span>
             <FiSend aria-hidden="true" />
           </Button>
         </div>
 
         <p
-          className="contact-form-feedback"
-          role={hasErrors ? "alert" : "status"}
+          className={[
+            "contact-form-feedback",
+            feedbackType === "error"
+              ? "is-error"
+              : ""
+          ]
+            .filter(Boolean)
+            .join(" ")}
+          role={
+            hasErrors || feedbackType === "error"
+              ? "alert"
+              : "status"
+          }
           aria-live={
-            hasErrors ? "assertive" : "polite"
+            hasErrors || feedbackType === "error"
+              ? "assertive"
+              : "polite"
           }
           aria-atomic="true"
         >
