@@ -30,6 +30,7 @@ export const enContact = {
     feedback: {
       sendSuccess: "Your message was sent successfully.",
       sendError: "Your message could not be sent. Please try again.",
+      tooManyAttempts: "Too many attempts. Please try again later.",
       serviceUnavailable: "The contact service is temporarily unavailable. Please try again later."
     },
     placeholders: {

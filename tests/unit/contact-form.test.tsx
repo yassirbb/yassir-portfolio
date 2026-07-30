@@ -206,4 +206,85 @@ describe("ContactForm", () => {
       expect(submitButton).not.toBeDisabled();
     });
   });
+
+  it("translates response codes without displaying provider errors", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          code: "RATE_LIMITED",
+          error:
+            "Technical Resend provider details"
+        }),
+        {
+          status: 429,
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      )
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    render(
+      <ContactForm
+        copy={dictionaries.fr.contact}
+      />
+    );
+
+    fireEvent.change(
+      screen.getByLabelText(
+        dictionaries.fr.contact.name
+      ),
+      { target: { value: "Jane Doe" } }
+    );
+    fireEvent.change(
+      screen.getByLabelText(
+        dictionaries.fr.contact.email
+      ),
+      {
+        target: {
+          value: "jane@example.com"
+        }
+      }
+    );
+    fireEvent.change(
+      screen.getByLabelText(
+        dictionaries.fr.contact.subject
+      ),
+      {
+        target: {
+          value: "Opportunité frontend"
+        }
+      }
+    );
+    fireEvent.change(
+      screen.getByLabelText(
+        dictionaries.fr.contact.message
+      ),
+      {
+        target: {
+          value:
+            "Je souhaite discuter d'une opportunité frontend."
+        }
+      }
+    );
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: dictionaries.fr.contact.send
+      })
+    );
+
+    expect(
+      await screen.findByText(
+        dictionaries.fr.contact.feedback
+          .tooManyAttempts
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByText(
+        "Technical Resend provider details"
+      )
+    ).not.toBeInTheDocument();
+  });
 });

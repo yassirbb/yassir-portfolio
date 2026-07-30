@@ -24,6 +24,7 @@ export const frContact = {
     feedback: {
       sendSuccess: "Votre message a bien été envoyé.",
       sendError: "Votre message n'a pas pu être envoyé. Veuillez réessayer.",
+      tooManyAttempts: "Trop de tentatives. Veuillez réessayer plus tard.",
       serviceUnavailable: "Le service de contact est temporairement indisponible. Veuillez réessayer plus tard."
     },
     placeholders: {

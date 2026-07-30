@@ -192,11 +192,27 @@ export function ContactForm({
         return;
       }
 
-      setFeedback(
-        result?.code === "SERVICE_UNAVAILABLE"
-          ? copy.feedback.serviceUnavailable
-          : copy.feedback.sendError
-      );
+      switch (result?.code) {
+        case "INVALID_REQUEST":
+        case "INVALID_FORM":
+          setFeedback(
+            copy.validation.formInvalid
+          );
+          break;
+        case "RATE_LIMITED":
+          setFeedback(
+            copy.feedback.tooManyAttempts
+          );
+          break;
+        case "SERVICE_UNAVAILABLE":
+          setFeedback(
+            copy.feedback.serviceUnavailable
+          );
+          break;
+        default:
+          setFeedback(copy.feedback.sendError);
+      }
+
       setFeedbackType("error");
     } catch {
       setFeedback(copy.feedback.sendError);
