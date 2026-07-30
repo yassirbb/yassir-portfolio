@@ -9,7 +9,7 @@ export const enHome = {
     connect: "Let's connect",
     note: "Building with passion. Driven by purpose.",
     featuredTitle: "Featured Projects",
-    viewAllProjects: "View all projects",
+    viewAllProjects: "View all projects in detail",
     certificationsTitle: "Certifications",
     journeyTitle: "My Journey",
     technologiesLabel: "Main technologies"

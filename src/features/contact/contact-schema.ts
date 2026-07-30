@@ -1,12 +1,31 @@
 import { z } from "zod";
 
+import { contactFieldLimits } from "./contact-constraints";
+import { locales } from "@/i18n/config";
+
 export const contactFormSchema = z
   .object({
-    name: z.string().trim().min(2).max(100),
-    email: z.email().trim().max(254),
-    subject: z.string().trim().min(2).max(150),
-    message: z.string().trim().min(10).max(1500),
-    website: z.string().trim().max(0).optional()
+    locale: z.enum(locales),
+    name: z
+      .string()
+      .trim()
+      .min(contactFieldLimits.name.min)
+      .max(contactFieldLimits.name.max),
+    email: z
+      .email()
+      .trim()
+      .max(contactFieldLimits.email.max),
+    subject: z
+      .string()
+      .trim()
+      .min(contactFieldLimits.subject.min)
+      .max(contactFieldLimits.subject.max),
+    message: z
+      .string()
+      .trim()
+      .min(contactFieldLimits.message.min)
+      .max(contactFieldLimits.message.max),
+    website: z.literal("")
   })
   .strict();
 

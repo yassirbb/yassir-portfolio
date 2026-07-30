@@ -11,10 +11,26 @@ const contactEnvironmentSchema = z.object({
   CONTACT_TO_EMAIL: z.email().trim()
 });
 
+const emailLabels = {
+  en: {
+    name: "Name",
+    email: "Email",
+    subject: "Subject",
+    message: "Message"
+  },
+  fr: {
+    name: "Nom",
+    email: "E-mail",
+    subject: "Sujet",
+    message: "Message"
+  }
+} as const;
+
 export type ContactResponseCode =
   | "MESSAGE_SENT"
   | "INVALID_REQUEST"
   | "INVALID_FORM"
+  | "SPAM_DETECTED"
   | "SERVICE_UNAVAILABLE"
   | "EMAIL_SEND_FAILED";
 
@@ -31,6 +47,33 @@ function jsonResponse(
       }
     }
   );
+}
+
+async function createIdempotencyKey(
+  values: {
+    locale: "en" | "fr";
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+  }
+) {
+  const input = new TextEncoder().encode(
+    JSON.stringify(values)
+  );
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    input
+  );
+  const hash = Array.from(
+    new Uint8Array(digest)
+  )
+    .map((byte) =>
+      byte.toString(16).padStart(2, "0")
+    )
+    .join("");
+
+  return `portfolio-contact-${hash}`;
 }
 
 export async function POST(request: Request) {
@@ -62,6 +105,16 @@ export async function POST(request: Request) {
     return jsonResponse("INVALID_REQUEST", 400);
   }
 
+  if (
+    typeof requestBody === "object" &&
+    requestBody !== null &&
+    "website" in requestBody &&
+    typeof requestBody.website === "string" &&
+    requestBody.website.trim() !== ""
+  ) {
+    return jsonResponse("SPAM_DETECTED", 400);
+  }
+
   const formResult =
     contactFormSchema.safeParse(requestBody);
 
@@ -91,31 +144,48 @@ export async function POST(request: Request) {
     CONTACT_TO_EMAIL
   } = environmentResult.data;
   const {
+    locale,
     name,
     email,
     subject,
     message
   } = formResult.data;
+  const labels = emailLabels[locale];
 
   const resend = new Resend(RESEND_API_KEY);
   const safeSubject = subject.replace(
     /[\r\n]+/g,
     " "
   );
+  const idempotencyKey =
+    await createIdempotencyKey({
+      locale,
+      name,
+      email,
+      subject: safeSubject,
+      message
+    });
 
   try {
-    const { error } = await resend.emails.send({
-      from: CONTACT_FROM_EMAIL,
-      to: [CONTACT_TO_EMAIL],
-      replyTo: email,
-      subject: `[Portfolio] ${safeSubject}`,
-      text: [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        "",
-        message
-      ].join("\n")
-    });
+    const { error } = await resend.emails.send(
+      {
+        from: CONTACT_FROM_EMAIL,
+        to: [CONTACT_TO_EMAIL],
+        replyTo: email,
+        subject: `[Portfolio] ${safeSubject}`,
+        text: [
+          `${labels.name}: ${name}`,
+          `${labels.email}: ${email}`,
+          `${labels.subject}: ${subject}`,
+          "",
+          `${labels.message}:`,
+          message
+        ].join("\n")
+      },
+      {
+        idempotencyKey
+      }
+    );
 
     if (error) {
       console.error(

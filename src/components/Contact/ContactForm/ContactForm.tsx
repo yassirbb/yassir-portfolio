@@ -7,6 +7,7 @@ import { Section } from "@/ui/Section/Section";
 import {
   type ChangeEvent,
   type FormEvent,
+  useEffect,
   useRef,
   useState
 } from "react";
@@ -15,9 +16,15 @@ import {
   FiMail,
   FiSend
 } from "react-icons/fi";
+import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { contactFieldLimits } from "@/features/contact/contact-constraints";
 
-const MAX_MESSAGE_LENGTH = 1500;
+const MAX_MESSAGE_LENGTH =
+  contactFieldLimits.message.max;
+const SUBMISSION_COOLDOWN_MS = 60_000;
+const SUBMISSION_COOLDOWN_KEY =
+  "portfolio-contact-cooldown-until";
 
 type ContactFormValues = {
   name: string;
@@ -38,9 +45,11 @@ const initialValues: ContactFormValues = {
 };
 
 export function ContactForm({
-  copy
+  copy,
+  locale
 }: {
   copy: Dictionary["contact"];
+  locale: Locale;
 }) {
   const [values, setValues] =
     useState<ContactFormValues>(initialValues);
@@ -62,8 +71,48 @@ export function ContactForm({
   const [honeypotValue, setHoneypotValue] =
     useState("");
 
+  const [
+    cooldownRemaining,
+    setCooldownRemaining
+  ] = useState(0);
+
   const formRef = useRef<HTMLFormElement>(null);
   const hasErrors = Object.values(errors).some(Boolean);
+  const isSubmitDisabled =
+    isSubmitting || cooldownRemaining > 0;
+
+  useEffect(() => {
+    const updateCooldown = () => {
+      const cooldownUntil = Number(
+        window.localStorage.getItem(
+          SUBMISSION_COOLDOWN_KEY
+        ) ?? 0
+      );
+      const remaining = Math.max(
+        0,
+        Math.ceil(
+          (cooldownUntil - Date.now()) / 1000
+        )
+      );
+
+      setCooldownRemaining(remaining);
+
+      if (remaining === 0) {
+        window.localStorage.removeItem(
+          SUBMISSION_COOLDOWN_KEY
+        );
+      }
+    };
+
+    updateCooldown();
+    const intervalId = window.setInterval(
+      updateCooldown,
+      1000
+    );
+
+    return () =>
+      window.clearInterval(intervalId);
+  }, []);
 
   const updateField = (
     field: keyof ContactFormValues,
@@ -98,26 +147,48 @@ export function ContactForm({
   const validateForm = (): ContactFormErrors => {
     const nextErrors: ContactFormErrors = {};
 
-    if (!values.name.trim()) {
+    const name = values.name.trim();
+    const email = values.email.trim();
+    const subject = values.subject.trim();
+    const message = values.message.trim();
+
+    if (!name) {
       nextErrors.name = copy.validation.nameRequired;
+    } else if (
+      name.length < contactFieldLimits.name.min
+    ) {
+      nextErrors.name =
+        copy.validation.nameTooShort;
     }
 
-    if (!values.email.trim()) {
+    if (!email) {
       nextErrors.email = copy.validation.emailRequired;
     } else if (
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-        values.email
+        email
       )
     ) {
       nextErrors.email = copy.validation.emailInvalid;
     }
 
-    if (!values.subject.trim()) {
+    if (!subject) {
       nextErrors.subject = copy.validation.subjectRequired;
+    } else if (
+      subject.length <
+      contactFieldLimits.subject.min
+    ) {
+      nextErrors.subject =
+        copy.validation.subjectTooShort;
     }
 
-    if (!values.message.trim()) {
+    if (!message) {
       nextErrors.message = copy.validation.messageRequired;
+    } else if (
+      message.length <
+      contactFieldLimits.message.min
+    ) {
+      nextErrors.message =
+        copy.validation.messageTooShort;
     }
 
     return nextErrors;
@@ -128,7 +199,7 @@ export function ContactForm({
   ) => {
     event.preventDefault();
 
-    if (isSubmitting) {
+    if (isSubmitDisabled) {
       return;
     }
 
@@ -169,6 +240,7 @@ export function ContactForm({
           },
           body: JSON.stringify({
             ...values,
+            locale,
             website: honeypotValue
           })
         }
@@ -189,6 +261,25 @@ export function ContactForm({
         setHoneypotValue("");
         setFeedback(copy.feedback.sendSuccess);
         setFeedbackType("success");
+        const cooldownUntil =
+          Date.now() + SUBMISSION_COOLDOWN_MS;
+        window.localStorage.setItem(
+          SUBMISSION_COOLDOWN_KEY,
+          String(cooldownUntil)
+        );
+        setCooldownRemaining(
+          Math.ceil(
+            SUBMISSION_COOLDOWN_MS / 1000
+          )
+        );
+        return;
+      }
+
+      if (response.status === 429) {
+        setFeedback(
+          copy.feedback.tooManyAttempts
+        );
+        setFeedbackType("error");
         return;
       }
 
@@ -197,6 +288,11 @@ export function ContactForm({
         case "INVALID_FORM":
           setFeedback(
             copy.validation.formInvalid
+          );
+          break;
+        case "SPAM_DETECTED":
+          setFeedback(
+            copy.feedback.spamDetected
           );
           break;
         case "RATE_LIMITED":
@@ -233,7 +329,7 @@ export function ContactForm({
         onSubmit={handleSubmit}
       >
         <div
-          className="visually-hidden"
+          hidden
           aria-hidden="true"
         >
           <label htmlFor="contact-website">
@@ -244,7 +340,10 @@ export function ContactForm({
             name="website"
             type="text"
             tabIndex={-1}
-            autoComplete="off"
+            autoComplete="new-password"
+            data-1p-ignore
+            data-bwignore
+            data-lpignore="true"
             value={honeypotValue}
             onChange={(event) =>
               setHoneypotValue(
@@ -264,6 +363,8 @@ export function ContactForm({
               id="contact-name"
               name="name"
               type="text"
+              minLength={contactFieldLimits.name.min}
+              maxLength={contactFieldLimits.name.max}
               placeholder={copy.placeholders.name}
               autoComplete="name"
               value={values.name}
@@ -299,6 +400,7 @@ export function ContactForm({
               id="contact-email"
               name="email"
               type="email"
+              maxLength={contactFieldLimits.email.max}
               placeholder={copy.placeholders.email}
               autoComplete="email"
               value={values.email}
@@ -334,6 +436,8 @@ export function ContactForm({
               id="contact-subject"
               name="subject"
               type="text"
+              minLength={contactFieldLimits.subject.min}
+              maxLength={contactFieldLimits.subject.max}
               placeholder={copy.placeholders.subject}
               value={values.subject}
               aria-invalid={Boolean(
@@ -370,6 +474,7 @@ export function ContactForm({
               id="contact-message"
               name="message"
               rows={7}
+              minLength={contactFieldLimits.message.min}
               maxLength={MAX_MESSAGE_LENGTH}
               placeholder={copy.placeholders.message}
               value={values.message}
@@ -410,12 +515,17 @@ export function ContactForm({
 
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitDisabled}
           >
             <span>
               {isSubmitting
                 ? copy.sending
-                : copy.send}
+                : cooldownRemaining > 0
+                  ? copy.sendAgainIn.replace(
+                      "{seconds}",
+                      String(cooldownRemaining)
+                    )
+                  : copy.send}
             </span>
             <FiSend aria-hidden="true" />
           </Button>

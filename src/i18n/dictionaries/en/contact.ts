@@ -17,19 +17,24 @@ export const enContact = {
     message: "Message",
     send: "Send message",
     sending: "Sending...",
+    sendAgainIn: "Send again in {seconds}s",
     privacy: "Your information is only used to answer your message.",
     characterCount: "characters used",
     validation: {
       nameRequired: "Please enter your name.",
+      nameTooShort: "Your name must contain at least 2 characters.",
       emailRequired: "Please enter your email address.",
       emailInvalid: "Please enter a valid email address.",
       subjectRequired: "Please enter a subject.",
+      subjectTooShort: "The subject must contain at least 2 characters.",
       messageRequired: "Please enter your message.",
+      messageTooShort: "Your message must contain at least 10 characters.",
       formInvalid: "Please correct the highlighted fields."
     },
     feedback: {
-      sendSuccess: "Your message was sent successfully.",
+      sendSuccess: "Your message was sent successfully. Please wait before sending another message.",
       sendError: "Your message could not be sent. Please try again.",
+      spamDetected: "Your submission was blocked by spam protection. Reload the page and try once without repeating the submission.",
       tooManyAttempts: "Too many attempts. Please try again later.",
       serviceUnavailable: "The contact service is temporarily unavailable. Please try again later."
     },

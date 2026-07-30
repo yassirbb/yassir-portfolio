@@ -20,6 +20,7 @@ vi.mock("resend", () => ({
 import * as contactRoute from "@/app/api/contact/route";
 
 const validPayload = {
+  locale: "en",
   name: "Yassir Ben Boubker",
   email: "visitor@example.com",
   subject: "Frontend opportunity",
@@ -84,7 +85,40 @@ describe("POST /api/contact", () => {
           "Portfolio <contact@mail.ybenboubker.dev>",
         to: ["owner@gmail.com"],
         replyTo: "visitor@example.com"
+      }),
+      expect.objectContaining({
+        idempotencyKey: expect.stringMatching(
+          /^portfolio-contact-[a-f0-9]{64}$/
+        )
       })
+    );
+  });
+
+  it("uses French labels for a French message", async () => {
+    await contactRoute.POST(
+      createRequest(
+        JSON.stringify({
+          ...validPayload,
+          locale: "fr"
+        })
+      )
+    );
+
+    expect(sendEmailMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        text: expect.stringContaining(
+          "Nom: Yassir Ben Boubker"
+        )
+      }),
+      expect.any(Object)
+    );
+    expect(sendEmailMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        text: expect.not.stringContaining(
+          "Name:"
+        )
+      }),
+      expect.any(Object)
     );
   });
 
@@ -112,7 +146,7 @@ describe("POST /api/contact", () => {
 
     expect(response.status).toBe(400);
     expect(await response.json()).toEqual({
-      code: "INVALID_FORM"
+      code: "SPAM_DETECTED"
     });
     expect(sendEmailMock).not.toHaveBeenCalled();
   });

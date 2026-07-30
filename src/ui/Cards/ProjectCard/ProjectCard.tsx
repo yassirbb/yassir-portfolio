@@ -77,15 +77,8 @@ type ProjectCardViewProps = {
 
 function CompactProjectCard({
   className,
-  project,
-  lang,
-  copy
+  project
 }: ProjectCardViewProps) {
-  const documentationUrl = getDocumentationUrl(
-    project,
-    lang
-  );
-
   return (
     <article className={className}>
       <div className="project-card__media">
@@ -105,20 +98,6 @@ function CompactProjectCard({
             {project.description}
           </p>
         </div>
-
-        {documentationUrl && (
-          <footer className="project-card__footer">
-            <a
-              className="project-card__icon-action"
-              href={documentationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${copy.openProjectDocumentation} ${project.title} (${copy.opensInNewTab})`}
-            >
-              <FiArrowUpRight aria-hidden="true" />
-            </a>
-          </footer>
-        )}
       </div>
     </article>
   );

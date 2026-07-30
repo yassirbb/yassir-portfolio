@@ -57,11 +57,17 @@ function fillValidForm() {
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  window.localStorage.clear();
 });
 
 describe("ContactForm", () => {
   it("announces validation errors and focuses the first invalid field", async () => {
-    render(<ContactForm copy={dictionaries.en.contact} />);
+    render(
+      <ContactForm
+        copy={dictionaries.en.contact}
+        locale="en"
+      />
+    );
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -93,7 +99,12 @@ describe("ContactForm", () => {
   });
 
   it("uses localized French validation messages", () => {
-    render(<ContactForm copy={dictionaries.fr.contact} />);
+    render(
+      <ContactForm
+        copy={dictionaries.fr.contact}
+        locale="fr"
+      />
+    );
 
     fireEvent.click(
       screen.getByRole("button", {
@@ -106,6 +117,43 @@ describe("ContactForm", () => {
         dictionaries.fr.contact.validation.emailRequired
       )
     ).toBeInTheDocument();
+  });
+
+  it("shows the minimum message length and blocks submission", () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+
+    render(
+      <ContactForm
+        copy={dictionaries.en.contact}
+        locale="en"
+      />
+    );
+    fillValidForm();
+    fireEvent.change(
+      screen.getByLabelText(
+        dictionaries.en.contact.message
+      ),
+      {
+        target: {
+          value: "Short"
+        }
+      }
+    );
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: dictionaries.en.contact.send
+      })
+    );
+
+    expect(
+      screen.getByText(
+        dictionaries.en.contact.validation
+          .messageTooShort
+      )
+    ).toBeInTheDocument();
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it("submits to the contact endpoint and announces success", async () => {
@@ -127,6 +175,7 @@ describe("ContactForm", () => {
     render(
       <ContactForm
         copy={dictionaries.en.contact}
+        locale="en"
       />
     );
     fillValidForm();
@@ -154,7 +203,7 @@ describe("ContactForm", () => {
     ).toBeInTheDocument();
   });
 
-  it("disables submission while a request is pending", async () => {
+  it("prevents duplicate submission during and after a successful request", async () => {
     let resolveRequest:
       | ((response: Response) => void)
       | undefined;
@@ -169,6 +218,7 @@ describe("ContactForm", () => {
     render(
       <ContactForm
         copy={dictionaries.en.contact}
+        locale="en"
       />
     );
     fillValidForm();
@@ -203,22 +253,22 @@ describe("ContactForm", () => {
     );
 
     await waitFor(() => {
-      expect(submitButton).not.toBeDisabled();
+      expect(submitButton).toBeDisabled();
     });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(submitButton).toHaveTextContent(
+      "Send again in 60s"
+    );
   });
 
   it("translates response codes without displaying provider errors", async () => {
     const fetchMock = vi.fn().mockResolvedValue(
       new Response(
-        JSON.stringify({
-          code: "RATE_LIMITED",
-          error:
-            "Technical Resend provider details"
-        }),
+        "Technical Cloudflare block page",
         {
           status: 429,
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "text/html"
           }
         }
       )
@@ -228,6 +278,7 @@ describe("ContactForm", () => {
     render(
       <ContactForm
         copy={dictionaries.fr.contact}
+        locale="fr"
       />
     );
 
@@ -283,8 +334,110 @@ describe("ContactForm", () => {
     ).toBeInTheDocument();
     expect(
       screen.queryByText(
-        "Technical Resend provider details"
+        "Technical Cloudflare block page"
       )
     ).not.toBeInTheDocument();
   });
+
+  it.each([
+    [
+      "INVALID_FORM",
+      400,
+      dictionaries.fr.contact.validation
+        .formInvalid
+    ],
+    [
+      "SERVICE_UNAVAILABLE",
+      503,
+      dictionaries.fr.contact.feedback
+        .serviceUnavailable
+    ],
+    [
+      "EMAIL_SEND_FAILED",
+      502,
+      dictionaries.fr.contact.feedback.sendError
+    ],
+    [
+      "SPAM_DETECTED",
+      400,
+      dictionaries.fr.contact.feedback
+        .spamDetected
+    ]
+  ])(
+    "uses the French message for %s",
+    async (code, status, expectedMessage) => {
+      vi.stubGlobal(
+        "fetch",
+        vi.fn().mockResolvedValue(
+          new Response(
+            JSON.stringify({ code }),
+            {
+              status,
+              headers: {
+                "Content-Type":
+                  "application/json"
+              }
+            }
+          )
+        )
+      );
+
+      render(
+        <ContactForm
+          copy={dictionaries.fr.contact}
+          locale="fr"
+        />
+      );
+
+      fireEvent.change(
+        screen.getByLabelText(
+          dictionaries.fr.contact.name
+        ),
+        { target: { value: "Jane Doe" } }
+      );
+      fireEvent.change(
+        screen.getByLabelText(
+          dictionaries.fr.contact.email
+        ),
+        {
+          target: {
+            value: "jane@example.com"
+          }
+        }
+      );
+      fireEvent.change(
+        screen.getByLabelText(
+          dictionaries.fr.contact.subject
+        ),
+        {
+          target: {
+            value: "Opportunité frontend"
+          }
+        }
+      );
+      fireEvent.change(
+        screen.getByLabelText(
+          dictionaries.fr.contact.message
+        ),
+        {
+          target: {
+            value:
+              "Je souhaite discuter d'une opportunité frontend."
+          }
+        }
+      );
+
+      fireEvent.click(
+        screen.getByRole("button", {
+          name: dictionaries.fr.contact.send
+        })
+      );
+
+      expect(
+        await screen.findByText(
+          expectedMessage
+        )
+      ).toBeInTheDocument();
+    }
+  );
 });

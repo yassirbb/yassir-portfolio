@@ -25,7 +25,10 @@ export default async function ContactPage({ params }: PageProps) {
   return (
     <main id="main-content" tabIndex={-1}>
       <ContactHero copy={dictionary.contact} />
-      <ContactForm copy={dictionary.contact} />
+      <ContactForm
+        copy={dictionary.contact}
+        locale={locale}
+      />
     </main>
   );
 }
