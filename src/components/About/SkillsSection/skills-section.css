@@ -50,10 +50,34 @@
     var(--font-code, "JetBrains Mono", monospace);
   font-size: 10px;
   line-height: 1.2;
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.about-skill-tags li:hover {
+  border-color: var(--primary-400-alpha-45);
+  background: var(--primary-500-alpha-18);
+  color: var(--text-bright);
+  box-shadow: 0 6px 16px var(--primary-500-alpha-18);
+  transform: translateY(-2px);
 }
 
 @media (--viewport-content) {
   .about-skills-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (--reduced-motion) {
+  .about-skill-tags li {
+    transition: none;
+  }
+
+  .about-skill-tags li:hover {
+    transform: none;
   }
 }

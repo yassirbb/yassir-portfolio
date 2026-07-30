@@ -62,13 +62,13 @@ const projectSources = [
     summary:
       "Interactive monitoring maps for visualizing infrastructure and service health.",
     description:
-      "Contributed to the modernization and development of Centreon Map, including React migrations, routing improvements, visualization workflows and reusable monitoring interfaces.",
+      "Enterprise modernization project at Centreon focused on rebuilding a large-scale monitoring interface with a modern React architecture.",
     role: "Frontend Engineer",
     responsibilities: [
-      "Migrated legacy Backbone.js interfaces to React and TypeScript",
-      "Built interactive monitoring and configuration features",
-      "Integrated map and visualization workflows",
-      "Maintained component and end-to-end Cypress tests"
+      "Migrated the map viewer and editor from Backbone.js to React and TypeScript across a scope of more than 700 files, while preserving existing business rules and backend integrations.",
+      "Developed and integrated draw.io as Centreon MAP's graphical editor engine, enabling users to interactively create and edit their monitoring maps.",
+      "Redesigned the module's main pages and created a reusable modal architecture with protection against losing unsaved changes.",
+      "Developed interactive configuration, navigation and monitoring features with React Router, Visx and Leaflet.js."
     ],
     image: {
       src: paths.images.projects.centreonMap,
@@ -77,10 +77,15 @@ const projectSources = [
     technologies: [
       "React",
       "TypeScript",
+      "Material UI",
+      "TanStack Query",
+      "Jotai",
+      "Rspack",
+      "Cypress",
+      "draw.io",
+      "React Router",
       "Visx",
-      "Leaflet.js",
-      "React Query",
-      "Cypress"
+      "Leaflet.js"
     ],
     links: {
       doc: {
@@ -91,13 +96,13 @@ const projectSources = [
     translations: {
       fr: {
         summary: "Cartes de supervision interactives pour visualiser l'état des infrastructures et des services.",
-        description: "Contribution à la modernisation et au développement de Centreon Map : migrations React, routage, visualisation et interfaces de supervision réutilisables.",
+        description: "Projet d'entreprise chez Centreon consacré à la modernisation d'une interface de supervision à grande échelle avec une architecture React moderne.",
         role: "Ingénieur Frontend",
         responsibilities: [
-          "Migration d'interfaces Backbone.js vers React et TypeScript",
-          "Développement de fonctionnalités interactives de supervision et de configuration",
-          "Intégration de cartes et de parcours de visualisation",
-          "Maintenance des tests de composants et end-to-end avec Cypress"
+          "Migré le visualiseur et l'éditeur de cartes de Backbone.js vers React et TypeScript, sur un périmètre de plus de 700 fichiers, tout en préservant les règles métier et les intégrations backend existantes.",
+          "Développé et intégré draw.io comme moteur de l'éditeur graphique de Centreon MAP, permettant aux utilisateurs de créer et de modifier interactivement leurs cartes de supervision.",
+          "Refondu les principales pages du module et conçu une architecture de modales réutilisables avec protection contre la perte de modifications non enregistrées.",
+          "Développé des fonctionnalités interactives de configuration, de navigation et de supervision avec React Router, Visx et Leaflet.js."
         ]
       }
     }
@@ -111,13 +116,14 @@ const projectSources = [
     summary:
       "Business activity monitoring and simulation interfaces for enterprise users.",
     description:
-      "Developed configuration and simulation experiences for business activities, indicators and impact calculations.",
+      "Enterprise project at Centreon focused on simulating and configuring business activities, indicators and their hierarchical relationships.",
     role: "Frontend Engineer",
     responsibilities: [
-      "Built Business Activity configuration interfaces",
-      "Developed simulation workflows and state management",
-      "Created reusable form and reset patterns",
-      "Integrated API Platform and Hydra responses"
+      "Developed a simulation panel for previewing configuration changes before applying them.",
+      "Designed an interactive tree representation of business activities with Visx, making hierarchical relationships and associated indicators easier to explore.",
+      "Developed the indicator list, a quick-creation workflow and configurable icon display.",
+      "Created a reusable field-reset component integrated with Formik.",
+      "Restructured state management with Jotai to separate temporary simulation changes from persistent data."
     ],
     image: {
       src: paths.images.projects.bamSimulation,
@@ -126,11 +132,11 @@ const projectSources = [
     technologies: [
       "React",
       "TypeScript",
+      "Visx",
       "Jotai",
       "Formik",
       "Yup",
-      "Material UI",
-      "Cypress"
+      "REST APIs"
     ],
     links: {
       doc: {
@@ -141,13 +147,14 @@ const projectSources = [
     translations: {
       fr: {
         summary: "Interfaces de supervision et de simulation des activités métier pour les utilisateurs d'entreprise.",
-        description: "Développement d'expériences de configuration et de simulation pour les activités métier, les indicateurs et les calculs d'impact.",
+        description: "Projet d'entreprise chez Centreon consacré à la simulation et à la configuration des activités métier, des indicateurs et de leurs relations hiérarchiques.",
         role: "Ingénieur Frontend",
         responsibilities: [
-          "Création d'interfaces de configuration des activités métier",
-          "Développement des parcours de simulation et de la gestion d'état",
-          "Création de modèles réutilisables pour les formulaires et leur réinitialisation",
-          "Intégration des réponses API Platform et Hydra"
+          "Développé un panneau de simulation permettant de prévisualiser les changements de configuration avant leur application.",
+          "Conçu une représentation graphique et interactive des activités métier sous forme d'arbre avec Visx, facilitant l'exploration des relations hiérarchiques et la visualisation des indicateurs associés.",
+          "Développé la liste des indicateurs, un workflow de création rapide et l'affichage d'icônes configurables.",
+          "Créé un composant réutilisable de réinitialisation des champs, intégré à Formik.",
+          "Restructuré la gestion d'état avec Jotai afin de séparer les modifications temporaires de simulation des données persistantes."
         ]
       }
     }
@@ -212,19 +219,22 @@ const projectSources = [
     summary:
       "A responsive portfolio presenting my experience, projects and technical journey.",
     description:
-      "Designed and developed with Next.js, TypeScript and custom CSS.",
+      "Designed and developed a bilingual, responsive portfolio featuring projects, a secure contact form and transactional email delivery.",
     role: "Designer and Frontend Developer",
     responsibilities: [
-      "Designed the visual system",
-      "Built reusable page components",
-      "Implemented responsive layouts",
-      "Added accessible navigation and interactions"
+      "Designed and developed a bilingual, responsive interface for presenting projects, experience and technical skills.",
+      "Built a secure contact form with server-side Zod validation, anti-spam protection and email delivery through Resend.",
+      "Implemented reusable components, accessible navigation, responsive layouts and SEO metadata."
     ],
     technologies: [
-      "Next.js",
-      "React",
+      "Next.js 16",
+      "React 19",
       "TypeScript",
-      "CSS"
+      "Zod",
+      "Resend",
+      "REST API",
+      "Accessibility",
+      "SEO"
     ],
     repositoryUrl:
       paths.external.projects.portfolioRepository,
@@ -238,13 +248,12 @@ const projectSources = [
       fr: {
         title: "Portfolio développeur",
         summary: "Portfolio responsive présentant mon expérience, mes projets et mon parcours technique.",
-        description: "Conçu et développé avec Next.js, TypeScript et du CSS personnalisé.",
+        description: "Conception et développement d'un portfolio bilingue et responsive avec présentation des projets, formulaire de contact sécurisé et envoi d'e-mails.",
         role: "Designer et développeur Frontend",
         responsibilities: [
-          "Conception du système visuel",
-          "Création de composants de page réutilisables",
-          "Mise en place de mises en page responsives",
-          "Ajout d'une navigation et d'interactions accessibles"
+          "Conçu et développé une interface bilingue et responsive pour présenter les projets, l'expérience et les compétences techniques.",
+          "Créé un formulaire de contact sécurisé avec validation Zod côté serveur, protection anti-spam et envoi d'e-mails avec Resend.",
+          "Mis en place des composants réutilisables, une navigation accessible, des mises en page responsives et les métadonnées SEO."
         ]
       }
     }

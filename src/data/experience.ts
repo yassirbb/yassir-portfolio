@@ -28,19 +28,40 @@ const experienceSources = [
     location:
       "Marrakech, Morocco — remote collaboration with a France-based client and team",
     responsibilities: [
-      "Developed and maintained enterprise monitoring and configuration interfaces using React and TypeScript across two production modules.",
-      "Migrated legacy Backbone.js interfaces to React and TypeScript while preserving business behavior and backend integrations.",
-      "Built reusable components and complex forms with Material UI, Formik, Yup and an internal design system.",
-      "Authored and maintained close to 500 Cypress component and end-to-end tests.",
-      "Collaborated with backend, product, QA and frontend teams through tickets, pull requests and code reviews."
+      "Developed and maintained monitoring and configuration interfaces with React and TypeScript for Centreon MAP and Centreon BAM.",
+      "Migrated legacy Backbone.js interfaces to React and TypeScript while preserving business rules and backend integrations.",
+      "Designed reusable UI components and complex forms with Material UI, Formik, Yup and an internal design system.",
+      "Integrated REST APIs and managed complex application state with React Query and Jotai.",
+      "Developed and maintained close to 500 Cypress component tests, securing critical Centreon MAP and Centreon BAM user journeys.",
+      "Collaborated remotely with international product, backend, frontend and QA teams based in France in an Agile environment."
     ],
     technologies: [
       "React",
       "TypeScript",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "React Router",
+      "Backbone.js",
       "React Query",
       "Jotai",
+      "REST APIs",
+      "Formik",
+      "Yup",
       "Material UI",
-      "Cypress"
+      "i18n",
+      "Visx",
+      "D3.js",
+      "Leaflet.js",
+      "SVG",
+      "Cypress Component Testing",
+      "Git",
+      "GitHub",
+      "Webpack",
+      "Vite",
+      "Docker",
+      "CI/CD",
+      "Agile (Scrum)"
     ],
     translations: { fr: {
       period: "Janvier 2022 – Aujourd'hui",
@@ -49,11 +70,12 @@ const experienceSources = [
       duration: "4+ ans",
       location: "Marrakech, Maroc — collaboration à distance avec un client et une équipe basés en France",
       responsibilities: [
-        "Développement et maintenance d'interfaces de supervision et de configuration avec React et TypeScript sur deux modules en production.",
-        "Migration d'interfaces Backbone.js vers React et TypeScript en préservant le comportement métier et les intégrations backend.",
-        "Création de composants réutilisables et de formulaires complexes avec Material UI, Formik, Yup et un design system interne.",
-        "Création et maintenance de près de 500 tests Cypress de composants et end-to-end.",
-        "Collaboration avec les équipes backend, produit, QA et frontend via tickets, pull requests et revues de code."
+        "Développé et maintenu des interfaces de supervision et de configuration avec React et TypeScript sur Centreon MAP et Centreon BAM.",
+        "Migré des interfaces legacy en Backbone.js vers React et TypeScript, en préservant les règles métier et les intégrations backend.",
+        "Conçu des composants UI réutilisables et des formulaires complexes avec Material UI, Formik, Yup et un design system interne.",
+        "Intégré des API REST et géré des états applicatifs complexes avec React Query et Jotai.",
+        "Développé et maintenu près de 500 tests de composants avec Cypress, sécurisant les parcours critiques de Centreon MAP et Centreon BAM.",
+        "Collaboré à distance avec les équipes internationales produit, backend, frontend et QA basées en France, dans un environnement Agile."
       ]
     } }
   },
@@ -65,15 +87,17 @@ const experienceSources = [
     duration: "7 months",
     location: "Tangier, Morocco",
     responsibilities: [
-      "Contributed to an internal web application using ASP.NET MVC, C#, JavaScript and SQL.",
-      "Participated in REST API integration as part of an end-of-study engineering internship."
+      "Developed an equipment-monitoring application for port operations with HTML, CSS, JavaScript and ASP.NET MVC.",
+      "Designed the application architecture and SQL Server database, then added checklist, inspection and maintenance modules."
     ],
     technologies: [
       "ASP.NET MVC",
       "C#",
       "JavaScript",
-      "SQL",
-      "REST APIs"
+      "HTML5",
+      "CSS3",
+      "SQL Server",
+      "Git"
     ],
     translations: { fr: {
       period: "Mars 2021 – Septembre 2021",
@@ -81,8 +105,8 @@ const experienceSources = [
       duration: "7 mois",
       location: "Tanger, Maroc",
       responsibilities: [
-        "Contribution à une application web interne avec ASP.NET MVC, C#, JavaScript et SQL.",
-        "Participation à l'intégration d'API REST dans le cadre d'un stage de fin d'études."
+        "Développé une application de supervision d'équipements portuaires avec HTML, CSS, JavaScript et ASP.NET MVC.",
+        "Conçu l'architecture applicative et la base de données SQL Server, puis ajouté des modules de checklists, d'inspection et de maintenance."
       ]
     } }
   }

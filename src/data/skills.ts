@@ -6,8 +6,10 @@ import {
   FiDatabase
 } from "react-icons/fi";
 import type { Locale } from "@/i18n/config";
-import { localizeItems, type LocalizedSource } from "./localize";
-
+import {
+  localizeItems,
+  type LocalizedSource
+} from "./localize";
 
 type SkillCategory = {
   id: string;
@@ -19,58 +21,116 @@ type SkillCategory = {
 const skillSources = [
   {
     id: "core-frontend",
-    title: "Core frontend",
+    title: "Frontend",
     skills: [
       "React",
       "TypeScript",
       "JavaScript",
-      "HTML",
-      "CSS",
+      "HTML5",
+      "CSS3",
       "React Router",
-      "Git"
+      "Backbone.js",
+      "Next.js",
+      "Tailwind CSS"
     ],
     Icon: FiCode,
-    translations: { fr: { title: "Fondamentaux frontend" } }
+    translations: {
+      fr: { title: "Frontend" }
+    }
   },
   {
-    id: "state-and-forms",
-    title: "State and forms",
+    id: "state-and-data",
+    title: "State and data",
     skills: [
       "React Query",
       "Jotai",
+      "REST APIs"
+    ],
+    Icon: FiDatabase,
+    translations: {
+      fr: { title: "État et données" }
+    }
+  },
+  {
+    id: "forms-and-validation",
+    title: "Forms and validation",
+    skills: [
       "Formik",
       "Yup"
     ],
-    Icon: FiDatabase,
-    translations: { fr: { title: "État et formulaires" } }
+    Icon: FiCheckSquare,
+    translations: {
+      fr: { title: "Formulaires et validation" }
+    }
   },
   {
     id: "ui-and-visualization",
     title: "UI and visualization",
     skills: [
       "Material UI",
-      "Centreon UI",
+      "i18n",
       "Visx",
       "D3.js",
-      "Leaflet.js"
+      "Leaflet.js",
+      "SVG",
+      "draw.io"
     ],
     Icon: FiBarChart2,
-    translations: { fr: { title: "UI et visualisation" } }
+    translations: {
+      fr: { title: "UI et visualisation" }
+    }
   },
   {
     id: "testing-and-tooling",
     title: "Testing and tooling",
     skills: [
-      "Cypress",
-      "REST APIs",
+      "Cypress Component Testing",
+      "Git",
+      "GitHub",
+      "Webpack",
+      "Agile (Scrum)",
+      "CI/CD",
       "Vite",
       "Docker"
     ],
     Icon: FiCheckSquare,
-    translations: { fr: { title: "Tests et outils" } }
+    translations: {
+      fr: { title: "Tests et outillage" }
+    }
+  },
+  {
+    id: "backend",
+    title: "Backend",
+    skills: [
+      "ASP.NET MVC",
+      "Node.js",
+      "Express"
+    ],
+    Icon: FiCode,
+    translations: {
+      fr: { title: "Backend" }
+    }
+  },
+  {
+    id: "databases",
+    title: "Databases",
+    skills: [
+      "MongoDB",
+      "MySQL",
+      "SQL Server",
+      "Oracle 11g"
+    ],
+    Icon: FiDatabase,
+    translations: {
+      fr: { title: "Bases de données" }
+    }
   }
 ] satisfies LocalizedSource<SkillCategory>[];
 
-export const skillCategories = localizeItems(skillSources, "en");
+export const skillCategories = localizeItems(
+  skillSources,
+  "en"
+);
+
 export const getSkillCategories = (locale: Locale) =>
   localizeItems(skillSources, locale);
