@@ -44,6 +44,7 @@ export const frCommon = {
     availabilityDescription: "Je m'intéresse aux opportunités frontend, aux équipes produit, au travail à distance et à certains projets freelance.",
     types: ["Temps plein", "Freelance", "Conseil", "À distance"],
     connectTitle: "Échangeons", socialLinksLabel: "Liens vers les réseaux sociaux",
+    callPhone: "Appeler par téléphone",
     connectDescription: "Suivez mes projets, mon apprentissage et mon parcours professionnel.",
     rights: "Tous droits réservés.", madeWith: "Conçu et développé avec",
     coffee: "et beaucoup de café", motto: "Toujours apprendre. Toujours construire. Toujours progresser.",

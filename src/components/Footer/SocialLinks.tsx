@@ -2,7 +2,8 @@ import type { IconType } from "react-icons";
 import {
   FiGithub,
   FiLinkedin,
-  FiMail
+  FiMail,
+  FiPhone
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -20,7 +21,8 @@ const socialIcons: Record<
   "github-yassirbb": FiGithub,
   linkedin: FiLinkedin,
   email: FiMail,
-  whatsapp: FaWhatsapp
+  whatsapp: FaWhatsapp,
+  phone: FiPhone
 };
 
 export function SocialLinks({
@@ -56,7 +58,9 @@ export function SocialLinks({
               key={socialLink.id}
               href={socialLink.href}
               aria-label={
-                socialLink.external
+                socialLink.id === "phone"
+                  ? copy.callPhone
+                  : socialLink.external
                   ? `${socialLink.label} (${common.opensInNewTab})`
                   : socialLink.label
               }

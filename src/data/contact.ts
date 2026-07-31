@@ -15,7 +15,8 @@ export type SocialLinkId =
   | "github-yassirbb"
   | "linkedin"
   | "email"
-  | "whatsapp";
+  | "whatsapp"
+  | "phone";
 
 export type SocialLink = {
   id: SocialLinkId;
@@ -83,6 +84,15 @@ export const socialLinks = [
     label: "WhatsApp",
     href: paths.external.whatsapp,
     external: true
+  },
+  {
+    id: "phone",
+    label: "Phone",
+    href: createTelephoneLink(contactDetails.phone)
   }
 ] satisfies SocialLink[];
-import { createMailto, paths } from "@/config/paths";
+import {
+  createMailto,
+  createTelephoneLink,
+  paths
+} from "@/config/paths";

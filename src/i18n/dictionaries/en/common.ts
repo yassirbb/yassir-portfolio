@@ -60,6 +60,7 @@ export const enCommon = {
     types: ["Full-time", "Freelance", "Consulting", "Remote"],
     connectTitle: "Let's connect",
     socialLinksLabel: "Social links",
+    callPhone: "Call by phone",
     connectDescription: "Follow my work, learning journey and professional progress.",
     rights: "All rights reserved.",
     madeWith: "Designed and built with",

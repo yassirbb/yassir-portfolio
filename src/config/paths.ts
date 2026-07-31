@@ -55,7 +55,7 @@ export const paths = {
     projects: {
       portfolioRepository:
         "https://github.com/Yassir-BenBOUBKER/portfolio",
-      portfolioLive: "https://your-portfolio-domain.com",
+      portfolioLive: "https://ybenboubker.dev",
       flappyBirdRepository:
         "https://github.com/yassirbb/Flappy-Clone",
       flappyBirdArticle:
@@ -77,4 +77,8 @@ export function createMailto(
 ) {
   const baseUrl = `mailto:${email}`;
   return query ? `${baseUrl}?${query.toString()}` : baseUrl;
+}
+
+export function createTelephoneLink(phone: string) {
+  return `tel:${phone}`;
 }
